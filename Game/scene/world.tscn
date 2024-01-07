@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bqrj46oc8ndsl" path="res://Assets/Objects/Crafting_Table.png" id="8_5rcx5"]
 [ext_resource type="Texture2D" uid="uid://so5e6ghyex7f" path="res://Assets/Objects/Stone_Cutter.png" id="9_q8y5u"]
 [ext_resource type="PackedScene" uid="uid://cw4ye8wdwsndi" path="res://scene/chunk.tscn" id="10_a7jp3"]
-[ext_resource type="Texture2D" uid="uid://cb2tyw7yluipj" path="res://Assets/Items/Chunk_stone.png" id="10_h3yvf"]
+[ext_resource type="Texture2D" uid="uid://cveme323tnuvi" path="res://Assets/Items/Stone_chunk.png" id="10_h3yvf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mxvh0"]
 texture = ExtResource("2_na556")

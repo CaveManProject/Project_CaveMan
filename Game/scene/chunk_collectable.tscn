@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dqwplmk8xk14t"]
 
 [ext_resource type="Texture2D" uid="uid://cveme323tnuvi" path="res://Assets/Items/Stone_chunk.png" id="1_li566"]
-[ext_resource type="Script" path="res://scene/chunk_collectable.gd" id="1_t5lhb"]
+[ext_resource type="Script" path="res://Script/chunk_collectable.gd" id="1_t5lhb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ij2bd"]
 atlas = ExtResource("1_li566")
