@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://pbvhvyf2qwro"]
+[gd_scene load_steps=24 format=3 uid="uid://pbvhvyf2qwro"]
 
 [ext_resource type="PackedScene" uid="uid://blugsjfr8pef1" path="res://scene/player.tscn" id="1_sp1lt"]
 [ext_resource type="Texture2D" uid="uid://brttk4fjgyn3j" path="res://Assets/TileSets/Ores.png" id="2_na556"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://so5e6ghyex7f" path="res://Assets/Objects/Stone_Cutter.png" id="9_q8y5u"]
 [ext_resource type="PackedScene" uid="uid://cw4ye8wdwsndi" path="res://scene/chunk.tscn" id="10_a7jp3"]
 [ext_resource type="Texture2D" uid="uid://cveme323tnuvi" path="res://Assets/Items/Stone_chunk.png" id="10_h3yvf"]
+[ext_resource type="Texture2D" uid="uid://0yg7v6csvilw" path="res://Assets/Items/tree_basic.png" id="11_kfqi5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mxvh0"]
 texture = ExtResource("2_na556")
@@ -164,6 +165,36 @@ texture = ExtResource("10_h3yvf")
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6yaao"]
+texture = ExtResource("11_kfqi5")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSet" id="TileSet_c8iyn"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_mxvh0")
@@ -175,6 +206,7 @@ sources/5 = SubResource("TileSetAtlasSource_2nlpt")
 sources/6 = SubResource("TileSetAtlasSource_q74km")
 sources/7 = SubResource("TileSetAtlasSource_u2qfc")
 sources/8 = SubResource("TileSetAtlasSource_3jqka")
+sources/9 = SubResource("TileSetAtlasSource_6yaao")
 
 [node name="World" type="Node2D"]
 
