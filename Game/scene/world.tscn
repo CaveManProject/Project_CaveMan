@@ -226,3 +226,7 @@ layer_2/tile_data = PackedInt32Array(65533, 2, 0, 65534, 65538, 0, 196606, 3, 0,
 
 [node name="chunk" parent="." instance=ExtResource("10_a7jp3")]
 position = Vector2(-40, 72)
+
+[node name="chunk2" parent="." instance=ExtResource("10_a7jp3")]
+position = Vector2(25, 88)
+scale = Vector2(0.951399, 1.01365)

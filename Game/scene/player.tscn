@@ -617,8 +617,8 @@ inv = ExtResource("2_l6d73")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_f710m")
-animation = &"Gat_right"
-frame_progress = 0.47857
+animation = &"Att_right"
+frame_progress = 0.449908
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
