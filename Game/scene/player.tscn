@@ -632,7 +632,15 @@ limit_right = 2462
 limit_bottom = 1022
 
 [node name="Inv_UI" parent="." instance=ExtResource("3_rwtuj")]
+process_priority = 1
 offset_left = -63.0
 offset_top = -74.0
 offset_right = 63.0
 offset_bottom = -12.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Inv_UI"]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 1.0
+offset_right = 181.0
+offset_bottom = 62.0
