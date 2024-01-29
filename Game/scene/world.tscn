@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://pbvhvyf2qwro"]
+[gd_scene load_steps=25 format=3 uid="uid://pbvhvyf2qwro"]
 
 [ext_resource type="PackedScene" uid="uid://blugsjfr8pef1" path="res://scene/player.tscn" id="1_sp1lt"]
 [ext_resource type="Texture2D" uid="uid://brttk4fjgyn3j" path="res://Assets/TileSets/Ores.png" id="2_na556"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cw4ye8wdwsndi" path="res://scene/chunk.tscn" id="10_a7jp3"]
 [ext_resource type="Texture2D" uid="uid://cveme323tnuvi" path="res://Assets/Items/Stone_chunk.png" id="10_h3yvf"]
 [ext_resource type="Texture2D" uid="uid://0yg7v6csvilw" path="res://Assets/Items/tree_basic.png" id="11_kfqi5"]
+[ext_resource type="PackedScene" uid="uid://dlbfk6yvuxcn7" path="res://scene/chest.tscn" id="13_wytdu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mxvh0"]
 texture = ExtResource("2_na556")
@@ -230,3 +231,6 @@ position = Vector2(-40, 72)
 [node name="chunk2" parent="." instance=ExtResource("10_a7jp3")]
 position = Vector2(25, 88)
 scale = Vector2(0.951399, 1.01365)
+
+[node name="chest" parent="." instance=ExtResource("13_wytdu")]
+position = Vector2(-24, 40)
