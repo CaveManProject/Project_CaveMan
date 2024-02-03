@@ -3,7 +3,7 @@ class_name InventoryUISlot extends Panel
 @onready var item_visual: Sprite2D = $CenterContainer/Panel/item_display
 @onready var amount_text: Label = $CenterContainer/Panel/Label
 
-func update(item: Item):
+func update(item: InventoryItem):
 	if !item:
 		item_visual.visible = false
 	else:

@@ -14,7 +14,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ij2bd")
 }],
 "loop": true,
-"name": &"chunk",
+"name": &"item",
 "speed": 0.0
 }]
 
@@ -109,7 +109,7 @@ script = ExtResource("1_yjgra")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4ljiw")
-animation = &"chunk"
+animation = &"item"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimatedSprite2D")

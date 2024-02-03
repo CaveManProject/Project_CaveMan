@@ -1,20 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://7npf67665n3l"]
+[gd_scene load_steps=6 format=3 uid="uid://7npf67665n3l"]
 
-[ext_resource type="Script" path="res://Script/Stick.gd" id="1_cwy61"]
+[ext_resource type="Script" path="res://Script/Items/Item.gd" id="1_cwy61"]
 [ext_resource type="Texture2D" uid="uid://dqglcnyb1uu78" path="res://Assets/Items/Stick.png" id="2_fsefa"]
+[ext_resource type="Script" path="res://Script/Resources/InventoryItem.gd" id="2_mq33a"]
+
+[sub_resource type="Resource" id="Resource_hwjkf"]
+script = ExtResource("2_mq33a")
+amount = 1
+name = "Stick"
+texture = ExtResource("2_fsefa")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_46587"]
 radius = 14.1421
 
-[node name="Stick" type="StaticBody2D"]
+[node name="Stick" type="Node2D"]
 script = ExtResource("1_cwy61")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_fsefa")
+item = SubResource("Resource_hwjkf")
 
 [node name="Interactable" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
 shape = SubResource("CircleShape2D_46587")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fsefa")
 
 [connection signal="body_entered" from="Interactable" to="." method="_on_interactable_body_entered"]

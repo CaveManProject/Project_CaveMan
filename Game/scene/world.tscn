@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://pbvhvyf2qwro"]
+[gd_scene load_steps=29 format=3 uid="uid://pbvhvyf2qwro"]
 
 [ext_resource type="PackedScene" uid="uid://blugsjfr8pef1" path="res://Scene/player.tscn" id="1_sp1lt"]
 [ext_resource type="Texture2D" uid="uid://brttk4fjgyn3j" path="res://Assets/TileSets/Ores.png" id="2_na556"]
@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://cveme323tnuvi" path="res://Assets/Items/Stone_chunk.png" id="10_h3yvf"]
 [ext_resource type="Texture2D" uid="uid://0yg7v6csvilw" path="res://Assets/Items/tree_basic.png" id="11_kfqi5"]
 [ext_resource type="PackedScene" uid="uid://dlbfk6yvuxcn7" path="res://Scene/Chest/chest.tscn" id="13_wytdu"]
+[ext_resource type="PackedScene" uid="uid://7npf67665n3l" path="res://Scene/Items/stick.tscn" id="14_8oaw6"]
+[ext_resource type="Script" path="res://Script/Resources/InventoryItem.gd" id="15_d4ujl"]
+[ext_resource type="Texture2D" uid="uid://dqglcnyb1uu78" path="res://Assets/Items/Stick.png" id="16_m1ymo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mxvh0"]
 texture = ExtResource("2_na556")
@@ -209,6 +212,12 @@ sources/7 = SubResource("TileSetAtlasSource_u2qfc")
 sources/8 = SubResource("TileSetAtlasSource_3jqka")
 sources/9 = SubResource("TileSetAtlasSource_6yaao")
 
+[sub_resource type="Resource" id="Resource_6nboh"]
+script = ExtResource("15_d4ujl")
+amount = 1
+name = "Stick"
+texture = ExtResource("16_m1ymo")
+
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_sp1lt")]
@@ -234,3 +243,7 @@ scale = Vector2(0.951399, 1.01365)
 
 [node name="Chest" parent="." instance=ExtResource("13_wytdu")]
 position = Vector2(24, -88)
+
+[node name="Stick" parent="." instance=ExtResource("14_8oaw6")]
+position = Vector2(0, 46)
+item = SubResource("Resource_6nboh")

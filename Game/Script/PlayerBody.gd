@@ -44,6 +44,6 @@ func player():
 	pass
 
 
-func collect(item: Item):
+func collect(item: InventoryItem):
 	inv.insert(item)
 	

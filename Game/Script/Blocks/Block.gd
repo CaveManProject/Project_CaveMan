@@ -3,7 +3,7 @@ class_name Block extends Node2D
 enum BlockState {PLAIN, WITH_ORE}
 
 @export var state: BlockState = BlockState.WITH_ORE
-@export var item: Item
+@export var item: InventoryItem
 
 var player_in_area: bool = false
 var item_scene_factory = preload("res://Scene/Items/item.tscn")
