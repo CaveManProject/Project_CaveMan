@@ -5,17 +5,16 @@ var is_open: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	visible = is_open
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float):
-	if Input.is_action_just_pressed("e"):
-		if is_open:
-			close()
-		else:
-			open()
-			
+func toggle():
+	if is_open:
+		close()
+	else:
+		open()
+
 func close():
 	visible = false
 	is_open = false

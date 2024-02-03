@@ -1,9 +1,9 @@
 class_name InventoryUI extends Control
 
 @onready var inv_data: Inventory = preload("res://Data/inventory.tres")
-@onready var items: Array = $NinePatchRect/GridContainer.get_children()
+@onready var items: Array[Node] = $NinePatchRect/GridContainer.get_children()
 
-var is_open = false
+var is_open: bool = false
 
 func _ready():
 	z_index = 100
@@ -13,7 +13,8 @@ func _ready():
 
 func update_slots():
 	for i in range(min(inv_data.items.size(), items.size())):
-		items[i].update(inv_data.items[i])
+		if items[i] is InventoryUISlot:
+			items[i].update(inv_data.items[i])
 
 func _process(delta: float):
 	if Input.is_action_just_pressed("i"):

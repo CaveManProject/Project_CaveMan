@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://dlbfk6yvuxcn7"]
 
+[ext_resource type="Script" path="res://Script/Chest/Chest.gd" id="1_a1446"]
 [ext_resource type="Texture2D" uid="uid://jn1w1pcln3sj" path="res://Assets/Objects/Single_Chest.png" id="1_rayet"]
-[ext_resource type="Script" path="res://Script/Chest.gd" id="1_thmvs"]
 [ext_resource type="PackedScene" uid="uid://mnsmp1yecvky" path="res://Scene/Chest/chest_ui.tscn" id="3_k6vjc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_neau4"]
 size = Vector2(24, 24)
 
 [node name="chest" type="Node2D"]
-script = ExtResource("1_thmvs")
+script = ExtResource("1_a1446")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 

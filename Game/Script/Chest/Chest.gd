@@ -1,17 +1,17 @@
 class_name Chest extends Node2D
 
 var player_in_area: bool = false
-
-var player_body: PlayerBody = null
-
-@onready var inv = $Inv_UI
+@onready var chest_ui = $chest_ui
 
 func _on_openable_area_body_entered(body: CharacterBody2D):
 	if body is PlayerBody:
 		player_in_area = true
-		player_body = body
 
 
 func _on_openable_area_body_exited(body: CharacterBody2D):
 	if body is PlayerBody:
 		player_in_area = false
+
+func _process(delta: float):
+	if player_in_area and Input.is_action_just_pressed("e"):
+		chest_ui.toggle()
