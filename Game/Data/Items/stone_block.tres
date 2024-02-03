@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://bw1llmcgsyr6w"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bw1llmcgsyr6w"]
 
 [ext_resource type="Script" path="res://Script/Resources/Item.gd" id="1_6d3jl"]
 [ext_resource type="Texture2D" uid="uid://cveme323tnuvi" path="res://Assets/Items/Stone_chunk.png" id="2_v03c6"]
 
 [resource]
 script = ExtResource("1_6d3jl")
+amount = 1
 name = "stone_chunk"
 texture = ExtResource("2_v03c6")

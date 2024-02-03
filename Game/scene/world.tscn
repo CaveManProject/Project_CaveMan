@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dm0i76g1irwm7" path="res://Assets/Objects/Furnace.png" id="7_c2yjb"]
 [ext_resource type="Texture2D" uid="uid://bqrj46oc8ndsl" path="res://Assets/Objects/Crafting_Table.png" id="8_5rcx5"]
 [ext_resource type="Texture2D" uid="uid://so5e6ghyex7f" path="res://Assets/Objects/Stone_Cutter.png" id="9_q8y5u"]
-[ext_resource type="PackedScene" path="res://Scene/block.tscn" id="10_a7jp3"]
+[ext_resource type="PackedScene" uid="uid://cknihyd4oj4qr" path="res://Scene/block.tscn" id="10_a7jp3"]
 [ext_resource type="Texture2D" uid="uid://cveme323tnuvi" path="res://Assets/Items/Stone_chunk.png" id="10_h3yvf"]
 [ext_resource type="Texture2D" uid="uid://0yg7v6csvilw" path="res://Assets/Items/tree_basic.png" id="11_kfqi5"]
 [ext_resource type="PackedScene" uid="uid://dlbfk6yvuxcn7" path="res://Scene/Chest/chest.tscn" id="13_wytdu"]
