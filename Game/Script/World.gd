@@ -1,12 +1,26 @@
 class_name World extends Node
 
 @onready var tileMap: TileMap = $StoneTileMap
+@onready var player: PlayerBody = $Player
 
 enum TileType {
 	STONE,
 	COAL,
 	NIL
 }
+
+func typeToCords(type: TileType) -> Vector2:
+	match type:
+		TileType.STONE: return Vector2(2, 2)
+		TileType.COAL: return Vector2(0, 1)
+	return Vector2(-1, -1)
+
+func cordsToType(cords: Vector2) -> TileType: 
+	if cords.x == 2 and cords.y == 2:
+		return TileType.STONE
+	if cords.x == 0 and cords.y == 1:
+		return TileType.COAL
+	return TileType.NIL
 
 var rng = RandomNumberGenerator.new()
 
@@ -23,10 +37,10 @@ var MAP_WIDTH = WIDTH/CellSize.x
 var MAP_HEIGHT = HEIGHT/CellSize.y
 @export var SAFE_ZONE_RADIUS = 5
 
-var ORE_CHUNK_CHANCE = 0.1
+var ORE_CHUNK_CHANCE = 0.8
 var GENERATOR_MOVE_CHANCE = 0.5
 var GENERATOR_DESTROY_CHANCE = 0.8
-var GENERATOR_SPAWN_CHANCE = 0.1
+var GENERATOR_SPAWN_CHANCE = 0.8
 
 var MAX_ITERATION = 10
 var MAX_GENERATORS = 5
@@ -123,10 +137,10 @@ func spawnTiles():
 			var t_y = y - MAP_HEIGHT/2
 			match grid[x][y]:
 				TileType.STONE:
-					tileMap.set_cell(0, Vector2(t_x, t_y), 0, Vector2(2, 2))
+					tileMap.set_cell(0, Vector2(t_x, t_y), 0, typeToCords(TileType.STONE))
 				TileType.COAL:
 					print("Setting coal", x, " ", y)
-					tileMap.set_cell(1, Vector2(t_x, t_y), 0, Vector2(0, 1))
+					tileMap.set_cell(0, Vector2(t_x, t_y), 0, typeToCords(TileType.COAL))
 					
 
 # Called when the node enters the scene tree for the first time.
@@ -136,9 +150,24 @@ func _ready():
 	createChunks()
 	# printChunks()
 	spawnTiles()
-	
 
+func blockInRadius(playerCords: Vector2) -> bool:
+	for dir in DIRECTIONS:
+		var newDir = playerCords + dir
+		if grid[newDir.x][newDir.y] != TileType.NIL:
+			return true
+	return false
+
+func mineBlock(playerCords: Vector2):
+	for dir in DIRECTIONS:
+		var newDir = playerCords + dir
+		if grid[newDir.x][newDir.y] != TileType.NIL:
+			print("Removing cell")
+			tileMap.erase_cell(0, newDir)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	var playerCoords = tileMap.local_to_map(player.global_position)
+	if Input.is_action_just_pressed("e") and blockInRadius(playerCoords) :
+		mineBlock(playerCoords)
+		
