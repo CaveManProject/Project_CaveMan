@@ -1,16 +1,18 @@
-extends CharacterBody2D
+class_name PlayerBody extends CharacterBody2D
+
+enum PlayerState {IDLE, WALKING}
 
 var speed = 100
-var player_state
+var player_state: PlayerState = PlayerState.IDLE
 
-@export var inv: Inv
+@export var inv: Inventory
 
-func _physics_process(delta):
+func _physics_process(delta: float):
 	var direction = Input.get_vector("left", "right", "up", "down")
 	if direction.x == 0 and direction.y ==0:
-		player_state = "idle"
+		player_state = PlayerState.IDLE
 	elif direction.x !=0 or direction.y !=0:
-		player_state = "walking"
+		player_state = PlayerState.WALKING
 	
 	velocity = direction * speed
 	move_and_slide()
@@ -18,9 +20,9 @@ func _physics_process(delta):
 	play_anim(direction)
 	
 func play_anim(dir):
-	if player_state == "idle":
+	if player_state == PlayerState.IDLE:
 		$AnimatedSprite2D.play("Idle")
-	if player_state == "walking":
+	if player_state == PlayerState.WALKING:
 		if dir.y == -1:
 			$AnimatedSprite2D.play("Mv_up")
 		if dir.x == 1:
@@ -42,6 +44,6 @@ func player():
 	pass
 
 
-func collect(item):
+func collect(item: Item):
 	inv.insert(item)
 	

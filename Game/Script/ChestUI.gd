@@ -1,6 +1,6 @@
-extends Control
+class_name ChestUI extends Control
 
-var is_open = false
+var is_open: bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -9,7 +9,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta: float):
 	if Input.is_action_just_pressed("e"):
 		if is_open:
 			close()

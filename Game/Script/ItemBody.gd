@@ -1,10 +1,9 @@
-extends StaticBody2D
-
+class_name ItemBody extends StaticBody2D
 
 func _ready():
-	ChunkDrop()
+	createItem()
 
-func ChunkDrop():
+func createItem():
 	$AnimationPlayer.play("Loot_Anim")
 	await get_tree().create_timer(1.5).timeout
 	$AnimationPlayer.play("fade")

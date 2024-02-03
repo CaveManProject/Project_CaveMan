@@ -1,6 +1,5 @@
-extends Resource
+class_name Item extends Resource
 
-class_name InvItem
-
+@export var amount: int
 @export var name: String = ""
 @export var texture: Texture2D

@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://7npf67665n3l"]
 
-[ext_resource type="Script" path="res://Script/Stick.gd" id="1_txl1o"]
-[ext_resource type="Texture2D" uid="uid://dqglcnyb1uu78" path="res://Assets/Items/Stick.png" id="2_a13x1"]
+[ext_resource type="Script" path="res://Script/Stick.gd" id="1_cwy61"]
+[ext_resource type="Texture2D" uid="uid://dqglcnyb1uu78" path="res://Assets/Items/Stick.png" id="2_fsefa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_46587"]
 radius = 14.1421
 
 [node name="Stick" type="StaticBody2D"]
-script = ExtResource("1_txl1o")
+script = ExtResource("1_cwy61")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_a13x1")
+texture = ExtResource("2_fsefa")
 
 [node name="Interactable" type="Area2D" parent="."]
 

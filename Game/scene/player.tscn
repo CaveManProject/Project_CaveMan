@@ -1,9 +1,9 @@
 [gd_scene load_steps=77 format=3 uid="uid://blugsjfr8pef1"]
 
-[ext_resource type="Script" path="res://Script/Player.gd" id="1_bndrm"]
+[ext_resource type="Script" path="res://Script/PlayerBody.gd" id="1_pvgnj"]
 [ext_resource type="Texture2D" uid="uid://dfy7x21n0g8g5" path="res://Assets/Characters/Human-Worker-Red.png" id="2_k1euh"]
-[ext_resource type="Resource" uid="uid://dkta715dqlrt" path="res://Inventory/playerinv.tres" id="2_l6d73"]
-[ext_resource type="PackedScene" uid="uid://clddhrr43k1xw" path="res://Inventory/inv_ui.tscn" id="3_rwtuj"]
+[ext_resource type="Resource" uid="uid://dkta715dqlrt" path="res://Data/inventory.tres" id="2_l6d73"]
+[ext_resource type="PackedScene" uid="uid://clddhrr43k1xw" path="res://Scene/Inventory/inv_ui.tscn" id="3_rwtuj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6y751"]
 atlas = ExtResource("2_k1euh")
@@ -612,7 +612,7 @@ animations = [{
 radius = 5.0
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_bndrm")
+script = ExtResource("1_pvgnj")
 inv = ExtResource("2_l6d73")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
