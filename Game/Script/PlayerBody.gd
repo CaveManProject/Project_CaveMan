@@ -2,8 +2,8 @@ class_name PlayerBody extends CharacterBody2D
 
 enum PlayerState {IDLE, WALKING}
 
-var speed = 100
-var player_state: PlayerState = PlayerState.IDLE
+@export var speed = 100
+@export var player_state: PlayerState = PlayerState.IDLE
 
 @export var inv: Inventory
 
@@ -19,7 +19,7 @@ func _physics_process(delta: float):
 	
 	play_anim(direction)
 	
-func play_anim(dir):
+func play_anim(dir: Vector2):
 	if player_state == PlayerState.IDLE:
 		$AnimatedSprite2D.play("Idle")
 	if player_state == PlayerState.WALKING:
