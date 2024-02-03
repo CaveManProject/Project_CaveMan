@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://7npf67665n3l"]
+[gd_scene load_steps=5 format=3 uid="uid://7npf67665n3l"]
 
 [ext_resource type="Script" path="res://Script/Items/Item.gd" id="1_cwy61"]
 [ext_resource type="Texture2D" uid="uid://dqglcnyb1uu78" path="res://Assets/Items/Stick.png" id="2_fsefa"]
@@ -10,17 +10,14 @@ amount = 1
 name = "Stick"
 texture = ExtResource("2_fsefa")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_46587"]
-radius = 14.1421
-
 [node name="Stick" type="Node2D"]
 script = ExtResource("1_cwy61")
 item = SubResource("Resource_hwjkf")
 
 [node name="Interactable" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
-shape = SubResource("CircleShape2D_46587")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Interactable"]
+polygon = PackedVector2Array(-2, 8, 1, 8, 6, -5, 6, -8, 4, -8, -2, 3)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_fsefa")

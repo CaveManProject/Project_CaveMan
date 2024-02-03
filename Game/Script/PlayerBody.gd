@@ -40,8 +40,6 @@ func play_anim(dir: Vector2):
 		if dir.x < -0.5 and dir.y < -0.5:
 			$AnimatedSprite2D.play("Mv_upL")
 			
-func player():
-	pass
 
 
 func collect(item: InventoryItem):
