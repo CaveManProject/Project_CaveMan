@@ -44,7 +44,13 @@ var CellSize = Vector2(16, 16)
 @export var MAX_ITERATION: int = 10
 @export var MAX_GENERATORS: int = 10
 
-var DIRECTIONS: Array[Vector2] = [Vector2(-1, 0), Vector2(1, 0), Vector2(0, 1), Vector2(0, -1)]
+var DIRECTIONS = {
+	PlayerBody.PlayerRotation.LEFT: Vector2(-1, 0),
+	PlayerBody.PlayerRotation.RIGHT: Vector2(1, 0),
+	PlayerBody.PlayerRotation.UP: Vector2(0, -1),
+	PlayerBody.PlayerRotation.DOWN: Vector2(0, 1),
+	PlayerBody.PlayerRotation.IDLE: Vector2(0, 0)
+}
 
 var grid = []
 
@@ -151,24 +157,20 @@ func _ready():
 	createChunks()
 	spawnTiles()
 
-func blockInRadius(playerCords: Vector2) -> bool:
-	for dir in DIRECTIONS:
-		var newDir = playerCords + dir
-		if grid[newDir.x][newDir.y] != TileType.NIL:
-			return true
+func blockInRadius(playerCords: Vector2, rotation: PlayerBody.PlayerRotation) -> bool:
+	var newDir = playerCords + DIRECTIONS[rotation]
+	if grid[newDir.x][newDir.y] != TileType.NIL:
+		return true
 	return false
 
-func mineBlock(playerCords: Vector2):
-	for dir in DIRECTIONS:
-		var newDir = playerCords + dir
-		if grid[newDir.x][newDir.y] != TileType.NIL:
-			tileMap.erase_cell(0, newDir)
+func mineBlock(playerCords: Vector2, rotation: PlayerBody.PlayerRotation):
+	tileMap.erase_cell(0, playerCords + DIRECTIONS[rotation])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var playerCoords = tileMap.local_to_map(player.global_position)
-	if Input.is_action_just_pressed("e") and blockInRadius(playerCoords) :
-		mineBlock(playerCoords)
+	if Input.is_action_just_pressed("e") and blockInRadius(playerCoords, player.player_direction) :
+		mineBlock(playerCoords, player.player_direction)
 	
 	if Input.is_action_just_pressed("space"):
 		print("Generating")
