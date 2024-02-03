@@ -1,47 +1,55 @@
-[gd_scene load_steps=9 format=3 uid="uid://cw4ye8wdwsndi"]
+[gd_scene load_steps=11 format=3 uid="uid://cknihyd4oj4qr"]
 
-[ext_resource type="Script" path="res://Script/chunk.gd" id="1_toa73"]
-[ext_resource type="Resource" uid="uid://bw1llmcgsyr6w" path="res://Inventory/Items/stone_chunk.tres" id="2_mgwbw"]
+[ext_resource type="Script" path="res://Script/Blocks/Block.gd" id="1_dkxta"]
+[ext_resource type="Script" path="res://Script/Resources/InventoryItem.gd" id="2_jc2dn"]
 [ext_resource type="Texture2D" uid="uid://cb2tyw7yluipj" path="res://Assets/Items/Chunk_stone.png" id="2_tafky"]
 [ext_resource type="Texture2D" uid="uid://brttk4fjgyn3j" path="res://Assets/TileSets/Ores.png" id="3_0b1bd"]
+[ext_resource type="Texture2D" uid="uid://cveme323tnuvi" path="res://Assets/Items/Stone_chunk.png" id="3_kqs2g"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5uvf4"]
-atlas = ExtResource("2_tafky")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="Resource" id="Resource_48ylq"]
+script = ExtResource("2_jc2dn")
+amount = 1
+name = "stone_chunk"
+texture = ExtResource("3_kqs2g")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1qhis"]
 atlas = ExtResource("3_0b1bd")
 region = Rect2(16, 32, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uvf4"]
+atlas = ExtResource("2_tafky")
+region = Rect2(0, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_g0yns"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5uvf4")
-}],
-"loop": true,
-"name": &"chunk",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1qhis")
 }],
 "loop": true,
-"name": &"no_chunk",
+"name": &"plain",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uvf4")
+}],
+"loop": true,
+"name": &"with_ore",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nrywh"]
 size = Vector2(26.5, 23)
 
-[node name="chunk" type="Node2D"]
-script = ExtResource("1_toa73")
-item = ExtResource("2_mgwbw")
+[node name="Block" type="Node2D"]
+script = ExtResource("1_dkxta")
+state = null
+item = SubResource("Resource_48ylq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g0yns")
-animation = &"chunk"
+animation = &"plain"
 
 [node name="pickable_area" type="Area2D" parent="."]
 
