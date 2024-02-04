@@ -3,6 +3,9 @@ class_name World extends Node
 @onready var tileMap: TileMap = $StoneTileMap
 @onready var player: PlayerBody = $Player
 
+
+var item_scene_factory = preload("res://Scene/Items/item.tscn")
+
 enum TileType {
 	STONE,
 	COAL,
@@ -178,13 +181,30 @@ func _ready():
 	spawn_tiles()
 
 func block_in_radius(playerCords: Vector2, rotation: PlayerBody.PlayerRotation) -> bool:
-	var newDir = playerCords + DIRECTIONS[rotation]
-	if grid[newDir.x][newDir.y] != TileType.AIR:
+	var target = playerCords + DIRECTIONS[rotation] - Vector2(MAP_WIDTH/2, MAP_HEIGHT/2)
+	print("X: ", target.x)
+	print("Y: ", target.y)
+	print(grid[target.x][target.y])
+	if grid[target.x][target.y] != TileType.AIR:
+		print("In radius")
 		return true
 	return false
 
 func mine_block(playerCords: Vector2, rotation: PlayerBody.PlayerRotation):
 	tileMap.erase_cell(0, playerCords + DIRECTIONS[rotation])
+	var target = playerCords + DIRECTIONS[rotation] - Vector2(MAP_WIDTH/2, MAP_HEIGHT/2)
+	var tileType = grid[target.x][target.y]
+	
+	grid[target.x][target.y] = TileType.AIR
+	
+	var item = InventoryItem.new()
+	item.amount = 1
+	item.type = tileType
+	
+	var item_scene = item_scene_factory.instantiate()
+	item_scene.item = item
+	item_scene.global_position = player.global_position
+	get_parent().add_child(item_scene)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
