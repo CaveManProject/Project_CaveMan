@@ -12,7 +12,8 @@ enum TileType {
 	COPPER,
 	IRON,
 	DIAMOND,
-	ALUMINIUM,
+	ALUMINUM,
+	BEDROCK,
 	AIR
 }
 
@@ -22,28 +23,30 @@ func get_random_ore_tile() -> TileType:
 		2: return TileType.COPPER
 		3: return TileType.IRON
 		4: return TileType.DIAMOND
-		5: return TileType.ALUMINIUM
+		5: return TileType.ALUMINUM
 	return TileType.COAL
 	
 
 func type_to_cords(type: TileType) -> Vector2:
 	match type:
 		TileType.STONE: return Vector2(2, 2)
-		TileType.COAL: return Vector2(0, 2)
+		TileType.COAL: return Vector2(1, 1)
 		TileType.COPPER: return Vector2(3,1)
 		TileType.IRON: return Vector2(0, 0)
 		TileType.DIAMOND: return Vector2(1, 0)
-		TileType.ALUMINIUM: return Vector2(0, 1)
+		TileType.ALUMINUM: return Vector2(0, 1)
+		TileType.BEDROCK: return Vector2(0, 2)
 	return Vector2(-1, -1)
 
 func cords_to_type(cords: Vector2) -> TileType: 
 	match cords:
 		Vector2(2, 2): return TileType.STONE
-		Vector2(0, 2): return TileType.COAL
+		Vector2(1, 1): return TileType.COAL
 		Vector2(3, 1): return TileType.COPPER
 		Vector2(0, 0): return TileType.IRON
 		Vector2(1, 0): return TileType.DIAMOND
-		Vector2(0, 1): return TileType.ALUMINIUM
+		Vector2(0, 1): return TileType.ALUMINUM
+		Vector2(0, 2): return TileType.BEDROCK
 	return TileType.AIR
 
 var rng = RandomNumberGenerator.new()
@@ -100,10 +103,12 @@ func get_safe_random_position() -> Vector2:
 
 func init_grid():
 	grid = []
-	for x in range(MAP_WIDTH):
+	for x in MAP_WIDTH:
 		grid.append([])
-		for y in range(MAP_HEIGHT):
-			if is_in_safe_zone(x,y):
+		for y in MAP_HEIGHT:
+			if (x == 0 or x == MAP_WIDTH - 1) or (y == 0 or y == MAP_HEIGHT - 1):
+				grid[x].append(TileType.BEDROCK)
+			elif is_in_safe_zone(x,y):
 				grid[x].append(TileType.AIR)
 			else:
 				grid[x].append(TileType.STONE)
@@ -157,13 +162,6 @@ func create_chunks():
 		
 		iteration += 1
 
-
-func print_chunks():
-	for x in range(MAP_WIDTH):
-		for y in range(MAP_HEIGHT):
-			if grid[x][y] != TileType.STONE:
-				print(grid[x][y])
-
 func spawn_tiles():
 	for x in MAP_WIDTH:
 		for y in MAP_HEIGHT:
@@ -171,7 +169,6 @@ func spawn_tiles():
 			var t_y = y - MAP_HEIGHT/2
 			if grid[x][y] != TileType.AIR:
 				tileMap.set_cell(0, Vector2(t_x, t_y), 0, type_to_cords(grid[x][y]))
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -182,13 +179,9 @@ func _ready():
 
 func block_in_radius(playerCords: Vector2, rotation: PlayerBody.PlayerRotation) -> bool:
 	var target = playerCords + DIRECTIONS[rotation] - Vector2(MAP_WIDTH/2, MAP_HEIGHT/2)
-	print("X: ", target.x)
-	print("Y: ", target.y)
-	print(grid[target.x][target.y])
-	if grid[target.x][target.y] != TileType.AIR:
-		print("In radius")
-		return true
-	return false
+	var tileType = grid[target.x][target.y]
+	
+	return tileType != TileType.AIR and tileType != TileType.BEDROCK
 
 func mine_block(playerCords: Vector2, rotation: PlayerBody.PlayerRotation):
 	tileMap.erase_cell(0, playerCords + DIRECTIONS[rotation])
