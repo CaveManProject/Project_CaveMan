@@ -7,6 +7,16 @@ enum PlayerState {IDLE, WALKING}
 
 @export var inv: Inventory
 
+enum PlayerRotation {
+	UP,
+	DOWN,
+	RIGHT,
+	LEFT,
+	IDLE
+}
+
+var player_direction: PlayerRotation = PlayerRotation.IDLE
+
 func _physics_process(delta: float):
 	var direction = Input.get_vector("left", "right", "up", "down")
 	if direction.x == 0 and direction.y ==0:
@@ -20,16 +30,21 @@ func _physics_process(delta: float):
 	play_anim(direction)
 	
 func play_anim(dir: Vector2):
+	player_direction = PlayerRotation.IDLE
 	if player_state == PlayerState.IDLE:
 		$AnimatedSprite2D.play("Idle")
 	if player_state == PlayerState.WALKING:
 		if dir.y == -1:
+			player_direction = PlayerRotation.UP
 			$AnimatedSprite2D.play("Mv_up")
 		if dir.x == 1:
+			player_direction = PlayerRotation.RIGHT
 			$AnimatedSprite2D.play("Mv_right")
 		if dir.y == 1:
+			player_direction = PlayerRotation.DOWN
 			$AnimatedSprite2D.play("Mv_down")
 		if dir.x == -1:
+			player_direction = PlayerRotation.LEFT
 			$AnimatedSprite2D.play("Mv_left")
 		if dir.x > 0.5 and dir.y < -0.5:
 			$AnimatedSprite2D.play("Mv_upR")
@@ -40,8 +55,6 @@ func play_anim(dir: Vector2):
 		if dir.x < -0.5 and dir.y < -0.5:
 			$AnimatedSprite2D.play("Mv_upL")
 			
-func player():
-	pass
 
 
 func collect(item: InventoryItem):
