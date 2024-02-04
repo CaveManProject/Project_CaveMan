@@ -8,7 +8,7 @@
    - `Scripts` - Scripts used in the game
 3. Every entity should have its own folder in `Scripts` folder. For example entity named `Inventory` should have all the scripts in `Scripts/Inventory`. Same rules applies for the assets in `Assets` directory.
 4. Every script should start with `class_name {name of entity} extends {somthing}` and again, name of entity should be CamelCase.
-5. Every function should be also CamelCase but first letter must be lowercase like `func useThisMethod()`.
+5. Every function should be also lower_case like `func use_this_method()`.
 6. All enum values should be UPPER_CASE `enum PlayerState { IDLE, WALKING, ATT_MONSTER }`.
 7. Please use meaningfull naming of variables and typing. DO: `var inventory: Inventory = null` instead of: `var i = null`!
 8. Use relevant types everywhere its possible. It eliminates error during development. For example instead of `func test(lambda}` you should write `func test(lambda:int)`.
