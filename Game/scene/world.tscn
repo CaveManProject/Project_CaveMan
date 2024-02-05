@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://pbvhvyf2qwro"]
 
-[ext_resource type="Script" path="res://Script/World.gd" id="1_j7jpn"]
+[ext_resource type="Script" path="res://Script/World/World.gd" id="1_j7jpn"]
 [ext_resource type="PackedScene" uid="uid://blugsjfr8pef1" path="res://Scene/player.tscn" id="1_sp1lt"]
 [ext_resource type="Texture2D" uid="uid://brttk4fjgyn3j" path="res://Assets/TileSets/Ores.png" id="2_na556"]
 [ext_resource type="Texture2D" uid="uid://camql72472hdm" path="res://Assets/WorldBuildTileSet/BetaBasicTiles.png" id="3_5c04f"]
@@ -233,6 +233,8 @@ format = 2
 layer_0/name = "blocks"
 
 [node name="Player" parent="." instance=ExtResource("1_sp1lt")]
+speed = 100
+player_state = 0
 
 [node name="Chest" parent="." instance=ExtResource("13_wytdu")]
 position = Vector2(24, -88)
