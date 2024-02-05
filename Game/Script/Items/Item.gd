@@ -33,10 +33,12 @@ func _on_interactable_body_exited(body: CharacterBody2D):
 	if body is Player:
 		player = null
 
+var collected: bool = false
+
 func _process(delta: float):
-	if player and !animation.is_playing():
+	if !collected and player and !animation.is_playing():
+		collected = true
 		player.collect(item)
-		await get_tree().create_timer(0.1).timeout
 		self.queue_free()
 		
 		

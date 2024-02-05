@@ -3,7 +3,6 @@ class_name World extends Node
 @onready var tileMap: TileMap = $StoneTileMap
 @onready var player: Player = $Player
 
-
 var item_scene_factory = preload("res://Scene/Items/item.tscn")
 
 var rng = RandomNumberGenerator.new()
@@ -27,19 +26,20 @@ var grid: Array[Array] = []
 
 var generators: Array[ChunkGenerator] = []
 
+
 func is_in_safe_zone(x: int, y: int) -> bool:
-	var radius = sqrt(pow(x - MAP_WIDTH/2, 2) + pow(y - MAP_HEIGHT/2,2))
+	var radius = sqrt(pow(x - MAP_WIDTH / 2, 2) + pow(y - MAP_HEIGHT / 2, 2))
 	return radius < SAFE_ZONE_RADIUS
 
 
-
 func get_safe_random_position() -> Vector2i:
-	var ran_x = rng.randi_range(1, MAP_WIDTH-1)
-	var ran_y = rng.randi_range(1, MAP_HEIGHT-1)
+	var ran_x = rng.randi_range(1, MAP_WIDTH - 1)
+	var ran_y = rng.randi_range(1, MAP_HEIGHT - 1)
 	while is_in_safe_zone(ran_x, ran_y):
-		ran_x = rng.randi_range(1, MAP_WIDTH-1)
-		ran_y = rng.randi_range(1, MAP_HEIGHT-1)
+		ran_x = rng.randi_range(1, MAP_WIDTH - 1)
+		ran_y = rng.randi_range(1, MAP_HEIGHT - 1)
 	return Vector2i(ran_x, ran_y)
+
 
 func init_grid():
 	grid = []
@@ -48,10 +48,11 @@ func init_grid():
 		for y in MAP_HEIGHT:
 			if (x == 0 or x == MAP_WIDTH - 1) or (y == 0 or y == MAP_HEIGHT - 1):
 				grid[x].append(Tile.new(Tile.Type.BEDROCK))
-			elif is_in_safe_zone(x,y):
+			elif is_in_safe_zone(x, y):
 				grid[x].append(Tile.new(Tile.Type.AIR))
 			else:
 				grid[x].append(Tile.new(Tile.Type.STONE))
+
 
 func create_chunks():
 	var iteration: int = 0
@@ -59,54 +60,60 @@ func create_chunks():
 		# Random: Maybe destroy generator?
 		for generator in generators:
 			if rng.randf() < GENERATOR_DESTROY_CHANCE:
-				generators.erase(generator);
-				break; # Destroy only one generator per iteration
-		
+				generators.erase(generator)
+				break  # Destroy only one generator per iteration
+
 		# Spawn new generator, with chance
 		if rng.randf() < GENERATOR_SPAWN_CHANCE and generators.size() < MAX_GENERATORS:
 			var generator = ChunkGenerator.new(get_safe_random_position())
 			generators.append(generator)
-	
+
 		# Move generators
 		for generator in generators:
 			var target = generator.rotate()
-			if (target.x >= 1 and 
-				target.x < MAP_WIDTH-1 and
-				target.y >= 1 and
-				target.y < MAP_HEIGHT-1 and 
-				grid[target.x][target.y].type == Tile.Type.STONE):
-					generator.mine()
-					grid[target.x][target.y].type = generator.tile_type
-					if generator.chunk_size == MAX_CHUNK_SIZE:
-						generators.erase(generator)
-		
+			if (
+				target.x >= 1
+				and target.x < MAP_WIDTH - 1
+				and target.y >= 1
+				and target.y < MAP_HEIGHT - 1
+				and grid[target.x][target.y].type == Tile.Type.STONE
+			):
+				generator.mine()
+				grid[target.x][target.y].type = generator.tile_type
+				if generator.chunk_size == MAX_CHUNK_SIZE:
+					generators.erase(generator)
+
 		iteration += 1
+
 
 func render_tiles():
 	for x in MAP_WIDTH:
 		for y in MAP_HEIGHT:
 			tileMap.set_cell(0, Vector2i(x, y), 0, grid[x][y].get_tileset_cords())
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player.global_position += Vector2(Vector2i(MAP_WIDTH/2, MAP_HEIGHT/2) * CellSize)
-	
+	player.global_position += Vector2(Vector2i(MAP_WIDTH / 2, MAP_HEIGHT / 2) * CellSize)
+
 	init_grid()
 	create_chunks()
 	render_tiles()
+
 
 func mine_block(target: Vector2i, dir: Vector2i):
 	player.animate_breaking()
 	tileMap.erase_cell(0, target)
 	var tile = grid[target.x][target.y]
-	
+
 	var item_scene = item_scene_factory.instantiate()
 	item_scene.item = InventoryItem.new(tile.type)
 	item_scene.global_position = player.global_position
 	get_parent().add_child(item_scene)
 	item_scene.drop(dir)
-	
+
 	grid[target.x][target.y].clear_tile()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -114,10 +121,8 @@ func _process(delta):
 	var target = playerCoords + player.get_direction()
 	if Input.is_action_just_pressed("e") and grid[target.x][target.y].is_breakable():
 		mine_block(target, player.get_direction())
-	
+
 	if Input.is_action_just_pressed("space"):
 		init_grid()
 		create_chunks()
 		render_tiles()
-		
-		
