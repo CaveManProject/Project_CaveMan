@@ -1,5 +1,14 @@
 class_name InventoryItem extends Resource
 
 @export var amount: int
-@export var name: String = ""
-@export var texture: Texture2D
+@export var type: Tile.Type
+
+func _init(_type: Tile.Type):
+	print(_type)
+	type = _type
+	amount = 1
+	
+func get_texture() -> Texture2D:
+	return Item.TEXTURE_MAP[type]
+
+

@@ -8,7 +8,7 @@ func update(item: InventoryItem):
 		item_visual.visible = false
 	else:
 		item_visual.visible = true
-		item_visual.texture = item.texture
+		item_visual.texture = item.get_texture()
 		if item.amount > 1:
 			amount_text.visible = true
 			amount_text.text = str(item.amount)
