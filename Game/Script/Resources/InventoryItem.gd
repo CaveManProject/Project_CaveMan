@@ -7,5 +7,8 @@ func _init(_type: Tile.Type):
 	print(_type)
 	type = _type
 	amount = 1
+	
+func get_texture() -> Texture2D:
+	return Item.TEXTURE_MAP[type]
 
 

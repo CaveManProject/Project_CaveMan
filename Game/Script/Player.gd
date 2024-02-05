@@ -11,12 +11,12 @@ enum Rotation {
 }
 
 
-var DIRECTIONS = {
-	Player.Rotation.LEFT: Vector2(-1, 0),
-	Player.Rotation.RIGHT: Vector2(1, 0),
-	Player.Rotation.UP: Vector2(0, -1),
-	Player.Rotation.DOWN: Vector2(0, 1),
-	Player.Rotation.IDLE: Vector2(0, 0)
+static var DIRECTIONS = {
+	Player.Rotation.LEFT: Vector2i(-1, 0),
+	Player.Rotation.RIGHT: Vector2i(1, 0),
+	Player.Rotation.UP: Vector2i(0, -1),
+	Player.Rotation.DOWN: Vector2i(0, 1),
+	Player.Rotation.IDLE: Vector2i(0, 0)
 }
 
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
@@ -42,7 +42,7 @@ func _physics_process(delta: float):
 	
 	animate_movement(direction)
 	
-func animate_movement(dir: Vector2):
+func animate_movement(dir: Vector2i):
 	if animation.is_playing() and animation.animation.begins_with("Att_"):
 		return
 	p_rotation = Rotation.IDLE

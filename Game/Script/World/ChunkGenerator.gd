@@ -7,36 +7,33 @@ enum Rotation {
 	LEFT
 }
 
-
-var DIRECTIONS = {
-	Player.Rotation.LEFT: Vector2(-1, 0),
-	Player.Rotation.RIGHT: Vector2(1, 0),
-	Player.Rotation.UP: Vector2(0, -1),
-	Player.Rotation.DOWN: Vector2(0, 1)
+static var DIRECTIONS = {
+	Player.Rotation.LEFT: Vector2i(-1, 0),
+	Player.Rotation.RIGHT: Vector2i(1, 0),
+	Player.Rotation.UP: Vector2i(0, -1),
+	Player.Rotation.DOWN: Vector2i(0, 1)
 }
 
-var pos: Vector2
-var dir: Vector2
-var chunk_size: int
+var pos: Vector2i
+var dir: Vector2i
 var tile_type: Tile.Type
+var chunk_size: int
 
 var rng = RandomNumberGenerator.new()
 
-func _init(_pos: Vector2, _tile_type: Tile.Type):
-	tile_type = _tile_type
+func _init(_pos: Vector2i):
 	pos = _pos
 	dir = get_random_direction()
+	tile_type = Tile.get_random_ore_tile()
 	chunk_size = 0
 	
 
 
-func get_random_direction() -> Vector2:
+func get_random_direction() -> Vector2i:
 	return DIRECTIONS[rng.randi()%4]
 
-func rotate():
+func rotate() -> Vector2i:
 	dir = get_random_direction()
-	
-func get_taget() -> Vector2:
 	return pos + dir
 
 func mine():

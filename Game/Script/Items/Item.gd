@@ -3,16 +3,14 @@ class_name Item extends Node2D
 @export var item: InventoryItem
 @onready var sprite: Sprite2D = $Sprite2D
 
-static func get_texture(type: Tile.Type) -> Texture2D:
-	match type:
-		Tile.Type.COAL: return load("res://Assets/Items/Coal.png")
-		Tile.Type.STONE: return load("res://Assets/Items/Stone_chunk.png")
-		Tile.Type.COPPER: return load("res://Assets/Items/Copper.png")
-		Tile.Type.IRON: return load("res://Assets/Items/Iron.png")
-		Tile.Type.ALUMINUM: return load("res://Assets/Items/Aluminum.png")
-		Tile.Type.DIAMOND: return load("res://Assets/Items/Diamond.png")
-	return null
-
+static var TEXTURE_MAP = {
+	Tile.Type.COAL:  load("res://Assets/Items/Coal.png"),
+	Tile.Type.STONE:  load("res://Assets/Items/Stone_chunk.png"),
+	Tile.Type.COPPER:  load("res://Assets/Items/Copper.png"),
+	Tile.Type.IRON:  load("res://Assets/Items/Iron.png"),
+	Tile.Type.ALUMINUM:  load("res://Assets/Items/Aluminum.png"),
+	Tile.Type.DIAMOND:  load("res://Assets/Items/Diamond.png")
+}
 
 func _on_interactable_body_entered(body: CharacterBody2D):
 	if body is Player:
@@ -22,5 +20,5 @@ func _on_interactable_body_entered(body: CharacterBody2D):
 		
 
 func _ready():
-	sprite.texture = get_texture(item.type)
+	sprite.texture = TEXTURE_MAP[item.type]
 	

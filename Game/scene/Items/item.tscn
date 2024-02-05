@@ -19,6 +19,7 @@ item = SubResource("Resource_hwjkf")
 polygon = PackedVector2Array(-2, 8, 1, 8, 6, -5, 6, -8, 4, -8, -2, 3)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_xip4l")
 
 [connection signal="body_entered" from="Interactable" to="." method="_on_interactable_body_entered"]

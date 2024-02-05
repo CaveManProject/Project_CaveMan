@@ -233,8 +233,6 @@ format = 2
 layer_0/name = "blocks"
 
 [node name="Player" parent="." instance=ExtResource("1_sp1lt")]
-speed = 100
-player_state = 0
 
 [node name="Chest" parent="." instance=ExtResource("13_wytdu")]
 position = Vector2(24, -88)
