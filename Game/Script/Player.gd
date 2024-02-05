@@ -12,11 +12,11 @@ enum Rotation {
 
 
 static var DIRECTIONS = {
-	Player.Rotation.LEFT: Vector2i(-1, 0),
-	Player.Rotation.RIGHT: Vector2i(1, 0),
-	Player.Rotation.UP: Vector2i(0, -1),
-	Player.Rotation.DOWN: Vector2i(0, 1),
-	Player.Rotation.IDLE: Vector2i(0, 0)
+	Rotation.LEFT: Vector2i(-1, 0),
+	Rotation.RIGHT: Vector2i(1, 0),
+	Rotation.UP: Vector2i(0, -1),
+	Rotation.DOWN: Vector2i(0, 1),
+	Rotation.IDLE: Vector2i(0, 0)
 }
 
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
@@ -32,6 +32,7 @@ var p_rotation: Rotation = Rotation.IDLE
 
 func _physics_process(delta: float):
 	var direction = Input.get_vector("left", "right", "up", "down")
+	print(direction)
 	if direction.x == 0 and direction.y ==0:
 		player_state = State.IDLE
 	elif direction.x !=0 or direction.y !=0:
@@ -42,33 +43,35 @@ func _physics_process(delta: float):
 	
 	animate_movement(direction)
 	
-func animate_movement(dir: Vector2i):
+func animate_movement(dir: Vector2):
 	if animation.is_playing() and animation.animation.begins_with("Att_"):
 		return
 	p_rotation = Rotation.IDLE
 	if player_state == State.IDLE:
 		animation.play("Idle")
 	if player_state == State.WALKING:
-		if dir.y == -1:
-			p_rotation = Rotation.UP
-			animation.play("Mv_up")
-		if dir.x == 1:
-			p_rotation = Rotation.RIGHT
-			animation.play("Mv_right")
-		if dir.y == 1:
-			p_rotation = Rotation.DOWN
-			animation.play("Mv_down")
-		if dir.x == -1:
-			p_rotation = Rotation.LEFT
-			animation.play("Mv_left")
+		print(dir.x, ":", dir.y)
 		if dir.x > 0.5 and dir.y < -0.5:
 			animation.play("Mv_upR")
-		if dir.x > 0.5 and dir.y > 0.5:
+		elif dir.x > 0.5 and dir.y > 0.5:
 			animation.play("Mv_downR")
-		if dir.x < -0.5 and dir.y > 0.5:
+		elif dir.x < -.05 and dir.y > 0.5:
 			animation.play("Mv_downL")
-		if dir.x < -0.5 and dir.y < -0.5:
+		elif dir.x < -.05 and dir.y < -.05:
 			animation.play("Mv_upL")
+		elif dir.y < -.05:
+			p_rotation = Rotation.UP
+			animation.play("Mv_up")
+		elif dir.x == 1:
+			p_rotation = Rotation.RIGHT
+			animation.play("Mv_right")
+		elif dir.y == 1:
+			p_rotation = Rotation.DOWN
+			animation.play("Mv_down")
+		elif dir.x == -1:
+			p_rotation = Rotation.LEFT
+			animation.play("Mv_left")
+		
 			
 func animate_breaking():
 	match p_rotation:
@@ -80,6 +83,6 @@ func animate_breaking():
 func collect(item: InventoryItem):
 	inv.insert(item)
 	
-func get_target() -> Vector2i:
+func get_direction() -> Vector2i:
 	return DIRECTIONS[p_rotation]
 	

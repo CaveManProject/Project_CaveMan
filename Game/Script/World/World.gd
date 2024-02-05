@@ -95,7 +95,7 @@ func _ready():
 	create_chunks()
 	render_tiles()
 
-func mine_block(target: Vector2i):
+func mine_block(target: Vector2i, dir: Vector2i):
 	player.animate_breaking()
 	tileMap.erase_cell(0, target)
 	var tile = grid[target.x][target.y]
@@ -104,15 +104,16 @@ func mine_block(target: Vector2i):
 	item_scene.item = InventoryItem.new(tile.type)
 	item_scene.global_position = player.global_position
 	get_parent().add_child(item_scene)
+	item_scene.drop(dir)
 	
 	grid[target.x][target.y].clear_tile()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var playerCoords = tileMap.local_to_map(player.global_position)
-	var target = playerCoords + player.get_target()
+	var target = playerCoords + player.get_direction()
 	if Input.is_action_just_pressed("e") and grid[target.x][target.y].is_breakable():
-		mine_block(target)
+		mine_block(target, player.get_direction())
 	
 	if Input.is_action_just_pressed("space"):
 		init_grid()
