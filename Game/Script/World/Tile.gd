@@ -3,14 +3,14 @@ class_name Tile extends Object
 enum Type { STONE, COAL, COPPER, IRON, DIAMOND, ALUMINUM, BEDROCK, AIR }
 
 static var TILE_SET_MAP = {
-	Type.STONE: Vector2i(2, 2),
+	Type.STONE: Vector2i(1, 2),
 	Type.COAL: Vector2i(1, 1),
 	Type.COPPER: Vector2i(3, 1),
 	Type.IRON: Vector2i(0, 0),
 	Type.DIAMOND: Vector2i(1, 0),
 	Type.ALUMINUM: Vector2i(0, 1),
 	Type.BEDROCK: Vector2i(0, 2),
-	Type.AIR: Vector2i(-1, -1)
+	Type.AIR: Vector2i(2, 2)
 }
 
 var type: Type
