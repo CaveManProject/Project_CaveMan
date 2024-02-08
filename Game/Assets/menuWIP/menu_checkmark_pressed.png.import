@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://camql72472hdm"
-path="res://.godot/imported/BetaBasicTiles.png-eb066bff08af88a2b85318c5789b89ce.ctex"
+uid="uid://co3oinao222jw"
+path="res://.godot/imported/menu_checkmark_pressed.png-795a36ff7b934009c01b59b81a048881.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/WorldBuildTileSet/BetaBasicTiles.png"
-dest_files=["res://.godot/imported/BetaBasicTiles.png-eb066bff08af88a2b85318c5789b89ce.ctex"]
+source_file="res://Assets/menuWIP/menu_checkmark_pressed.png"
+dest_files=["res://.godot/imported/menu_checkmark_pressed.png-795a36ff7b934009c01b59b81a048881.ctex"]
 
 [params]
 
