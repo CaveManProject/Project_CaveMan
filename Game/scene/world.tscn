@@ -59,7 +59,6 @@ texture = ExtResource("2_na556")
 2:2/0 = 0
 2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:2/0/physics_layer_0/angular_velocity = 0.0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
 3:2/0 = 0
 3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:2/0/physics_layer_0/angular_velocity = 0.0
@@ -209,7 +208,7 @@ texture = ExtResource("11_kfqi5")
 2:2/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_c8iyn"]
-physics_layer_0/collision_layer = 3
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_mxvh0")
 sources/1 = SubResource("TileSetAtlasSource_xwo4y")
 sources/2 = SubResource("TileSetAtlasSource_rrwvt")
@@ -236,3 +235,6 @@ layer_0/name = "blocks"
 
 [node name="Chest" parent="." instance=ExtResource("13_wytdu")]
 position = Vector2(24, -88)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)

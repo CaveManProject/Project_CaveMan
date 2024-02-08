@@ -95,7 +95,6 @@ func render_tiles():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player.global_position += Vector2(Vector2i(MAP_WIDTH / 2, MAP_HEIGHT / 2) * CellSize)
-
 	init_grid()
 	create_chunks()
 	render_tiles()
@@ -103,7 +102,7 @@ func _ready():
 
 func mine_block(target: Vector2i, dir: Vector2i):
 	player.animate_breaking()
-	tileMap.erase_cell(0, target)
+	tileMap.set_cell(0, target, 0, Vector2(2, 2))
 	var tile = grid[target.x][target.y]
 
 	var item_scene = item_scene_factory.instantiate()

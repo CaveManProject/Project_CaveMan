@@ -41,7 +41,6 @@ func animate_movement(dir: Vector2):
 	if player_state == State.IDLE:
 		animation.play("Idle")
 	if player_state == State.WALKING:
-		print(dir.x, ":", dir.y)
 		if dir.x > 0.5 and dir.y < -0.5:
 			animation.play("Mv_upR")
 		elif dir.x > 0.5 and dir.y > 0.5:
