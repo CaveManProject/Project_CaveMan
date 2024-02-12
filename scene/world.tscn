@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://pbvhvyf2qwro"]
 
 [ext_resource type="Script" path="res://Script/World/World.gd" id="1_j7jpn"]
-[ext_resource type="PackedScene" uid="uid://blugsjfr8pef1" path="res://Scene/player.tscn" id="1_sp1lt"]
+[ext_resource type="PackedScene" uid="uid://blugsjfr8pef1" path="res://scene/player.tscn" id="1_sp1lt"]
 [ext_resource type="Texture2D" uid="uid://brttk4fjgyn3j" path="res://Assets/TileSets/Ores.png" id="2_na556"]
 [ext_resource type="Texture2D" uid="uid://camql72472hdm" path="res://Assets/WorldBuildTileSet/BetaBasicTiles.png" id="3_5c04f"]
 [ext_resource type="Texture2D" uid="uid://bdimmq0auaiab" path="res://Assets/Objects/Double_Chest.png" id="4_thnc7"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://so5e6ghyex7f" path="res://Assets/Objects/Stone_Cutter.png" id="9_q8y5u"]
 [ext_resource type="Texture2D" uid="uid://cveme323tnuvi" path="res://Assets/Items/Stone_chunk.png" id="10_h3yvf"]
 [ext_resource type="Texture2D" uid="uid://0yg7v6csvilw" path="res://Assets/Items/tree_basic.png" id="11_kfqi5"]
-[ext_resource type="PackedScene" uid="uid://dlbfk6yvuxcn7" path="res://Scene/Chest/chest.tscn" id="13_wytdu"]
+[ext_resource type="PackedScene" uid="uid://dlbfk6yvuxcn7" path="res://scene/Chest/chest.tscn" id="13_wytdu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mxvh0"]
 texture = ExtResource("2_na556")
