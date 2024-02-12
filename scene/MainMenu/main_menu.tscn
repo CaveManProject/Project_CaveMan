@@ -1,0 +1,123 @@
+[gd_scene load_steps=8 format=3 uid="uid://bp45i5wxj1p7a"]
+
+[ext_resource type="Texture2D" uid="uid://bt2272yo8pm" path="res://Assets/MainMenu/BackGround (1).png" id="1_ioa88"]
+[ext_resource type="Script" path="res://Script/MainMenu/main_menu.gd" id="1_paqix"]
+[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="2_0ipv5"]
+[ext_resource type="Theme" uid="uid://dkv44kcquj5mr" path="res://Data/main_menu.tres" id="3_hda14"]
+[ext_resource type="StyleBox" uid="uid://ci0pkl5mu3vqn" path="res://Data/main_menu_hover.tres" id="4_276wu"]
+[ext_resource type="StyleBox" uid="uid://wo5g3gyeikrj" path="res://Data/main_menu_exit.tres" id="5_owuqe"]
+[ext_resource type="PackedScene" uid="uid://bjjwpbhaus5vx" path="res://scene/MainMenu/settings_menu.tscn" id="7_bhfyy"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_paqix")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ioa88")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="separator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.505882, 0.505882, 0.505882, 1)
+theme_override_colors/font_outline_color = Color(0.972549, 0.972549, 0.972549, 1)
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/shadow_offset_y = 7
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("2_0ipv5")
+theme_override_font_sizes/font_size = 70
+text = "PROJECT CAVEMAN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="separator" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PLAY" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hda14")
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("2_0ipv5")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = ExtResource("4_276wu")
+text = "PLAY"
+
+[node name="SETTINGS" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hda14")
+theme_override_fonts/font = ExtResource("2_0ipv5")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = ExtResource("4_276wu")
+text = "SETTINGS"
+
+[node name="CREDITS" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hda14")
+theme_override_fonts/font = ExtResource("2_0ipv5")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = ExtResource("4_276wu")
+text = "CREDITS"
+
+[node name="separator3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="separator4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="separator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="separator5" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="EXIT" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hda14")
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("2_0ipv5")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = ExtResource("5_owuqe")
+text = "EXIT"
+
+[node name="SettingsMenu" parent="." instance=ExtResource("7_bhfyy")]
+visible = false
+layout_mode = 1
