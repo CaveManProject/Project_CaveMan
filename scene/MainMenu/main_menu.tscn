@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bp45i5wxj1p7a"]
+[gd_scene load_steps=9 format=3 uid="uid://bp45i5wxj1p7a"]
 
 [ext_resource type="Texture2D" uid="uid://bt2272yo8pm" path="res://Assets/MainMenu/BackGround (1).png" id="1_ioa88"]
 [ext_resource type="Script" path="res://Script/MainMenu/main_menu.gd" id="1_paqix"]
@@ -7,6 +7,7 @@
 [ext_resource type="StyleBox" uid="uid://ci0pkl5mu3vqn" path="res://Data/main_menu_hover.tres" id="4_276wu"]
 [ext_resource type="StyleBox" uid="uid://wo5g3gyeikrj" path="res://Data/main_menu_exit.tres" id="5_owuqe"]
 [ext_resource type="PackedScene" uid="uid://bjjwpbhaus5vx" path="res://scene/MainMenu/settings_menu.tscn" id="7_bhfyy"]
+[ext_resource type="PackedScene" uid="uid://cbvj7ro3rfffl" path="res://scene/MainMenu/madeby_menu.tscn" id="8_2t00b"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -70,9 +71,11 @@ theme_override_constants/separation = 18
 alignment = 1
 
 [node name="separator" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 
 [node name="PLAY" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 theme = ExtResource("3_hda14")
 theme_type_variation = &"FlatButton"
@@ -89,24 +92,16 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = ExtResource("4_276wu")
 text = "SETTINGS"
 
-[node name="CREDITS" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="MADEBY" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_hda14")
 theme_override_fonts/font = ExtResource("2_0ipv5")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = ExtResource("4_276wu")
-text = "CREDITS"
+text = "MADE BY"
 
-[node name="separator3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="separator4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="separator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="separator5" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="separator_exit" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 130)
 layout_mode = 2
 
 [node name="EXIT" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
@@ -119,5 +114,9 @@ theme_override_styles/hover = ExtResource("5_owuqe")
 text = "EXIT"
 
 [node name="SettingsMenu" parent="." instance=ExtResource("7_bhfyy")]
+visible = false
+layout_mode = 1
+
+[node name="madeby_menu" parent="." instance=ExtResource("8_2t00b")]
 visible = false
 layout_mode = 1

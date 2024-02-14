@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbvj7ro3rfffl"]
+
+[ext_resource type="Script" path="res://Script/MainMenu/madeby_menu.gd" id="1_2djke"]
+[ext_resource type="Texture2D" uid="uid://bt2272yo8pm" path="res://Assets/MainMenu/BackGround (1).png" id="1_lory3"]
+[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="2_h7qvi"]
+[ext_resource type="Theme" uid="uid://dkv44kcquj5mr" path="res://Data/main_menu.tres" id="3_lr78u"]
+[ext_resource type="StyleBox" uid="uid://wo5g3gyeikrj" path="res://Data/main_menu_exit.tres" id="4_x4u1p"]
+
+[node name="madeby_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2djke")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lory3")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.505882, 0.505882, 0.505882, 1)
+theme_override_colors/font_outline_color = Color(0.996078, 0.996078, 0.996078, 1)
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/shadow_offset_y = 7
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("2_h7qvi")
+theme_override_font_sizes/font_size = 50
+text = "GAME MADE BY"
+horizontal_alignment = 1
+
+[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("2_h7qvi")
+text = "PROJECT CAVEMAN
+
+Embark on a thrilling journey into the depths of the earth in \"Project Caveman\" , an indie cave exploration and survival game that challenges players to navigate treacherous underground caverns, uncover hidden mysteries, and overcome the perils of the subterranean world.
+
+Game offers a challenging and immersive experience for players who enjoy exploration, survival, and mystery. Will you conquer the depths and emerge victorious, or will the darkness claim you as its own? The choice is yours in this captivating indie adventure.
+
+
+Made by 4pal Games
+Creator Names: Viktor, Brano, Milos, Jan
+"
+
+[node name="BACK" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("3_lr78u")
+theme_override_styles/hover = ExtResource("4_x4u1p")
+text = "BACK"

@@ -3,12 +3,13 @@ extends Control
 
 @onready var start_button = $MarginContainer/HBoxContainer/VBoxContainer/PLAY as Button
 @onready var settings_button = $MarginContainer/HBoxContainer/VBoxContainer/SETTINGS as Button
-@onready var credits_button = $MarginContainer/HBoxContainer/VBoxContainer/CREDITS as Button
 @onready var exit_button = $MarginContainer/HBoxContainer/VBoxContainer/EXIT as Button
+@onready var madeby_button = $MarginContainer/HBoxContainer/VBoxContainer/MADEBY as Button
 
 @onready var margin_container = $MarginContainer as MarginContainer
 
 @onready var settings_menu = $SettingsMenu as SettingsMenu
+@onready var madeby_menu = $madeby_menu as MadeByMenu
 
 @onready var start_lvl = preload("res://Scene/world.tscn") as PackedScene
 
@@ -23,8 +24,10 @@ func on_settings_pressed() -> void:
 	settings_menu.set_process(true)
 	settings_menu.visible = true
 	
-func on_credits_pressed() -> void:
-	pass
+func on_madeby_pressed() -> void:
+	margin_container.visible = false
+	madeby_menu.set_process(true)
+	madeby_menu.visible = true
 
 func on_exit_pressed() -> void:
 	get_tree().quit()
@@ -32,10 +35,15 @@ func on_exit_pressed() -> void:
 func on_exit_settings_menu() -> void:
 	margin_container.visible = true
 	settings_menu.visible = false
+	
+func on_exit_madeby_menu() -> void:
+	margin_container.visible = true
+	madeby_menu.visible = false
 
 func handle_connection_signals() -> void:
 	start_button.button_down.connect(on_start_pressed)
 	settings_button.button_down.connect(on_settings_pressed)
-#	credits_button.button_down.connect(on_credits_pressed)
+	madeby_button.button_down.connect(on_madeby_pressed)
 	exit_button.button_down.connect(on_exit_pressed)
 	settings_menu.exit_settings_menu.connect(on_exit_settings_menu)
+	madeby_menu.exit_madeby_menu.connect(on_exit_madeby_menu)
