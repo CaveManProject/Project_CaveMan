@@ -20,25 +20,26 @@ func on_start_pressed() -> void:
 	get_tree().change_scene_to_packed(start_lvl)
 
 func on_settings_pressed() -> void:
-	margin_container.visible = false
+	margin_container.hide()
 	settings_menu.set_process(true)
-	settings_menu.visible = true
+	settings_menu.show()
+	
 	
 func on_madeby_pressed() -> void:
-	margin_container.visible = false
+	margin_container.hide()
 	madeby_menu.set_process(true)
-	madeby_menu.visible = true
+	madeby_menu.show()
 
 func on_exit_pressed() -> void:
 	get_tree().quit()
 
 func on_exit_settings_menu() -> void:
-	margin_container.visible = true
-	settings_menu.visible = false
+	margin_container.show()
+	settings_menu.hide()
 	
 func on_exit_madeby_menu() -> void:
-	margin_container.visible = true
-	madeby_menu.visible = false
+	margin_container.show()
+	madeby_menu.hide()
 
 func handle_connection_signals() -> void:
 	start_button.button_down.connect(on_start_pressed)
