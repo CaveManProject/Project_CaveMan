@@ -1,6 +1,6 @@
 class_name Tile extends Object
 
-enum Type { STONE, COAL, COPPER, IRON, DIAMOND, ALUMINUM, BEDROCK, AIR }
+enum Type { AIR, STONE, COAL, IRON, COPPER, TIN, ALUMINUM, GOLD, DIAMOND, EMERALD, AMETHYST, BEDROCK }
 
 enum Mask {
 	UP = 0b0001,
@@ -9,16 +9,6 @@ enum Mask {
 	LEFT = 0b1000,
 	TUNNEL_V = 0b1010,
 	TUNNEL_H = 0b0101
-}
-
-static var TILE_SET_MAP = {
-	Type.COAL: Vector2i(1, 1),
-	Type.COPPER: Vector2i(3, 1),
-	Type.IRON: Vector2i(0, 0),
-	Type.DIAMOND: Vector2i(1, 0),
-	Type.ALUMINUM: Vector2i(0, 1),
-	Type.BEDROCK: Vector2i(0, 2),
-	Type.AIR: Vector2i(2, 2)
 }
 
 var type: Type
@@ -43,7 +33,7 @@ static func obs_to_str(observation: int):
 	return res
 
 ### Observation is byte with bits Left, Down, Right, Up
-static func get_stone_variant(observation: int):
+static func get_variant(observation: int):
 	var wall_count = 0
 	var rotation = -1
 	var gap = false
@@ -94,10 +84,6 @@ static func get_random_ore_tile() -> Type:
 
 func is_breakable() -> bool:
 	return type != Type.AIR and type != Type.BEDROCK
-
-
-func get_tileset_cords() -> Vector2i:
-	return TILE_SET_MAP[type]
 
 
 func clear_tile():

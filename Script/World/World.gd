@@ -88,12 +88,9 @@ func create_chunks():
 func render_tiles():
 	for x in MAP_WIDTH:
 		for y in MAP_HEIGHT:
-			if grid[x][y].type == Tile.Type.STONE:
-				var observation = get_observation(Vector2i(x, y))
-				var variant =  Tile.get_stone_variant(observation)
-				tileMap.set_cell(0, Vector2i(x, y),  1, variant)
-			else:
-				tileMap.set_cell(0, Vector2i(x, y), 0, grid[x][y].get_tileset_cords())
+			var tile = grid[x][y]
+			var observation = get_observation(Vector2i(x, y))
+			tileMap.set_cell(0, Vector2i(x, y),  tile.type, tile.get_variant(observation))
 
 
 # Called when the node enters the scene tree for the first time.
@@ -119,20 +116,15 @@ func get_observation(target: Vector2i) -> int:
 
 
 func update_tile(target: Vector2i):
-	if target.x <= 0 or  target.x > len(grid) :
-		print("Off map", target.x, "x", target.y, " Map width: ", len(grid))
+	if target.x <= 0 or target.x > len(grid) :
 		return
 	if target.y <= 0 or target.y > len(grid[target.x]):
-		print("Off map", target.x, "x", target.y, " Map height: ", len(grid[target.x]))
 		return
-	if grid[target.x][target.y].type != Tile.Type.STONE:
-		print("Not stone", target.x, "x", target.y)
+	var tile = grid[target.x][target.y]
+	if tile.type == Tile.Type.AIR:
 		return
 	var observation = get_observation(target)
-		
-	var variant =  Tile.get_stone_variant(observation)
-		
-	tileMap.set_cell(0, target, 1, variant)
+	tileMap.set_cell(0, target, tile.type, tile.get_variant(observation))
 	
 
 
@@ -149,7 +141,7 @@ func update_surrounding(target: Vector2i):
 
 func mine_block(target: Vector2i, dir: Vector2i):
 	player.animate_breaking()
-	tileMap.set_cell(0, target, 0, Vector2(2, 2))
+	tileMap.set_cell(0, target, 0, Vector2(0, 0))
 	var tile = grid[target.x][target.y]
 
 	var item_scene = item_scene_factory.instantiate()

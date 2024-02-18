@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drtr8d48giag0"
-path="res://.godot/imported/test.jpg-0e5b7552059effc166b00349c46c48fe.ctex"
+uid="uid://dduvh8ejspytv"
+path="res://.godot/imported/coal_ore.png-aecef6aa15b704bafd3d3cf040134cb7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TileSets/test.jpg"
-dest_files=["res://.godot/imported/test.jpg-0e5b7552059effc166b00349c46c48fe.ctex"]
+source_file="res://Assets/TileSets/coal_ore.png"
+dest_files=["res://.godot/imported/coal_ore.png-aecef6aa15b704bafd3d3cf040134cb7.ctex"]
 
 [params]
 
