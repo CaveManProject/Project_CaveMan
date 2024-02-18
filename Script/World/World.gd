@@ -82,14 +82,18 @@ func create_chunks():
 				grid[target.x][target.y].type = generator.tile_type
 				if generator.chunk_size == MAX_CHUNK_SIZE:
 					generators.erase(generator)
-
 		iteration += 1
 
 
 func render_tiles():
 	for x in MAP_WIDTH:
 		for y in MAP_HEIGHT:
-			tileMap.set_cell(0, Vector2i(x, y), 0, grid[x][y].get_tileset_cords())
+			if grid[x][y].type == Tile.Type.STONE:
+				var observation = get_observation(Vector2i(x, y))
+				var variant =  Tile.get_stone_variant(observation)
+				tileMap.set_cell(0, Vector2i(x, y),  1, variant)
+			else:
+				tileMap.set_cell(0, Vector2i(x, y), 0, grid[x][y].get_tileset_cords())
 
 
 # Called when the node enters the scene tree for the first time.
@@ -98,6 +102,49 @@ func _ready():
 	init_grid()
 	create_chunks()
 	render_tiles()
+
+
+# Returns byte where bits are Left, Down, Right, Up
+func get_observation(target: Vector2i) -> int:
+	var observation = 0b0000
+	if len(grid) > target.x + 1:
+		observation |= Tile.Mask.RIGHT if grid[target.x+1][target.y].type == Tile.Type.AIR else 0
+	if target.x - 1 > 0:
+		observation |= Tile.Mask.LEFT if  grid[target.x-1][target.y].type == Tile.Type.AIR else 0
+	if len(grid[target.x]) > target.y + 1:
+		observation |= Tile.Mask.DOWN if grid[target.x][target.y + 1].type == Tile.Type.AIR else 0
+	if target.y - 1 > 0:
+		observation |= Tile.Mask.UP if grid[target.x][target.y - 1].type == Tile.Type.AIR else 0
+	return observation
+
+
+func update_tile(target: Vector2i):
+	if target.x <= 0 or  target.x > len(grid) :
+		print("Off map", target.x, "x", target.y, " Map width: ", len(grid))
+		return
+	if target.y <= 0 or target.y > len(grid[target.x]):
+		print("Off map", target.x, "x", target.y, " Map height: ", len(grid[target.x]))
+		return
+	if grid[target.x][target.y].type != Tile.Type.STONE:
+		print("Not stone", target.x, "x", target.y)
+		return
+	var observation = get_observation(target)
+		
+	var variant =  Tile.get_stone_variant(observation)
+		
+	tileMap.set_cell(0, target, 1, variant)
+	
+
+
+func update_surrounding(target: Vector2i):
+	print("Updating surroundings RIGHT")
+	update_tile(target + Vector2i(1,0))
+	print("Updating surroundings LEFT")
+	update_tile(target + Vector2i(-1,0))
+	print("Updating surroundings DOWN")
+	update_tile(target + Vector2i(0,1))
+	print("Updating surroundings UP")
+	update_tile(target + Vector2i(0,-1))
 
 
 func mine_block(target: Vector2i, dir: Vector2i):
@@ -112,6 +159,7 @@ func mine_block(target: Vector2i, dir: Vector2i):
 	item_scene.drop(dir)
 
 	grid[target.x][target.y].clear_tile()
+	update_surrounding(target)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
