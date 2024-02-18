@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3mrnoy6ujmbb"
-path="res://.godot/imported/Wall_sheet.png-ff1e3d1c05d2d93033007a0246035cd7.ctex"
+uid="uid://bp2ckb8a0of8w"
+path="res://.godot/imported/aluminum_ore.png-baa2855a90a83deb384f3d63115e7435.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TileSets/Wall_sheet.png"
-dest_files=["res://.godot/imported/Wall_sheet.png-ff1e3d1c05d2d93033007a0246035cd7.ctex"]
+source_file="res://Assets/TileSets/aluminum_ore.png"
+dest_files=["res://.godot/imported/aluminum_ore.png-baa2855a90a83deb384f3d63115e7435.ctex"]
 
 [params]
 

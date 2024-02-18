@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gxekfkylh61v"
-path="res://.godot/imported/floor_sheet.png-d04adf1da456aa57ae1f300b79780a71.ctex"
+uid="uid://ds6fwxjfltc1t"
+path="res://.godot/imported/base.png-aa4a818f5af3fec29bc63cce9e26d2b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TileSets/floor_sheet.png"
-dest_files=["res://.godot/imported/floor_sheet.png-d04adf1da456aa57ae1f300b79780a71.ctex"]
+source_file="res://Assets/TileSets/base.png"
+dest_files=["res://.godot/imported/base.png-aa4a818f5af3fec29bc63cce9e26d2b6.ctex"]
 
 [params]
 
