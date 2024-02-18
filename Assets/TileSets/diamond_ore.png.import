@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gxekfkylh61v"
-path="res://.godot/imported/floor_sheet.png-d04adf1da456aa57ae1f300b79780a71.ctex"
+uid="uid://cyr3h5t376x70"
+path="res://.godot/imported/diamond_ore.png-050c4924002153c4f33c0a8b02f35f95.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TileSets/floor_sheet.png"
-dest_files=["res://.godot/imported/floor_sheet.png-d04adf1da456aa57ae1f300b79780a71.ctex"]
+source_file="res://Assets/TileSets/diamond_ore.png"
+dest_files=["res://.godot/imported/diamond_ore.png-050c4924002153c4f33c0a8b02f35f95.ctex"]
 
 [params]
 
