@@ -1,45 +1,47 @@
-[gd_scene load_steps=3 format=3 uid="uid://djdvg7fb8sg2a"]
+[gd_scene load_steps=3 format=3 uid="uid://bjb5e0eaiu8pt"]
 
-[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="1_7gsj6"]
-[ext_resource type="Script" path="res://Script/MainMenu/graphics/fps_mode.gd" id="1_wxodl"]
+[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="1_t4vdv"]
+[ext_resource type="Script" path="res://Script/MainMenu/sound/master_sound.gd" id="2_rxom8"]
 
-[node name="fps_mode" type="Control"]
+[node name="master_sound" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_wxodl")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -29.0
-offset_right = 29.0
+offset_left = -20.0
+offset_right = 20.0
 offset_bottom = 40.0
 grow_horizontal = 2
 theme_override_constants/separation = 160
 
-[node name="FPS" type="Label" parent="HBoxContainer"]
+[node name="Master" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(264, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/shadow_offset_x = 9
 theme_override_constants/outline_size = 12
-theme_override_fonts/font = ExtResource("1_7gsj6")
+theme_override_fonts/font = ExtResource("1_t4vdv")
 theme_override_font_sizes/font_size = 32
-text = "FPS Limit"
+text = "Master Sound"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
 
-[node name="OptionButton" type="OptionButton" parent="HBoxContainer"]
+[node name="master_sound" type="HSlider" parent="HBoxContainer"]
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_7gsj6")
+min_value = -50.0
+max_value = 5.0
+value = 5.0
+script = ExtResource("2_rxom8")

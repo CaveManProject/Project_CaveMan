@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bp45i5wxj1p7a"]
+[gd_scene load_steps=11 format=3 uid="uid://bp45i5wxj1p7a"]
 
 [ext_resource type="Texture2D" uid="uid://bt2272yo8pm" path="res://Assets/MainMenu/BackGround (1).png" id="1_ioa88"]
 [ext_resource type="Script" path="res://Script/MainMenu/main_menu.gd" id="1_paqix"]
@@ -8,6 +8,8 @@
 [ext_resource type="StyleBox" uid="uid://wo5g3gyeikrj" path="res://Data/main_menu_exit.tres" id="5_owuqe"]
 [ext_resource type="PackedScene" uid="uid://bjjwpbhaus5vx" path="res://scene/MainMenu/settings_menu.tscn" id="7_bhfyy"]
 [ext_resource type="PackedScene" uid="uid://cbvj7ro3rfffl" path="res://scene/MainMenu/madeby_menu.tscn" id="8_2t00b"]
+[ext_resource type="AudioStream" uid="uid://dhsgv8feqgb5i" path="res://Audio/ui_click.mp3" id="9_rrh10"]
+[ext_resource type="AudioStream" uid="uid://cnjm3wbv71x6c" path="res://Audio/bg_sound.mp3" id="10_4qotu"]
 
 [node name="MainMenu" type="Control"]
 process_mode = 3
@@ -121,3 +123,14 @@ layout_mode = 1
 [node name="madeby_menu" parent="." instance=ExtResource("8_2t00b")]
 visible = false
 layout_mode = 1
+
+[node name="ui_click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_rrh10")
+volume_db = 10.0
+pitch_scale = 1.7
+bus = &"sfx"
+
+[node name="bg_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_4qotu")
+autoplay = true
+bus = &"music"

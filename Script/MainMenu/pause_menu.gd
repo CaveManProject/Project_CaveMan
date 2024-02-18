@@ -5,6 +5,7 @@ extends Node
 @onready var quit_button = $PanelContainer/VBoxContainer/Quit as Button
 
 @onready var PauseMenu = $"." as Control
+@onready var ui_click = $ui_click as AudioStreamPlayer2D
 
 @onready var settings = preload("res://scene/MainMenu/settings_pause_menu.tscn") as PackedScene
 
@@ -30,16 +31,19 @@ func pause():
 	
 
 func _on_resume_pressed() -> void:
+	ui_click.play()
 	resume()
 	
 
 func _on_settings_pressed()-> void:
 	get_tree().paused = false
+	ui_click.play()
 	get_tree().change_scene_to_packed(settings)
  
 
 func _on_quit_pressed() -> void:
 	get_tree().paused = false
+	ui_click.play()
 	get_tree().change_scene_to_file("res://scene/MainMenu/main_menu.tscn")
 	#get_tree().quit()
 	

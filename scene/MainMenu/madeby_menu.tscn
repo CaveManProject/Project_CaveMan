@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbvj7ro3rfffl"]
+[gd_scene load_steps=7 format=3 uid="uid://cbvj7ro3rfffl"]
 
 [ext_resource type="Script" path="res://Script/MainMenu/madeby_menu.gd" id="1_2djke"]
 [ext_resource type="Texture2D" uid="uid://bt2272yo8pm" path="res://Assets/MainMenu/BackGround (1).png" id="1_lory3"]
 [ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="2_h7qvi"]
 [ext_resource type="Theme" uid="uid://dkv44kcquj5mr" path="res://Data/main_menu.tres" id="3_lr78u"]
 [ext_resource type="StyleBox" uid="uid://wo5g3gyeikrj" path="res://Data/main_menu_exit.tres" id="4_x4u1p"]
+[ext_resource type="AudioStream" uid="uid://dhsgv8feqgb5i" path="res://Audio/ui_click.mp3" id="6_ikce1"]
 
 [node name="madeby_menu" type="Control"]
 layout_mode = 3
@@ -24,6 +25,15 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_lory3")
 expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.141176, 0.141176, 0.647059)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -61,10 +71,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 2
 theme_override_fonts/normal_font = ExtResource("2_h7qvi")
-theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/normal_font_size = 30
 text = "PROJECT CAVEMAN
 
 Embark on a thrilling journey into the depths of the earth in \"Project Caveman\" , an indie cave exploration and survival game that challenges players to navigate treacherous underground caverns, uncover hidden mysteries, and overcome the perils of the subterranean world.
@@ -82,3 +90,8 @@ size_flags_vertical = 8
 theme = ExtResource("3_lr78u")
 theme_override_styles/hover = ExtResource("4_x4u1p")
 text = "BACK"
+
+[node name="ui_click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ikce1")
+volume_db = 10.0
+pitch_scale = 1.7

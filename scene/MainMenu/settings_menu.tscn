@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjjwpbhaus5vx"]
+[gd_scene load_steps=8 format=3 uid="uid://bjjwpbhaus5vx"]
 
 [ext_resource type="Script" path="res://Script/MainMenu/settings_menu.gd" id="1_6adis"]
 [ext_resource type="Texture2D" uid="uid://bt2272yo8pm" path="res://Assets/MainMenu/BackGround (1).png" id="1_ft61q"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://dkv44kcquj5mr" path="res://Data/main_menu.tres" id="3_eexh3"]
 [ext_resource type="PackedScene" uid="uid://2fsmolr616kq" path="res://scene/MainMenu/settings_tab_container.tscn" id="3_m1ali"]
 [ext_resource type="StyleBox" uid="uid://wo5g3gyeikrj" path="res://Data/main_menu_exit.tres" id="4_jic4f"]
+[ext_resource type="AudioStream" uid="uid://dhsgv8feqgb5i" path="res://Audio/ui_click.mp3" id="7_wc3so"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -65,3 +66,8 @@ size_flags_vertical = 8
 theme = ExtResource("3_eexh3")
 theme_override_styles/hover = ExtResource("4_jic4f")
 text = "BACK"
+
+[node name="ui_click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_wc3so")
+volume_db = 10.0
+pitch_scale = 1.7

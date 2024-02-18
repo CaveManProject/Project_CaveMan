@@ -1,10 +1,9 @@
-
-[gd_scene load_steps=29 format=3 uid="uid://pbvhvyf2qwro"]
+[gd_scene load_steps=30 format=3 uid="uid://pbvhvyf2qwro"]
 
 [ext_resource type="Script" path="res://Script/World/World.gd" id="1_j7jpn"]
 [ext_resource type="PackedScene" uid="uid://blugsjfr8pef1" path="res://scene/player.tscn" id="1_sp1lt"]
-[ext_resource type="PackedScene" uid="uid://duk2ea22qr0ev" path="res://scene/MainMenu/pause_menu.tscn" id="2_wgtww"]
 [ext_resource type="Texture2D" uid="uid://p6lcvcty6o8k" path="res://Assets/TileSets/floor.png" id="2_73k5m"]
+[ext_resource type="PackedScene" uid="uid://duk2ea22qr0ev" path="res://scene/MainMenu/pause_menu.tscn" id="2_wgtww"]
 [ext_resource type="Texture2D" uid="uid://c4cyuqjd13mbb" path="res://Assets/TileSets/stone.png" id="3_tjpen"]
 [ext_resource type="Texture2D" uid="uid://dcdor2efgle12" path="res://Assets/TileSets/amethyst_ore.png" id="3_yrx3v"]
 [ext_resource type="Texture2D" uid="uid://dduvh8ejspytv" path="res://Assets/TileSets/coal_ore.png" id="4_caj3c"]

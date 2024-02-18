@@ -6,6 +6,7 @@ extends Control
 @onready var exit_button = $MarginContainer/HBoxContainer/VBoxContainer/EXIT as Button
 @onready var madeby_button = $MarginContainer/HBoxContainer/VBoxContainer/MADEBY as Button
 
+@onready var ui_click = $ui_click as AudioStreamPlayer2D
 @onready var margin_container = $MarginContainer as MarginContainer
 
 @onready var settings_menu = $SettingsMenu as SettingsMenu
@@ -17,20 +18,24 @@ func _ready():
 	handle_connection_signals()
 	
 func on_start_pressed() -> void:
+	ui_click.play()
 	get_tree().change_scene_to_packed(start_lvl)
 
 func on_settings_pressed() -> void:
+	ui_click.play()
 	margin_container.hide()
 	settings_menu.set_process(true)
 	settings_menu.show()
 	
 	
 func on_madeby_pressed() -> void:
+	ui_click.play()
 	margin_container.hide()
 	madeby_menu.set_process(true)
 	madeby_menu.show()
 
 func on_exit_pressed() -> void:
+	ui_click.play()
 	get_tree().quit()
 
 func on_exit_settings_menu() -> void:
