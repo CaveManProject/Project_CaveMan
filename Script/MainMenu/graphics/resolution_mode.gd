@@ -4,8 +4,12 @@ extends Control
 
 const RESOLUTON_DICTIONARY: Dictionary = {
 	"1152 x 648" : Vector2i (1152, 648),
+	"640 x 800" :  Vector2i (640, 800),
 	"1280 x 720" : Vector2i (1280, 720),
+	"1600 x 900" : Vector2i (1600, 900),
 	"1920 x 1080" : Vector2i (1920, 1080),
+	"2560 x 1440" : Vector2i (2560, 1440),
+	"3840 x 2160" : Vector2i (2840, 2160)
 }
 
 func _ready():
