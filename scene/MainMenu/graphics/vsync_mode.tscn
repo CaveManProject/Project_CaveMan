@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://by071jngjeylk"]
+
+[ext_resource type="Script" path="res://Script/MainMenu/graphics/vsync_mode.gd" id="1_cgp77"]
+[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="1_e7oev"]
+
+[node name="vsync_mode" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cgp77")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.5
+offset_right = 28.5
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/separation = 160
+
+[node name="Vsync" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(264, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_e7oev")
+theme_override_font_sizes/font_size = 32
+text = "Vsync"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="ON_OFF" type="CheckButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(264, 64)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_e7oev")
+theme_override_font_sizes/font_size = 20
+button_pressed = true
+text = "ON/OFF"
+alignment = 1
+
+[connection signal="toggled" from="HBoxContainer/ON_OFF" to="." method="_on_check_button_toggled"]

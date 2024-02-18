@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cbvj7ro3rfffl" path="res://scene/MainMenu/madeby_menu.tscn" id="8_2t00b"]
 
 [node name="MainMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

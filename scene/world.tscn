@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://pbvhvyf2qwro"]
+[gd_scene load_steps=8 format=3 uid="uid://pbvhvyf2qwro"]
 
 [ext_resource type="Script" path="res://Script/World/World.gd" id="1_j7jpn"]
 [ext_resource type="PackedScene" uid="uid://blugsjfr8pef1" path="res://scene/player.tscn" id="1_sp1lt"]
 [ext_resource type="Texture2D" uid="uid://brttk4fjgyn3j" path="res://Assets/TileSets/Ores.png" id="2_na556"]
+[ext_resource type="PackedScene" uid="uid://duk2ea22qr0ev" path="res://scene/MainMenu/pause_menu.tscn" id="2_wgtww"]
 [ext_resource type="PackedScene" uid="uid://dlbfk6yvuxcn7" path="res://scene/Chest/chest.tscn" id="13_wytdu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mxvh0"]
@@ -85,3 +86,8 @@ position = Vector2(24, -88)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pause_menu" parent="CanvasLayer" instance=ExtResource("2_wgtww")]
+visible = false
