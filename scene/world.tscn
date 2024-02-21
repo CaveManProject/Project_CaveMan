@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://pbvhvyf2qwro"]
 
-[ext_resource type="Script" path="res://Script/World/World.gd" id="1_j7jpn"]
+[ext_resource type="Script" path="res://Script/World/World.cs" id="1_3kq5q"]
 [ext_resource type="PackedScene" uid="uid://blugsjfr8pef1" path="res://scene/player.tscn" id="1_sp1lt"]
 [ext_resource type="Texture2D" uid="uid://p6lcvcty6o8k" path="res://Assets/TileSets/floor.png" id="2_73k5m"]
 [ext_resource type="Texture2D" uid="uid://c4cyuqjd13mbb" path="res://Assets/TileSets/stone.png" id="3_tjpen"]
@@ -855,10 +855,7 @@ sources/0 = SubResource("TileSetAtlasSource_cjwib")
 sources/11 = SubResource("TileSetAtlasSource_gvn4b")
 
 [node name="World" type="Node2D"]
-script = ExtResource("1_j7jpn")
-MAP_WIDTH = 40
-MAP_HEIGHT = 40
-SAFE_ZONE_RADIUS = 5
+script = ExtResource("1_3kq5q")
 
 [node name="StoneTileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_c8iyn")
@@ -871,4 +868,5 @@ layer_0/name = "blocks"
 position = Vector2(24, -88)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)

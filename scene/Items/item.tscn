@@ -1,16 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://7npf67665n3l"]
+[gd_scene load_steps=8 format=3 uid="uid://7npf67665n3l"]
 
-[ext_resource type="Script" path="res://Script/Items/Item.gd" id="1_cwy61"]
-[ext_resource type="Script" path="res://Script/Resources/InventoryItem.gd" id="2_mq33a"]
+[ext_resource type="Script" path="res://Script/Items/Item.cs" id="1_xd5cd"]
 [ext_resource type="Texture2D" uid="uid://6tbr5iv4qabq" path="res://Assets/Items/Coal.png" id="3_xip4l"]
 
-[sub_resource type="Resource" id="Resource_hwjkf"]
-script = ExtResource("2_mq33a")
-amount = 1
-type = 0
-
-[sub_resource type="Animation" id="Animation_vfk86"]
-resource_name = "drop_right"
+[sub_resource type="Animation" id="Animation_o1q70"]
+resource_name = "drop_down"
 length = 0.60001
 tracks/0/type = "bezier"
 tracks/0/imported = false
@@ -19,9 +13,9 @@ tracks/0/path = NodePath("Sprite2D:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-20, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.6)
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.6)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -30,9 +24,9 @@ tracks/1/path = NodePath("Sprite2D:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -10, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.2, 0.6)
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-20, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.6)
 }
 
 [sub_resource type="Animation" id="Animation_7ms64"]
@@ -47,6 +41,32 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(20, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.6)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -10, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.6)
+}
+
+[sub_resource type="Animation" id="Animation_vfk86"]
+resource_name = "drop_right"
+length = 0.60001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-20, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.6)
 }
 tracks/1/type = "bezier"
@@ -87,32 +107,6 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.6)
 }
 
-[sub_resource type="Animation" id="Animation_o1q70"]
-resource_name = "drop_down"
-length = 0.60001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.3, 0.6)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-20, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.6)
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fbajt"]
 _data = {
 "drop_down": SubResource("Animation_o1q70"),
@@ -122,8 +116,7 @@ _data = {
 }
 
 [node name="Item" type="Node2D"]
-script = ExtResource("1_cwy61")
-item = SubResource("Resource_hwjkf")
+script = ExtResource("1_xd5cd")
 
 [node name="Interactable" type="Area2D" parent="."]
 
