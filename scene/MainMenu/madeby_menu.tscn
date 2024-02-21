@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Script/MainMenu/madeby_menu.gd" id="1_2djke"]
 [ext_resource type="Texture2D" uid="uid://bt2272yo8pm" path="res://Assets/MainMenu/BackGround (1).png" id="1_lory3"]
 [ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="2_h7qvi"]
-[ext_resource type="Theme" uid="uid://dkv44kcquj5mr" path="res://Data/main_menu.tres" id="3_lr78u"]
-[ext_resource type="StyleBox" uid="uid://wo5g3gyeikrj" path="res://Data/main_menu_exit.tres" id="4_x4u1p"]
+[ext_resource type="Texture2D" uid="uid://vi2p25if5x7w" path="res://Assets/MainMenu/button_bg.png" id="4_nmwg3"]
+[ext_resource type="Texture2D" uid="uid://bfxafmeafhob6" path="res://Assets/MainMenu/button_bg_exit_hover.png" id="5_viyta"]
 [ext_resource type="AudioStream" uid="uid://dhsgv8feqgb5i" path="res://Audio/ui_click.mp3" id="6_ikce1"]
 
 [node name="madeby_menu" type="Control"]
@@ -84,12 +84,28 @@ Made by 4pal Games
 Creator Names: Viktor, Brano, Milos, Jan
 "
 
-[node name="BACK" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="BACK" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-size_flags_vertical = 8
-theme = ExtResource("3_lr78u")
-theme_override_styles/hover = ExtResource("4_x4u1p")
-text = "BACK"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_nmwg3")
+texture_pressed = ExtResource("4_nmwg3")
+texture_hover = ExtResource("5_viyta")
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/BACK"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 105
+theme_override_constants/margin_top = 10
+
+[node name="back" type="Label" parent="MarginContainer/VBoxContainer/BACK/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_h7qvi")
+theme_override_font_sizes/font_size = 35
+text = "back"
 
 [node name="ui_click" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_ikce1")

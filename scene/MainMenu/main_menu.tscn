@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://bp45i5wxj1p7a"]
+[gd_scene load_steps=12 format=3 uid="uid://bp45i5wxj1p7a"]
 
 [ext_resource type="Texture2D" uid="uid://bt2272yo8pm" path="res://Assets/MainMenu/BackGround (1).png" id="1_ioa88"]
 [ext_resource type="Script" path="res://Script/MainMenu/main_menu.gd" id="1_paqix"]
 [ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="2_0ipv5"]
-[ext_resource type="Theme" uid="uid://dkv44kcquj5mr" path="res://Data/main_menu.tres" id="3_hda14"]
-[ext_resource type="StyleBox" uid="uid://ci0pkl5mu3vqn" path="res://Data/main_menu_hover.tres" id="4_276wu"]
-[ext_resource type="StyleBox" uid="uid://wo5g3gyeikrj" path="res://Data/main_menu_exit.tres" id="5_owuqe"]
+[ext_resource type="Texture2D" uid="uid://vi2p25if5x7w" path="res://Assets/MainMenu/button_bg.png" id="4_gwmea"]
+[ext_resource type="Texture2D" uid="uid://d4fko3g0m4xre" path="res://Assets/MainMenu/button_bg_pressed.png" id="5_ifdpd"]
+[ext_resource type="Texture2D" uid="uid://b0amdycnwdyka" path="res://Assets/MainMenu/button_bg_exit.png" id="6_t0ttt"]
+[ext_resource type="Texture2D" uid="uid://bfxafmeafhob6" path="res://Assets/MainMenu/button_bg_exit_hover.png" id="7_8lco8"]
 [ext_resource type="PackedScene" uid="uid://bjjwpbhaus5vx" path="res://scene/MainMenu/settings_menu.tscn" id="7_bhfyy"]
 [ext_resource type="PackedScene" uid="uid://cbvj7ro3rfffl" path="res://scene/MainMenu/madeby_menu.tscn" id="8_2t00b"]
 [ext_resource type="AudioStream" uid="uid://dhsgv8feqgb5i" path="res://Audio/ui_click.mp3" id="9_rrh10"]
@@ -69,51 +70,105 @@ layout_mode = 2
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-theme_override_constants/separation = 18
+theme_override_constants/separation = 25
 alignment = 1
 
 [node name="separator" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
+custom_minimum_size = Vector2(0, 116)
 layout_mode = 2
 
-[node name="PLAY" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(220, 0)
+[node name="PLAY" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
-theme = ExtResource("3_hda14")
-theme_type_variation = &"FlatButton"
+texture_normal = ExtResource("4_gwmea")
+texture_pressed = ExtResource("4_gwmea")
+texture_hover = ExtResource("5_ifdpd")
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/PLAY"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 125
+theme_override_constants/margin_top = 20
+
+[node name="PLAY" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/PLAY/MarginContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("2_0ipv5")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = ExtResource("4_276wu")
+theme_override_font_sizes/font_size = 50
 text = "PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="SETTINGS" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="SETTINGS" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
-theme = ExtResource("3_hda14")
+texture_normal = ExtResource("4_gwmea")
+texture_pressed = ExtResource("4_gwmea")
+texture_hover = ExtResource("5_ifdpd")
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/SETTINGS"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 68
+theme_override_constants/margin_top = 19
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/SETTINGS/MarginContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("2_0ipv5")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = ExtResource("4_276wu")
+theme_override_font_sizes/font_size = 49
 text = "SETTINGS"
 
-[node name="MADEBY" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="MADEBY" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
-theme = ExtResource("3_hda14")
+texture_normal = ExtResource("4_gwmea")
+texture_pressed = ExtResource("4_gwmea")
+texture_hover = ExtResource("5_ifdpd")
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/MADEBY"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 18
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/MADEBY/MarginContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("2_0ipv5")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = ExtResource("4_276wu")
+theme_override_font_sizes/font_size = 50
 text = "MADE BY"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="separator_exit" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 130)
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 
-[node name="EXIT" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="EXIT" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
-theme = ExtResource("3_hda14")
-theme_type_variation = &"FlatButton"
+texture_normal = ExtResource("4_gwmea")
+texture_pressed = ExtResource("6_t0ttt")
+texture_hover = ExtResource("7_8lco8")
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/EXIT"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 138
+theme_override_constants/margin_top = 20
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/EXIT/MarginContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("2_0ipv5")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = ExtResource("5_owuqe")
+theme_override_font_sizes/font_size = 50
 text = "EXIT"
 
 [node name="SettingsMenu" parent="." instance=ExtResource("7_bhfyy")]

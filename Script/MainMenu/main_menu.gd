@@ -1,10 +1,10 @@
 class_name MainMenu
 extends Control
 
-@onready var start_button = $MarginContainer/HBoxContainer/VBoxContainer/PLAY as Button
-@onready var settings_button = $MarginContainer/HBoxContainer/VBoxContainer/SETTINGS as Button
-@onready var exit_button = $MarginContainer/HBoxContainer/VBoxContainer/EXIT as Button
-@onready var madeby_button = $MarginContainer/HBoxContainer/VBoxContainer/MADEBY as Button
+@onready var start_button = $MarginContainer/HBoxContainer/VBoxContainer/PLAY as TextureButton
+@onready var settings_button = $MarginContainer/HBoxContainer/VBoxContainer/SETTINGS as TextureButton
+@onready var exit_button = $MarginContainer/HBoxContainer/VBoxContainer/EXIT as TextureButton
+@onready var madeby_button = $MarginContainer/HBoxContainer/VBoxContainer/MADEBY as TextureButton
 
 @onready var ui_click = $ui_click as AudioStreamPlayer2D
 @onready var margin_container = $MarginContainer as MarginContainer

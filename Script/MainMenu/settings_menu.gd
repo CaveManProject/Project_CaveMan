@@ -1,7 +1,7 @@
 class_name SettingsMenu
 extends Control
 
-@onready var back_button = $MarginContainer/VBoxContainer/BACK as Button
+@onready var back_button = $MarginContainer/VBoxContainer/BACK as TextureButton
 
 @onready var ui_click = $ui_click as AudioStreamPlayer2D
 
