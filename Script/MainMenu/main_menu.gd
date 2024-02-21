@@ -15,7 +15,7 @@ extends Control
 @onready var start_lvl = preload("res://Scene/world.tscn") as PackedScene
 
 func _ready():
-	handle_connection_signals()
+	handle_connection_signals() 
 	
 func on_start_pressed() -> void:
 	ui_click.play()

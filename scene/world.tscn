@@ -866,15 +866,16 @@ tile_set = SubResource("TileSet_c8iyn")
 format = 2
 layer_0/name = "blocks"
 
-[node name="Player" parent="." instance=ExtResource("1_sp1lt")]
-
 [node name="Chest" parent="." instance=ExtResource("13_wytdu")]
 position = Vector2(24, -88)
+
+[node name="Player" parent="." instance=ExtResource("1_sp1lt")]
+position = Vector2(8, 4)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="pause_menu" parent="CanvasLayer" instance=ExtResource("2_wgtww")]
+[node name="pause_menu" parent="UI" instance=ExtResource("2_wgtww")]
 visible = false
