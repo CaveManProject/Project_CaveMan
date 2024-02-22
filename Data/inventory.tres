@@ -1,7 +1,6 @@
-[gd_resource type="Resource" script_class="Inventory" load_steps=2 format=3 uid="uid://dkta715dqlrt"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dkta715dqlrt"]
 
-[ext_resource type="Script" path="res://Script/Resources/Inventory.gd" id="1_csda6"]
+[ext_resource type="Script" path="res://Script/Resources/InventoryResource.cs" id="1_csda6"]
 
 [resource]
 script = ExtResource("1_csda6")
-items = Array[Resource("res://Script/Resources/InventoryItem.gd")]([])

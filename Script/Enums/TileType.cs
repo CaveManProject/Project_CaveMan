@@ -24,24 +24,22 @@ namespace Caveman.Enums
         private static readonly Dictionary<TileType, Texture2D> _itemTextures =
             new()
             {
-                { TileType.AIR, GD.Load<Texture2D>("res://Assets/Textures/Items/air.png") },
-                { TileType.STONE, GD.Load<Texture2D>("res://Assets/Textures/Items/stone.png") },
-                { TileType.COAL, GD.Load<Texture2D>("res://Assets/Textures/Items/coal.png") },
-                { TileType.IRON, GD.Load<Texture2D>("res://Assets/Textures/Items/iron.png") },
-                { TileType.COPPER, GD.Load<Texture2D>("res://Assets/Textures/Items/copper.png") },
-                { TileType.TIN, GD.Load<Texture2D>("res://Assets/Textures/Items/tin.png") },
+                { TileType.STONE, GD.Load<Texture2D>("res://Assets/Items/Stone.png") },
+                { TileType.COAL, GD.Load<Texture2D>("res://Assets/Items/Coal.png") },
+                { TileType.IRON, GD.Load<Texture2D>("res://Assets/Items/Iron.png") },
+                { TileType.COPPER, GD.Load<Texture2D>("res://Assets/Items/Copper.png") },
+                { TileType.TIN, GD.Load<Texture2D>("res://Assets/Items/Tin.png") },
                 {
                     TileType.ALUMINUM,
-                    GD.Load<Texture2D>("res://Assets/Textures/Items/aluminum.png")
+                    GD.Load<Texture2D>("res://Assets/Items/Aluminum.png")
                 },
-                { TileType.GOLD, GD.Load<Texture2D>("res://Assets/Textures/Items/gold.png") },
-                { TileType.DIAMOND, GD.Load<Texture2D>("res://Assets/Textures/Items/diamond.png") },
-                { TileType.EMERALD, GD.Load<Texture2D>("res://Assets/Textures/Items/emerald.png") },
+                { TileType.GOLD, GD.Load<Texture2D>("res://Assets/Items/Gold.png") },
+                { TileType.DIAMOND, GD.Load<Texture2D>("res://Assets/Items/Diamond.png") },
+                { TileType.EMERALD, GD.Load<Texture2D>("res://Assets/Items/Emerald.png") },
                 {
                     TileType.AMETHYST,
-                    GD.Load<Texture2D>("res://Assets/Textures/Items/amethyst.png")
-                },
-                { TileType.BEDROCK, GD.Load<Texture2D>("res://Assets/Textures/Items/bedrock.png") }
+                    GD.Load<Texture2D>("res://Assets/Items/Amethyst.png")
+                }
             };
 
         public static Texture2D GetItemTexture(this TileType tileType)

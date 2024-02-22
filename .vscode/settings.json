@@ -2,5 +2,9 @@
     "cSpell.words": [
         "Randf",
         "tscn"
-    ]
+    ],
+    "files.exclude": {
+        "**/*.{import,piskel}": true,
+        ".godot": true
+    }
 }

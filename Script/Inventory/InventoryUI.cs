@@ -5,13 +5,12 @@ namespace Caveman.Inventory
 {
     public partial class InventoryUI : Control
     {
-        private InventoryResource _inventoryResource;
+        private InventoryResource _inventoryResource = GD.Load<InventoryResource>("res://Data/inventory.tres");
         private Node2D _itemSlots;
 
         public override void _Ready()
         {
             this.ZIndex = 100;
-            this._inventoryResource = this.GetNode<InventoryResource>("InventoryResource");
             this._inventoryResource.UpdateUI += UpdateSlots;
             UpdateSlots();
             Close();
