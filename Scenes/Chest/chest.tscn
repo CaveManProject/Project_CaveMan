@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Script/Chest/Chest.gd" id="1_a1446"]
 [ext_resource type="Texture2D" uid="uid://jn1w1pcln3sj" path="res://Assets/Objects/Single_Chest.png" id="1_rayet"]
-[ext_resource type="PackedScene" uid="uid://mnsmp1yecvky" path="res://Scene/Chest/chest_ui.tscn" id="3_k6vjc"]
+[ext_resource type="PackedScene" uid="uid://mnsmp1yecvky" path="res://Scenes/Chest/chest_ui.tscn" id="3_k6vjc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_neau4"]
 size = Vector2(24, 24)

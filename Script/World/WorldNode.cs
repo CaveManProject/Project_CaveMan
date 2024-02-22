@@ -251,7 +251,7 @@ namespace Caveman.World
 			this._player.AnimateBreaking();
 			this._tileMap.SetCell(0, target, 0, new Vector2I(0, 0));
 			var tile = _grid[target.X][target.Y];
-			var itemScene = ResourceLoader.Load<PackedScene>("res://scene/Items/item.tscn");
+			var itemScene = ResourceLoader.Load<PackedScene>("res://Scenes/Items/item.tscn");
 			var itemNode = itemScene.Instantiate<ItemNode>();
 			itemNode._item = new InventoryItem(tile._tileType);
 			itemNode.GlobalPosition = this._player.GlobalPosition;
