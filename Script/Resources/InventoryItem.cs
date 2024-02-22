@@ -1,53 +1,52 @@
+using System;
 using Caveman.Enums;
 using Godot;
-using System;
 
-
-namespace Caveman.Resources;
-
-public partial class InventoryItem : Resource
+namespace Caveman.Resources
 {
-    public int amount = 1;
-    public TileType tileType;
-
-    public InventoryItem(TileType tileType)
+    public partial class InventoryItem : Resource
     {
-        this.tileType = tileType;
-    }
+        public int amount = 1;
+        public TileType tileType;
 
-    public Texture2D GetTexture() {
-        return this.tileType.GetItemTexture();
-    }
-
-    public static bool operator ==(InventoryItem a, InventoryItem b)
-    {
-        return a.tileType == b.tileType;
-    }
-
-    public static bool operator !=(InventoryItem a, InventoryItem b)
-    {
-        return a.tileType != b.tileType;
-    }
-
-    public override bool Equals(object obj)
-    {
-        if (ReferenceEquals(this, obj))
+        public InventoryItem(TileType tileType)
         {
-            return true;
+            this.tileType = tileType;
         }
 
-        if (obj is null)
+        public Texture2D GetTexture()
         {
-            return false;
+            return this.tileType.GetItemTexture();
         }
 
-        return this.tileType == ((InventoryItem)obj).tileType;
-    }
+        public static bool operator ==(InventoryItem a, InventoryItem b)
+        {
+            return a.tileType == b.tileType;
+        }
 
-    public override int GetHashCode()
-    {
-        return this.tileType.GetHashCode() ^ this.amount.GetHashCode();
+        public static bool operator !=(InventoryItem a, InventoryItem b)
+        {
+            return a.tileType != b.tileType;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj is null)
+            {
+                return false;
+            }
+
+            return this.tileType == ((InventoryItem)obj).tileType;
+        }
+
+        public override int GetHashCode()
+        {
+            return this.tileType.GetHashCode() ^ this.amount.GetHashCode();
+        }
     }
 }
-   
-

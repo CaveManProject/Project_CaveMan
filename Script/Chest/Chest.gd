@@ -4,12 +4,12 @@ var player_in_area: bool = false
 @onready var chest_ui = $chest_ui
 
 func _on_openable_area_body_entered(body: CharacterBody2D):
-	if body is Player:
+	if body is PlayerNode:
 		player_in_area = true
 
 
 func _on_openable_area_body_exited(body: CharacterBody2D):
-	if body is Player:
+	if body is PlayerNode:
 		player_in_area = false
 
 func _process(delta: float):
