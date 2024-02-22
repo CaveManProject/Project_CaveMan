@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Project_CaveMan"
-run/main_scene="res://scene/MainMenu/main_menu.tscn"
-config/features=PackedStringArray("4.2", "Forward Plus")
+run/main_scene="res://Scenes/MainMenu/main_menu.tscn"
+config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [audio]
@@ -22,6 +22,10 @@ buses/default_bus_layout="res://Data/default_bus_layout.tres"
 [display]
 
 window/size/mode=3
+
+[dotnet]
+
+project/assembly_name="Project_CaveMan"
 
 [input]
 

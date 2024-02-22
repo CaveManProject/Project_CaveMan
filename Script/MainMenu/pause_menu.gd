@@ -7,7 +7,7 @@ extends Node
 @onready var PauseMenu = $"." as Control
 @onready var ui_click = $ui_click as AudioStreamPlayer2D
 
-@onready var settings = preload("res://scene/MainMenu/settings_pause_menu.tscn") as PackedScene
+@onready var settings = preload("res://Scenes/MainMenu/settings_pause_menu.tscn") as PackedScene
 
 func _ready():
 	handle_connection_signals()
@@ -44,7 +44,7 @@ func _on_settings_pressed()-> void:
 func _on_quit_pressed() -> void:
 	get_tree().paused = false
 	ui_click.play()
-	get_tree().change_scene_to_file("res://scene/MainMenu/main_menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/MainMenu/main_menu.tscn")
 	#get_tree().quit()
 	
 

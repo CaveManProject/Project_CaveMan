@@ -1,9 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://pbvhvyf2qwro"]
+[gd_scene load_steps=29 format=3 uid="uid://pbvhvyf2qwro"]
 
-[ext_resource type="Script" path="res://Script/World/World.gd" id="1_j7jpn"]
-[ext_resource type="PackedScene" uid="uid://blugsjfr8pef1" path="res://scene/player.tscn" id="1_sp1lt"]
+[ext_resource type="Script" path="res://Script/World/WorldNode.cs" id="1_3kq5q"]
+[ext_resource type="PackedScene" uid="uid://blugsjfr8pef1" path="res://Scenes/player.tscn" id="1_sp1lt"]
 [ext_resource type="Texture2D" uid="uid://p6lcvcty6o8k" path="res://Assets/TileSets/floor.png" id="2_73k5m"]
-[ext_resource type="PackedScene" uid="uid://duk2ea22qr0ev" path="res://scene/MainMenu/pause_menu.tscn" id="2_wgtww"]
+[ext_resource type="PackedScene" uid="uid://duk2ea22qr0ev" path="res://Scenes/MainMenu/pause_menu.tscn" id="2_wgtww"]
 [ext_resource type="Texture2D" uid="uid://c4cyuqjd13mbb" path="res://Assets/TileSets/stone.png" id="3_tjpen"]
 [ext_resource type="Texture2D" uid="uid://dcdor2efgle12" path="res://Assets/TileSets/amethyst_ore.png" id="3_yrx3v"]
 [ext_resource type="Texture2D" uid="uid://dduvh8ejspytv" path="res://Assets/TileSets/coal_ore.png" id="4_caj3c"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://cjea764myysvi" path="res://Assets/TileSets/gold_ore.png" id="9_lq81w"]
 [ext_resource type="Texture2D" uid="uid://cyr3h5t376x70" path="res://Assets/TileSets/diamond_ore.png" id="10_4k2vi"]
 [ext_resource type="Texture2D" uid="uid://dbngi2y874g7m" path="res://Assets/TileSets/emerald_ore.png" id="11_302eb"]
-[ext_resource type="PackedScene" uid="uid://dlbfk6yvuxcn7" path="res://scene/Chest/chest.tscn" id="13_wytdu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cjwib"]
 texture = ExtResource("2_73k5m")
@@ -856,23 +855,22 @@ sources/0 = SubResource("TileSetAtlasSource_cjwib")
 sources/11 = SubResource("TileSetAtlasSource_gvn4b")
 
 [node name="World" type="Node2D"]
-script = ExtResource("1_j7jpn")
-MAP_WIDTH = 40
-MAP_HEIGHT = 40
-SAFE_ZONE_RADIUS = 5
+script = ExtResource("1_3kq5q")
+_mapWidth = 25
+_mapHeight = 25
+_generatorSpawnChance = 0.7
+_maxGenerators = 20
 
 [node name="StoneTileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_c8iyn")
 format = 2
 layer_0/name = "blocks"
 
-[node name="Chest" parent="." instance=ExtResource("13_wytdu")]
-position = Vector2(24, -88)
-
 [node name="Player" parent="." instance=ExtResource("1_sp1lt")]
 position = Vector2(8, 4)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="UI" type="CanvasLayer" parent="."]

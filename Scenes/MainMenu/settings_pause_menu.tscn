@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="1_h12y5"]
 [ext_resource type="Script" path="res://Script/MainMenu/settings_pause_menu.gd" id="1_v4io2"]
 [ext_resource type="Theme" uid="uid://dkv44kcquj5mr" path="res://Data/main_menu.tres" id="2_fi20q"]
-[ext_resource type="PackedScene" uid="uid://2fsmolr616kq" path="res://scene/MainMenu/settings_tab_container.tscn" id="2_nl8mq"]
+[ext_resource type="PackedScene" uid="uid://2fsmolr616kq" path="res://Scenes/MainMenu/settings_tab_container.tscn" id="2_nl8mq"]
 [ext_resource type="AudioStream" uid="uid://dhsgv8feqgb5i" path="res://Audio/ui_click.mp3" id="5_aitwq"]
 
 [node name="settings_PauseMenu" type="Control"]

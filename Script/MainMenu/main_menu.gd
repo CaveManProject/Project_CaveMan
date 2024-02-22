@@ -12,7 +12,7 @@ extends Control
 @onready var settings_menu = $SettingsMenu as SettingsMenu
 @onready var madeby_menu = $madeby_menu as MadeByMenu
 
-@onready var start_lvl = preload("res://Scene/world.tscn") as PackedScene
+@onready var start_lvl = preload("res://Scenes/world.tscn") as PackedScene
 
 func _ready():
 	handle_connection_signals() 

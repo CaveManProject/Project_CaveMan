@@ -9,7 +9,7 @@ func _ready():
 
 func on_resume_pressed() -> void:
 	ui_click.play()
-	get_tree().change_scene_to_file("res://scene/world.tscn")
+	get_tree().change_scene_to_file("res://Scenes/world.tscn")
 	
 func handle_connection_signals():
 	back_button.button_down.connect(on_resume_pressed)

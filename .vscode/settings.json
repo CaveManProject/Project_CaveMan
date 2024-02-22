@@ -1,0 +1,11 @@
+{
+    "cSpell.words": [
+        "Mathf",
+        "Randf",
+        "tscn"
+    ],
+    "files.exclude": {
+        "**/*.{import,piskel}": true,
+        ".godot": true
+    }
+}
