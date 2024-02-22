@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "streetsidesoftware.code-spell-checker",
+        "ms-dotnettools.csdevkit",
+        "neikeq.godot-csharp-vscode",
+        "EditorConfig.EditorConfig",
+        "tal7aouy.icons",
+        "eamodio.gitlens"
+    ]
+}

@@ -3,7 +3,7 @@ class_name World extends Node
 @onready var tileMap: TileMap = $StoneTileMap
 @onready var player: Player = $Player
 
-var item_scene_factory = preload("res://Scene/Items/item.tscn")
+var item_scene_factory = preload("res://Scenes/Items/item.tscn")
 
 var rng = RandomNumberGenerator.new()
 
