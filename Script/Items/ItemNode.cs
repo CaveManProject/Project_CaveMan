@@ -6,8 +6,7 @@ namespace Caveman.Item
 {
 	public partial class ItemNode : Node2D
 	{
-		[Export]
-		public InventoryItem _item;
+		public InventoryItem item;
 		private AnimationPlayer _animationPlayer;
 		private Sprite2D _sprite;
 		private PlayerNode _player = null;
@@ -17,10 +16,10 @@ namespace Caveman.Item
 		{
 			this._animationPlayer = this.GetNode<AnimationPlayer>("AnimationPlayer");
 			this._sprite = this.GetNode<Sprite2D>("Sprite2D");
-			this._sprite.Texture = this._item.GetTexture();
+			this._sprite.Texture = this.item.GetTexture();
 		}
 
-		private void _on_interactable_body_entered(CharacterBody2D body)
+		private void _on_interactable_body_entered(Node2D body)
 		{
 			if (body is PlayerNode)
 			{
@@ -28,7 +27,7 @@ namespace Caveman.Item
 			}
 		}
 
-		private void _on_interactable_body_exited(CharacterBody2D body)
+		private void _on_interactable_body_exited(Node2D body)
 		{
 			if (body is PlayerNode)
 			{
@@ -41,7 +40,7 @@ namespace Caveman.Item
 			if (!this._collected && this._player != null && !this._animationPlayer.IsPlaying())
 			{
 				this._collected = true;
-				this._player.Collect(this._item);
+				this._player.Collect(this.item);
 				this.QueueFree();
 			}
 		}

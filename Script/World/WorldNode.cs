@@ -88,12 +88,13 @@ namespace Caveman.World
 			do
 			{
 				position = new Vector2I(GD.RandRange(0, _mapWidth), GD.RandRange(0, _mapHeight));
-			} while (!IsInSafeZone(position));
+			} while (IsInSafeZone(position));
 			return position;
 		}
 
 		private void InitGrid()
 		{
+			this._grid = new();
 			for (var x = 0; x < _mapWidth; x++)
 			{
 				var row = new Array<Tile>();
@@ -172,7 +173,6 @@ namespace Caveman.World
 					var tile = _grid[x][y];
 					var observation = GetObservation(new Vector2I(x, y));
 					var (tileX, rotation) = tile.GetVariant(observation);
-					GD.Print($"Tile: {tile._tileType}, TileX: {tileX}, Rotation: {rotation}");
 					this._tileMap.SetCell(
 						0,
 						new Vector2I(x, y),
@@ -253,7 +253,7 @@ namespace Caveman.World
 			var tile = _grid[target.X][target.Y];
 			var itemScene = ResourceLoader.Load<PackedScene>("res://Scenes/Items/item.tscn");
 			var itemNode = itemScene.Instantiate<ItemNode>();
-			itemNode._item = new InventoryItem(tile._tileType);
+			itemNode.item = new InventoryItem(tile._tileType);
 			itemNode.GlobalPosition = this._player.GlobalPosition;
 			this.GetParent().AddChild(itemNode);
 			itemNode.Drop(direction);

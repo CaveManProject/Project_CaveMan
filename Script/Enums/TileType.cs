@@ -51,7 +51,7 @@ namespace Caveman.Enums
         {
             if (onlyOres)
             {
-                return (TileType)GD.RandRange(2, 11);
+                return (TileType)GD.RandRange(2, 10);
             }
 
             return (TileType)GD.RandRange(0, 12);

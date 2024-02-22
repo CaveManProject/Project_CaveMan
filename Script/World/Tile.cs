@@ -73,7 +73,7 @@ namespace Caveman.World
 
 		public bool IsBreakable()
 		{
-			return _tileType != TileType.BEDROCK;
+			return _tileType != TileType.BEDROCK && !this.IsAir();
 		}
 
 		public void ClearTile()

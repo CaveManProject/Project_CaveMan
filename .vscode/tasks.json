@@ -3,7 +3,7 @@
     "tasks": [
         {
             "label": "build",
-            "command": "/Applications/Godot_mono.app/Contents/MacOS/Godot",
+            "command": "C:/Users/brank/Desktop/Godot/GodotConsole.exe",
             "type": "process",
             "args": [
                 "--build-solutions",

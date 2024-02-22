@@ -10,7 +10,7 @@
             "request": "launch",
             "mode": "executable",
             "preLaunchTask": "build",
-            "executable": "/Applications/Godot_mono.app/Contents/MacOS/Godot",
+            "executable": "C:/Users/brank/Desktop/Godot/GodotConsole.exe",
             "executableArguments": [
                 "--path",
                 "",
@@ -23,7 +23,7 @@
             "request": "launch",
             "mode": "executable",
             "preLaunchTask": "build",
-            "executable": "/Applications/Godot_mono.app/Contents/MacOS/Godot",
+            "executable": "C:/Users/brank/Desktop/Godot/GodotConsole.exe",
             "executableArguments": [
                 "--path",
                 ""
