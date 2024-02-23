@@ -3,7 +3,7 @@
     "tasks": [
         {
             "label": "build",
-            "command": "C:/Users/brank/Desktop/Godot/GodotConsole.exe",
+            "command": "C:/Users/vikto/OneDrive/Počítač/Godot/Godot.exe",
             "type": "process",
             "args": [
                 "--build-solutions",

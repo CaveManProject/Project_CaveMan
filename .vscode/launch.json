@@ -10,7 +10,7 @@
             "request": "launch",
             "mode": "executable",
             "preLaunchTask": "build",
-            "executable": "C:/Users/brank/Desktop/Godot/GodotConsole.exe",
+            "executable": "C:/Users/vikto/OneDrive/Počítač/Godot/GodotConsole.exe",
             "executableArguments": [
                 "--path",
                 "",
@@ -23,7 +23,7 @@
             "request": "launch",
             "mode": "executable",
             "preLaunchTask": "build",
-            "executable": "C:/Users/brank/Desktop/Godot/GodotConsole.exe",
+            "executable": "C:/Users/vikto/OneDrive/Počítač/Godot/GodotConsole.exe",
             "executableArguments": [
                 "--path",
                 ""
