@@ -26,6 +26,7 @@ namespace Caveman.World
             this.GENERATOR_DESTROY_CHANCE = _generatorDestroyChance;
             this.MAX_GENERATORS = _maxGenerators;
             GenerateChunk(safeZone);
+            CreateOreChunks();
         }
 
         private Vector2I CENTER => new(CHUNK_SIZE / 2, CHUNK_SIZE / 2);
