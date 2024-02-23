@@ -856,8 +856,8 @@ sources/11 = SubResource("TileSetAtlasSource_gvn4b")
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_3kq5q")
-_mapWidth = 25
-_mapHeight = 25
+_mapSize = 200
+_chunkSize = 32
 _generatorSpawnChance = 0.7
 _maxGenerators = 20
 
@@ -867,7 +867,6 @@ format = 2
 layer_0/name = "blocks"
 
 [node name="Player" parent="." instance=ExtResource("1_sp1lt")]
-position = Vector2(8, 4)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
