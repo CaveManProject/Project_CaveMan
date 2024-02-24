@@ -59,6 +59,12 @@ namespace Caveman.World
 		[Export]
 		private int _cellSize = 16;
 
+		/// <summary>
+		/// Render radius.
+		/// </summary>
+		[Export]
+		private int _renderRadius = 2;
+
 		private TileMap _tileMap;
 		private PlayerNode _player;
 		private Array<OreChunkGenerator> _generators = new();
@@ -67,10 +73,21 @@ namespace Caveman.World
 		public override void _Ready()
 		{
 			this._tileMap = this.GetNode<TileMap>("StoneTileMap");
-			this._map = new MapGenerator(_mapSize, _safeZoneRadius, _chunkSize, _maxIterations, _generatorSpawnChance, _generatorDestroyChance, _maxGenerators);
+			this._map = new MapGenerator(_mapSize, _safeZoneRadius, _chunkSize, _maxIterations, _generatorSpawnChance, _generatorDestroyChance, _maxGenerators, _renderRadius);
 			this._player = this.GetNode<PlayerNode>("Player");
-			this._player.GlobalPosition += this._tileMap.MapToLocal(new Vector2I(_mapSize / 2, _mapSize / 2));
-			this.RenderTiles(this._map.CHUNK_CENTER);
+			this._player.GlobalPosition += this._tileMap.MapToLocal(this._map.CENTER + new Vector2I(_chunkSize / 2, _chunkSize / 2));
+			InitialRender();
+		}
+
+		private void InitialRender()
+		{
+			for (var x = -_renderRadius; x <= _renderRadius; x++)
+			{
+				for (var y = -_renderRadius; y <= _renderRadius; y++)
+				{
+					this.RenderTiles(this._map.CHUNK_CENTER + new Vector2I(x, y));
+				}
+			}
 		}
 
 
@@ -170,10 +187,13 @@ namespace Caveman.World
 			{
 				this.MineBlock(target, this._player.GetDirection());
 			}
-			var newChunk = this._map.UpdateMap(playerCoords);
-			if (newChunk.HasValue)
+			var newChunks = this._map.UpdateMap(playerCoords);
+			if (newChunks.Count > 0)
 			{
-				this.RenderTiles(newChunk.GetValueOrDefault(this._map.CHUNK_CENTER));
+				foreach (var newChunk in newChunks)
+				{
+					this.RenderTiles(newChunk);
+				}
 			}
 
 		}
