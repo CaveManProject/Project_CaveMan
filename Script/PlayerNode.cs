@@ -15,7 +15,7 @@ namespace Caveman.Player
 
 		[Export]
 		private PlayerState _playerState = PlayerState.IDLE;
-		
+
 		private InventoryResource _inventory = GD.Load<InventoryResource>("res://Data/inventory.tres");
 
 		public override void _Ready()
@@ -41,7 +41,6 @@ namespace Caveman.Player
 
 		public void Collect(InventoryItem item)
 		{
-            GD.Print("Collecting item: ", item);
 			this._inventory.Insert(item);
 		}
 
