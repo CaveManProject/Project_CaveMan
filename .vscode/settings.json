@@ -8,5 +8,6 @@
         "**/*.{import,piskel}": true,
         ".godot": true
     },
+    "godot_tools.editor_path": "c:\\Users\\brank\\Desktop\\Godot\\Godot.exe",
     "editor.formatOnSave": true
 }

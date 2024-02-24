@@ -643,4 +643,4 @@ offset_bottom = 62.0
 energy = 0.88
 shadow_enabled = true
 texture = ExtResource("5_bnkax")
-texture_scale = 0.5
+texture_scale = 0.15

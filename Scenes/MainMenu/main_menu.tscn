@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bp45i5wxj1p7a"]
 
 [ext_resource type="Texture2D" uid="uid://bt2272yo8pm" path="res://Assets/MainMenu/BackGround (1).png" id="1_ioa88"]
-[ext_resource type="Script" path="res://Script/MainMenu/main_menu.gd" id="1_paqix"]
+[ext_resource type="Script" path="res://Script/MainMenu/MainMenu.cs" id="1_tk70t"]
 [ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="2_0ipv5"]
 [ext_resource type="Texture2D" uid="uid://vi2p25if5x7w" path="res://Assets/MainMenu/button_bg.png" id="4_gwmea"]
 [ext_resource type="Texture2D" uid="uid://d4fko3g0m4xre" path="res://Assets/MainMenu/button_bg_pressed.png" id="5_ifdpd"]
@@ -20,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_paqix")
+script = ExtResource("1_tk70t")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -189,3 +189,8 @@ bus = &"sfx"
 stream = ExtResource("10_4qotu")
 autoplay = true
 bus = &"music"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/PLAY" to="." method="OnStartPressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/SETTINGS" to="." method="OnSettingsPressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MADEBY" to="." method="OnMadeByPressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/EXIT" to="." method="OnExitPressed"]

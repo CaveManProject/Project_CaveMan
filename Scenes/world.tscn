@@ -867,8 +867,10 @@ format = 2
 layer_0/name = "blocks"
 
 [node name="Player" parent="." instance=ExtResource("1_sp1lt")]
+position = Vector2(8, 4)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="UI" type="CanvasLayer" parent="."]
