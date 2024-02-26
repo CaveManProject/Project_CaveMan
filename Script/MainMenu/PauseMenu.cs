@@ -37,18 +37,21 @@ namespace Caveman.Menu
 
 		private void _on_resume_pressed()
 		{
+			_uiClick.Play();
 			Resume();
 		}
 
 		private void _on_settings_pressed()
 		{
 			this.GetTree().Paused = false;
+			_uiClick.Play();
 			this.GetTree().ChangeSceneToPacked(_settingsScene);
 		}
 
 		private void _on_quit_pressed()
 		{
 			this.GetTree().Paused = false;
+			_uiClick.Play();
 			this.GetTree().ChangeSceneToFile("res://Scenes/MainMenu/main_menu.tscn");
 		}
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cbvj7ro3rfffl"]
 
-[ext_resource type="Script" path="res://Script/MainMenu/MadeByMenu.gd" id="1_2djke"]
 [ext_resource type="Texture2D" uid="uid://bt2272yo8pm" path="res://Assets/MainMenu/BackGround (1).png" id="1_lory3"]
+[ext_resource type="Script" path="res://Script/MainMenu/MadeByMenu.cs" id="1_mepcw"]
 [ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="2_h7qvi"]
 [ext_resource type="Texture2D" uid="uid://vi2p25if5x7w" path="res://Assets/MainMenu/button_bg.png" id="4_nmwg3"]
 [ext_resource type="Texture2D" uid="uid://bfxafmeafhob6" path="res://Assets/MainMenu/button_bg_exit_hover.png" id="5_viyta"]
@@ -14,7 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_2djke")
+script = ExtResource("1_mepcw")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -111,3 +111,5 @@ text = "back"
 stream = ExtResource("6_ikce1")
 volume_db = 10.0
 pitch_scale = 1.7
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BACK" to="." method="OnBackPressed"]

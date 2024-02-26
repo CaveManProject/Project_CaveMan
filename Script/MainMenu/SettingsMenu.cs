@@ -14,6 +14,7 @@ namespace Caveman.Menu
 
 		private void _on_back_pressed()
 		{
+			_uiClick.Play();
 			this.GetTree().ChangeSceneToFile("res://Scenes/MainMenu/main_menu.tscn");
 		}
 	}
