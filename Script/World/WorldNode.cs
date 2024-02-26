@@ -1,4 +1,5 @@
 using System;
+using System.Numerics;
 using Caveman.Enums;
 using Caveman.Item;
 using Caveman.Player;
@@ -14,13 +15,13 @@ namespace Caveman.World
 		/// The width of the map.
 		/// </summary>
 		[Export]
-		private int _mapWidth = 100;
+		private int _mapSize;
 
 		/// <summary>
-		/// The height of the map.
-		/// </summary>
+		/// The size of the chunk
+		/// 
 		[Export]
-		private int _mapHeight = 100;
+		private int _chunkSize;
 
 		/// <summary>
 		/// The radius of the safe zone around spawn without ores.
@@ -58,124 +59,64 @@ namespace Caveman.World
 		[Export]
 		private int _cellSize = 16;
 
+		/// <summary>
+		/// Render radius.
+		/// </summary>
+		[Export]
+		private int _renderRadius = 2;
+
 		private TileMap _tileMap;
 		private PlayerNode _player;
-		private Array<Array<Tile>> _grid = new();
 		private Array<OreChunkGenerator> _generators = new();
+		private MapGenerator _map;
 
-		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
 			this._tileMap = this.GetNode<TileMap>("StoneTileMap");
+			this._map = new MapGenerator(_mapSize, _safeZoneRadius, _chunkSize, _maxIterations, _generatorSpawnChance, _generatorDestroyChance, _maxGenerators, _renderRadius);
 			this._player = this.GetNode<PlayerNode>("Player");
-			this._player.GlobalPosition += new Vector2I(_mapWidth / 2, _mapHeight / 2) * _cellSize;
-			this.InitGrid();
-			this.CreateChunks();
-			this.RenderTiles();
+			this._player.GlobalPosition += this._tileMap.MapToLocal(this._map.CENTER + new Vector2I(_chunkSize / 2, _chunkSize / 2));
+			InitialRender();
 		}
 
-		private bool IsInSafeZone(Vector2I position)
+		private void InitialRender()
 		{
-			var distance = Math.Sqrt(
-				Math.Pow(position.X - _mapWidth / 2, 2) + Math.Pow(position.Y - _mapHeight / 2, 2)
-			);
-			return distance < _safeZoneRadius;
-		}
-
-		private Vector2I GetRandomSafePosition()
-		{
-			Vector2I position;
-			do
+			for (var x = -_renderRadius; x <= _renderRadius; x++)
 			{
-				position = new Vector2I(GD.RandRange(0, _mapWidth), GD.RandRange(0, _mapHeight));
-			} while (IsInSafeZone(position));
-			return position;
-		}
-
-		private void InitGrid()
-		{
-			this._grid = new();
-			for (var x = 0; x < _mapWidth; x++)
-			{
-				var row = new Array<Tile>();
-				for (var y = 0; y < _mapHeight; y++)
+				for (var y = -_renderRadius; y <= _renderRadius; y++)
 				{
-					if (x == 0 || x == _mapWidth - 1 || y == 0 || y == _mapHeight - 1)
-					{
-						row.Add(new Tile(TileType.BEDROCK));
-					}
-					else if (IsInSafeZone(new Vector2I(x, y)))
-					{
-						row.Add(new Tile(TileType.AIR));
-					}
-					else
-					{
-						row.Add(new Tile(TileType.STONE));
-					}
+					this.RenderTiles(this._map.CHUNK_CENTER + new Vector2I(x, y));
 				}
-				this._grid.Add(row);
 			}
 		}
 
-		private void CreateChunks()
+
+		/// <summary>
+		/// Render the tiles in the map.
+		/// </summary>
+		/// <param name="target">Chunk position</param>
+		private void RenderTiles(Vector2I target)
 		{
-			var iteration = 0;
-			while (iteration < _maxIterations)
+			for (var x = 0; x < _chunkSize; x++)
 			{
-				// Random: Maybe destroy generator?
-				for (var i = 0; i < _generators.Count; i++)
+				for (var y = 0; y < _chunkSize; y++)
 				{
-					if (GD.Randf() < _generatorDestroyChance)
+					var position = target * _chunkSize + new Vector2I(x, y);
+					var tile = _map.GetTile(position);
+					if (tile is null || tile.IsAir())
 					{
-						_generators.RemoveAt(i);
-						break; // Destroy only one generator per iteration
+						this._tileMap.SetCell(
+							0,
+							position,
+							(int)TileType.AIR,
+							new Vector2I(0, 0));
+						continue;
 					}
-				}
-
-				// Spawn new generator, with chance
-				if (GD.Randf() < _generatorSpawnChance && _generators.Count < _maxGenerators)
-				{
-					var generator = new OreChunkGenerator(GetRandomSafePosition());
-					_generators.Add(generator);
-				}
-
-				// Move generators
-				for (var i = 0; i < _generators.Count; i++)
-				{
-					var generator = _generators[i];
-					var target = generator.RotatePosition();
-					if (
-						target.X >= 1
-						&& target.X < _mapWidth - 1
-						&& target.Y >= 1
-						&& target.Y < _mapHeight - 1
-						&& _grid[target.X][target.Y].IsBreakable()
-					)
-					{
-						generator.GenerateOre();
-						_grid[target.X][target.Y]._tileType = generator._tileType;
-						if (generator._chunkSize == 10)
-						{
-							_generators.RemoveAt(i);
-						}
-					}
-				}
-				iteration += 1;
-			}
-		}
-
-		private void RenderTiles()
-		{
-			for (var x = 0; x < _mapWidth; x++)
-			{
-				for (var y = 0; y < _mapHeight; y++)
-				{
-					var tile = _grid[x][y];
-					var observation = GetObservation(new Vector2I(x, y));
+					var observation = _map.GetObservation(position);
 					var (tileX, rotation) = tile.GetVariant(observation);
 					this._tileMap.SetCell(
 						0,
-						new Vector2I(x, y),
+						position,
 						(int)tile._tileType,
 						new Vector2I(tileX, rotation != null ? (int)rotation : 0)
 					);
@@ -183,52 +124,23 @@ namespace Caveman.World
 			}
 		}
 
-		private byte GetObservation(Vector2I target)
-		{
-			byte observation = 0b0000;
-			if (_mapWidth > target.X + 1)
-			{
-				observation |= _grid[target.X + 1][target.Y].IsAir()
-					? (byte)ObservationMask.RIGHT
-					: (byte)0;
-			}
-			if (target.X - 1 > 0)
-			{
-				observation |= _grid[target.X - 1][target.Y].IsAir()
-					? (byte)ObservationMask.LEFT
-					: (byte)0;
-			}
-			if (_mapHeight > target.Y + 1)
-			{
-				observation |= _grid[target.X][target.Y + 1].IsAir()
-					? (byte)ObservationMask.DOWN
-					: (byte)0;
-			}
-			if (target.Y - 1 > 0)
-			{
-				observation |= _grid[target.X][target.Y - 1].IsAir()
-					? (byte)ObservationMask.UP
-					: (byte)0;
-			}
-			return observation;
-		}
 
 		private void UpdateTile(Vector2I target)
 		{
-			if (target.X <= 0 || target.X > _grid.Count)
+			if (target.X <= 0 || target.X > _mapSize)
 			{
 				return;
 			}
-			if (target.Y <= 0 || target.Y > _grid[target.X].Count)
+			if (target.Y <= 0 || target.Y > _mapSize)
 			{
 				return;
 			}
-			var tile = _grid[target.X][target.Y];
-			if (tile.IsAir())
+			var tile = _map.GetTile(target);
+			if (tile is null || tile.IsAir())
 			{
 				return;
 			}
-			var observation = GetObservation(target);
+			var observation = _map.GetObservation(target);
 			var (tileX, rotation) = tile.GetVariant(observation);
 			this._tileMap.SetCell(
 				0,
@@ -250,32 +162,40 @@ namespace Caveman.World
 		{
 			this._player.AnimateBreaking();
 			this._tileMap.SetCell(0, target, 0, new Vector2I(0, 0));
-			var tile = _grid[target.X][target.Y];
+			var tile = _map.GetTile(target);
+			if (tile is null)
+			{
+				GD.PrintErr("Tile is null?!!!");
+				return;
+			}
 			var itemScene = ResourceLoader.Load<PackedScene>("res://Scenes/Items/item.tscn");
 			var itemNode = itemScene.Instantiate<ItemNode>();
 			itemNode.item = new InventoryItem(tile._tileType);
 			itemNode.GlobalPosition = this._player.GlobalPosition;
 			this.GetParent().AddChild(itemNode);
 			itemNode.Drop(direction);
-			_grid[target.X][target.Y].ClearTile();
+			tile.ClearTile();
 			UpdateSurroundingTiles(target);
 		}
+
 
 		public override void _Process(double delta)
 		{
 			var playerCoords = this._tileMap.LocalToMap(this._player.GlobalPosition);
 			var target = playerCoords + this._player.GetDirection();
-			if (Input.IsActionJustPressed("e") && _grid[target.X][target.Y].IsBreakable())
+			if (Input.IsActionJustPressed("e") && this._map.GetTile(target).IsBreakable())
 			{
-				MineBlock(target, this._player.GetDirection());
+				this.MineBlock(target, this._player.GetDirection());
+			}
+			var newChunks = this._map.UpdateMap(playerCoords);
+			if (newChunks.Count > 0)
+			{
+				foreach (var newChunk in newChunks)
+				{
+					this.RenderTiles(newChunk);
+				}
 			}
 
-			if (Input.IsActionJustPressed("space"))
-			{
-				InitGrid();
-				CreateChunks();
-				RenderTiles();
-			}
 		}
 	}
 }

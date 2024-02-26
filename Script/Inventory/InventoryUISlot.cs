@@ -16,7 +16,7 @@ namespace Caveman.Inventory
 
 		public void Update(InventoryItem item)
 		{
-			
+
 			this._itemVisual.Visible = true;
 			this._itemVisual.Texture = item.GetTexture();
 			if (item.amount > 1)
@@ -24,12 +24,11 @@ namespace Caveman.Inventory
 				this._amountText.Visible = true;
 				this._amountText.Text = item.amount.ToString();
 			}
-			
+
 		}
 
 		public void HideSlot()
 		{
-			GD.Print("Hiding slot");
 			this._itemVisual.Visible = false;
 		}
 	}
