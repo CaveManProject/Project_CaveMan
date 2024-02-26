@@ -1,7 +1,7 @@
 using System;
 using Godot;
 
-namespace Caveman.MainMenu
+namespace Caveman.Menu
 {
 	public partial class MainMenu : Control
 	{
