@@ -3,7 +3,7 @@ extends Control
 
 @onready var back_button = $MarginContainer/VBoxContainer/BACK as TextureButton
 
-@onready var ui_click = $ui_click as AudioStreamPlayer2D
+@onready var ui_click = $UIClick as AudioStreamPlayer2D
 
 signal exit_settings_menu
 
@@ -15,4 +15,3 @@ func on_exit_pressed() -> void:
 		ui_click.play()
 		exit_settings_menu.emit()
 		set_process(false)
-	

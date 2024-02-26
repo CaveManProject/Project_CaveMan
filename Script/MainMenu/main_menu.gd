@@ -6,16 +6,16 @@ extends Control
 @onready var exit_button = $MarginContainer/HBoxContainer/VBoxContainer/EXIT as TextureButton
 @onready var madeby_button = $MarginContainer/HBoxContainer/VBoxContainer/MADEBY as TextureButton
 
-@onready var ui_click = $ui_click as AudioStreamPlayer2D
+@onready var ui_click = $UIClick as AudioStreamPlayer2D
 @onready var margin_container = $MarginContainer as MarginContainer
 
 @onready var settings_menu = $SettingsMenu as SettingsMenu
-@onready var madeby_menu = $madeby_menu as MadeByMenu
+@onready var MadeByMenu = $MadeByMenu as MadeByMenu
 
-@onready var start_lvl = preload("res://Scenes/world.tscn") as PackedScene
+@onready var start_lvl = preload ("res://Scenes/world.tscn") as PackedScene
 
 func _ready():
-	handle_connection_signals() 
+	handle_connection_signals()
 	
 func on_start_pressed() -> void:
 	ui_click.play()
@@ -27,12 +27,11 @@ func on_settings_pressed() -> void:
 	settings_menu.set_process(true)
 	settings_menu.show()
 	
-	
 func on_madeby_pressed() -> void:
 	ui_click.play()
 	margin_container.hide()
-	madeby_menu.set_process(true)
-	madeby_menu.show()
+	MadeByMenu.set_process(true)
+	MadeByMenu.show()
 
 func on_exit_pressed() -> void:
 	ui_click.play()
@@ -42,9 +41,9 @@ func on_exit_settings_menu() -> void:
 	margin_container.show()
 	settings_menu.hide()
 	
-func on_exit_madeby_menu() -> void:
+func on_exit_MadeByMenu() -> void:
 	margin_container.show()
-	madeby_menu.hide()
+	MadeByMenu.hide()
 
 func handle_connection_signals() -> void:
 	start_button.button_down.connect(on_start_pressed)
@@ -52,4 +51,4 @@ func handle_connection_signals() -> void:
 	madeby_button.button_down.connect(on_madeby_pressed)
 	exit_button.button_down.connect(on_exit_pressed)
 	settings_menu.exit_settings_menu.connect(on_exit_settings_menu)
-	madeby_menu.exit_madeby_menu.connect(on_exit_madeby_menu)
+	MadeByMenu.exit_MadeByMenu.connect(on_exit_MadeByMenu)

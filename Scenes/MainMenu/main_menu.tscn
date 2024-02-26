@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b0amdycnwdyka" path="res://Assets/MainMenu/button_bg_exit.png" id="6_t0ttt"]
 [ext_resource type="Texture2D" uid="uid://bfxafmeafhob6" path="res://Assets/MainMenu/button_bg_exit_hover.png" id="7_8lco8"]
 [ext_resource type="PackedScene" uid="uid://bjjwpbhaus5vx" path="res://Scenes/MainMenu/settings_menu.tscn" id="7_bhfyy"]
-[ext_resource type="PackedScene" uid="uid://cbvj7ro3rfffl" path="res://Scenes/MainMenu/madeby_menu.tscn" id="8_2t00b"]
+[ext_resource type="PackedScene" uid="uid://cbvj7ro3rfffl" path="res://Scenes/MainMenu/made_by_menu.tscn" id="8_2t00b"]
 [ext_resource type="AudioStream" uid="uid://dhsgv8feqgb5i" path="res://Audio/ui_click.mp3" id="9_rrh10"]
 [ext_resource type="AudioStream" uid="uid://cnjm3wbv71x6c" path="res://Audio/bg_sound.mp3" id="10_4qotu"]
 
@@ -175,17 +175,17 @@ text = "EXIT"
 visible = false
 layout_mode = 1
 
-[node name="madeby_menu" parent="." instance=ExtResource("8_2t00b")]
+[node name="MadeByMenu" parent="." instance=ExtResource("8_2t00b")]
 visible = false
 layout_mode = 1
 
-[node name="ui_click" type="AudioStreamPlayer2D" parent="."]
+[node name="UIClick" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_rrh10")
 volume_db = 10.0
 pitch_scale = 1.7
 bus = &"sfx"
 
-[node name="bg_sound" type="AudioStreamPlayer2D" parent="."]
+[node name="BGSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_4qotu")
 autoplay = true
 bus = &"music"

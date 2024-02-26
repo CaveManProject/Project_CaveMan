@@ -83,7 +83,7 @@ theme_override_fonts/font = ExtResource("2_ori0y")
 theme_override_font_sizes/font_size = 35
 text = "BACK"
 
-[node name="ui_click" type="AudioStreamPlayer2D" parent="."]
+[node name="UIClick" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_wc3so")
 volume_db = 10.0
 pitch_scale = 1.7

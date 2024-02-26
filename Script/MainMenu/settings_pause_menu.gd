@@ -2,9 +2,9 @@ extends Control
 
 @onready var back_button = $MarginContainer/VBoxContainer/Back_to_game as Button
 
-@onready var ui_click = $ui_click as AudioStreamPlayer2D
+@onready var ui_click = $UIClick as AudioStreamPlayer2D
 
-func _ready(): 
+func _ready():
 	handle_connection_signals()
 
 func on_resume_pressed() -> void:

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Script/MainMenu/PauseMenu.cs" id="1_t5j23"]
 [ext_resource type="AudioStream" uid="uid://dhsgv8feqgb5i" path="res://Audio/ui_click.mp3" id="3_81kod"]
 
-[node name="pause_menu" type="Control"]
+[node name="PauseMenu" type="Control"]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -61,7 +61,7 @@ theme_override_fonts/font = ExtResource("1_julgi")
 theme_override_font_sizes/font_size = 20
 text = "Quit"
 
-[node name="ui_click" type="AudioStreamPlayer2D" parent="."]
+[node name="UIClick" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_81kod")
 volume_db = 10.0
 pitch_scale = 1.7

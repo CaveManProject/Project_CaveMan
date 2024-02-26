@@ -5,60 +5,60 @@ namespace Caveman.Menu
 {
 	public partial class MainMenu : Control
 	{
-		private AudioStreamPlayer2D ui_click;
-		private MarginContainer margin_container;
+		private AudioStreamPlayer2D _uiClick;
+		private MarginContainer _marginContainer;
 
-		private Control settings_menu;
-		private Control madeby_menu;
+		private Control _settingsMenu;
+		private Control _madeByMenu;
 
 		private PackedScene start_lvl = GD.Load<PackedScene>("res://Scenes/world.tscn");
 
 		public override void _Ready()
 		{
-			this.ui_click = this.GetNode<AudioStreamPlayer2D>("ui_click");
-			this.margin_container = this.GetNode<MarginContainer>("MarginContainer");
-			this.settings_menu = this.GetNode<Control>("SettingsMenu");
-			this.madeby_menu = this.GetNode<Control>("madeby_menu");
+			this._uiClick = this.GetNode<AudioStreamPlayer2D>("UIClick");
+			this._marginContainer = this.GetNode<MarginContainer>("MarginContainer");
+			this._settingsMenu = this.GetNode<Control>("SettingsMenu");
+			this._madeByMenu = this.GetNode<Control>("MadeByMenu");
 		}
 
 		private void OnStartPressed()
 		{
-			ui_click.Play();
+			_uiClick.Play();
 			GetTree().ChangeSceneToPacked(start_lvl);
 		}
 
 		private void OnSettingsPressed()
 		{
-			ui_click.Play();
-			margin_container.Hide();
-			settings_menu.SetProcess(true);
-			settings_menu.Show();
+			_uiClick.Play();
+			_marginContainer.Hide();
+			_settingsMenu.SetProcess(true);
+			_settingsMenu.Show();
 		}
 
 		private void OnMadeByPressed()
 		{
-			ui_click.Play();
-			margin_container.Hide();
-			madeby_menu.SetProcess(true);
-			madeby_menu.Show();
+			_uiClick.Play();
+			_marginContainer.Hide();
+			_madeByMenu.SetProcess(true);
+			_madeByMenu.Show();
 		}
 
 		private void OnExitPressed()
 		{
-			ui_click.Play();
+			_uiClick.Play();
 			GetTree().Quit();
 		}
 
 		private void OnExitSettingsMenu()
 		{
-			margin_container.Show();
-			settings_menu.Hide();
+			_marginContainer.Show();
+			_settingsMenu.Hide();
 		}
 
 		private void OnExitMadeByMenu()
 		{
-			margin_container.Show();
-			madeby_menu.Hide();
+			_marginContainer.Show();
+			_madeByMenu.Hide();
 		}
 	}
 }
