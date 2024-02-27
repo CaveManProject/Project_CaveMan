@@ -1,68 +1,131 @@
+using System.Linq;
+using System.Reflection.Metadata;
 using Godot;
 
 namespace Caveman.Keybind
 {
-
-    public partial class HotkeyRebind : Control
+    public partial class RebindMenu : Control
     {
-        public string action_name = "up";
+        private Button button;
+        public string actionName = "up";
 
         public override void _Ready()
         {
+            SetProcessUnhandledKeyInput(false);
             SetActionName();
-
+            SetTextForKey();
         }
 
         private void SetActionName()
         {
-            string Label = "unassigned";
-            switch (action_name)
+            string label = "unassigned";
+            label = actionName switch
             {
-                case "up":
-                    Label = "UP";
-                    break;
-                case "down":
-                    Label = "DOWN";
-                    break;
-                case "left":
-                    Label = "LEFT";
-                    break;
-                case "right":
-                    Label = "RIGHT";
-                    break;
-                case "mb_left":
-                    Label = "MB LEFT";
-                    break;
-                case "mb_right":
-                    Label = "MB RIGHT";
-                    break;
-                case "i":
-                    Label = "I";
-                    break;
-                case "e":
-                    Label = "E";
-                    break;
-                case "space":
-                    Label = "SPACEBAR";
-                    break;
-                case "pause":
-                    Label = "ESC";
-                    break;
-                default:
-                    break;
-            }
+                "up" => "UP",
+                "down" => "DOWN",
+                "left" => "LEFT",
+                "right" => "RIGHT",
+                "mb_left" => "MB LEFT",
+                "mb_right" => "MB RIGHT",
+                "i" => "I",
+                "e" => "E",
+                "space" => "SPACEBAR",
+                "pause" => "ESC",
+                _ => ""
+            };
         }
 
         private void SetTextForKey()
         {
-            var action_events = InputMap.ActionGetEvents(action_name);
-            var action_event = action_events[0];
-            if (action_event is InputEventKey)
+            var actionEvents = InputMap.ActionGetEvents(actionName);
+            if (!actionEvents.Any())
             {
-
+                return;
+            }
+            var actionEvent = actionEvents[0];
+            if (actionEvent is InputEventKey)
+            {
+                var actionKeycode = OS.GetKeycodeString(((InputEventKey)actionEvent).PhysicalKeycode);
+                button.Text = actionKeycode;
+            }
+            else if (actionEvent is InputEventMouseButton)
+            {
+                var actionKeycode = OS.GetKeycodeString((Key)((InputEventMouseButton)actionEvent).ButtonIndex);
+                button.Text = "Mouse Button " + actionKeycode;
             }
         }
 
+        private void OnButtonToggled(bool buttonPressed)
+        {
+            if (buttonPressed)
+            {
+                button.Text = "Press any key.....";
+                SetProcessUnhandledKeyInput(buttonPressed);
+                foreach (var node in GetTree().GetNodesInGroup("hotkey_button"))
+                {
+                    if (node is RebindMenu)
+                    {
+                        var menu = node as RebindMenu;
+                        if (menu.actionName != this.actionName)
+                        {
+                            menu.button.ToggleMode = false;
+                            menu.SetProcessUnhandledKeyInput(false);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (var node in GetTree().GetNodesInGroup("hotkey_button"))
+                {
+                    if (node is RebindMenu)
+                    {
+                        var menu = node as RebindMenu;
+                        if (menu.actionName != this.actionName)
+                        {
+                            menu.button.ToggleMode = true;
+                            menu.SetProcessUnhandledKeyInput(false);
+                        }
+                    }
+                }
+                SetTextForKey();
+            }
+        }
 
+        private void UnhandledKeyInput(InputEventKey eventKey)
+        {
+            RebindActionKey(eventKey);
+            button.ButtonPressed = false;
+        }
+
+        private void RebindActionKey(InputEventKey eventKey)
+        {
+            var isDuplicate = false;
+            var actionEvent = eventKey;
+            var actionKeycode = OS.GetKeycodeString(((InputEventKey)actionEvent).PhysicalKeycode);
+            foreach (var node in GetTree().GetNodesInGroup("hotkey_button"))
+            {
+                if (node is RebindMenu)
+                {
+                    var menu = node as RebindMenu;
+                    if (menu.actionName != this.actionName)
+                    {
+                        if (menu.button.Text == actionKeycode)
+                        {
+                            isDuplicate = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            if (!isDuplicate)
+            {
+                InputMap.ActionEraseEvents(actionName);
+                InputMap.ActionAddEvent(actionName, eventKey);
+                SetProcessUnhandledKeyInput(false);
+                SetTextForKey();
+                SetActionName();
+            }
+        }
     }
 }

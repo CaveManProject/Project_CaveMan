@@ -4,7 +4,7 @@ extends Control
 @onready var label = $HBoxContainer/action_button as Label
 @onready var button = $HBoxContainer/Button as Button
 
-@export var action_name : String = "up"
+@export var action_name: String = "up"
 
 func _ready():
 	set_process_unhandled_key_input(false)
@@ -12,7 +12,7 @@ func _ready():
 	set_text_for_key()
 	
 func set_action_name() -> void:
-	label.text = "unassigned" 
+	label.text = "unassigned"
 	
 	match action_name:
 		"up":
@@ -34,7 +34,7 @@ func set_action_name() -> void:
 		"space":
 			label.text = "SPACEBAR"
 		"pause":
-			label.text = "ESC" 
+			label.text = "ESC"
  			
 func set_text_for_key() -> void:
 	var action_events = InputMap.action_get_events(action_name)
@@ -65,7 +65,7 @@ func _on_button_toggled(button_pressed):
 func _unhandled_key_input(event):
 	_rebind_action_key(event)
 	button.button_pressed = false
-	
+
 func _rebind_action_key(event) -> void:
 	var is_duplicate = false
 	var action_event = event
@@ -77,16 +77,7 @@ func _rebind_action_key(event) -> void:
 					break
 	if not is_duplicate:
 		InputMap.action_erase_events(action_name)
-		InputMap.action_add_event(action_name,event)
+		InputMap.action_add_event(action_name, event)
 		set_process_unhandled_key_input(false)
 		set_text_for_key()
 		set_action_name()
-	
-
-
-
-
-
-
-
-
