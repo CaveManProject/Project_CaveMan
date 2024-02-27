@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bjb5e0eaiu8pt"]
 
 [ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="1_t4vdv"]
-[ext_resource type="Script" path="res://Script/MainMenu/sound/master_sound.gd" id="2_rxom8"]
+[ext_resource type="Script" path="res://Script/MainMenu/sound/MasterSound.cs" id="2_j2vga"]
 
 [node name="master_sound" type="Control"]
 layout_mode = 3
@@ -44,4 +44,6 @@ layout_mode = 2
 min_value = -50.0
 max_value = 5.0
 value = 5.0
-script = ExtResource("2_rxom8")
+script = ExtResource("2_j2vga")
+
+[connection signal="value_changed" from="HBoxContainer/master_sound" to="HBoxContainer/master_sound" method="_ValueChanged"]
