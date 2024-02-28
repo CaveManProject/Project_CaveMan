@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bp45i5wxj1p7a"]
 
-[ext_resource type="Texture2D" uid="uid://bt2272yo8pm" path="res://Assets/Sprites/MainMenu/menu_background.png" id="1_ioa88"]
+[ext_resource type="Texture2D" uid="uid://dbr12kp0p51i1" path="res://Assets/Sprites/MainMenu/menu_background.png" id="1_ioa88"]
 [ext_resource type="Script" path="res://Script/MainMenu/MainMenu.cs" id="1_tk70t"]
 [ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="2_0ipv5"]
 [ext_resource type="Texture2D" uid="uid://vi2p25if5x7w" path="res://Assets/Sprites/MainMenu/button_bg.png" id="4_gwmea"]
@@ -20,6 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_tk70t")
 
 [node name="TextureRect" type="TextureRect" parent="."]

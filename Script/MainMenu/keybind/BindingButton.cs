@@ -59,8 +59,7 @@ namespace Caveman.Keybind
 			}
 			else if (actionEvents[0] is InputEventMouseButton button)
 			{
-				var actionKeycode = OS.GetKeycodeString((Key)button.ButtonIndex);
-				this.button.Text = "MB " + actionKeycode;
+				this.button.Text = "MB " + button.ButtonIndex;
 			}
 		}
 
@@ -72,7 +71,7 @@ namespace Caveman.Keybind
 			if (buttonPressed)
 			{
 				button.Text = "Press any key.....";
-				SetProcessUnhandledInput(buttonPressed);
+				SetProcessUnhandledInput(true);
 				// Disable other buttons
 				foreach (var node in GetTree().GetNodesInGroup("hotkey_button"))
 				{
@@ -86,22 +85,6 @@ namespace Caveman.Keybind
 					}
 				}
 			}
-			else
-			{
-				// Enable other buttons
-				foreach (var node in GetTree().GetNodesInGroup("hotkey_button"))
-				{
-					if (node is BindingButton bindingButton)
-					{
-						if (bindingButton.actionName != this.actionName)
-						{
-							bindingButton.button.ToggleMode = true;
-							bindingButton.SetProcessUnhandledInput(false);
-						}
-					}
-				}
-				SetTextForKey();
-			}
 		}
 
 		/// <summary>
@@ -113,16 +96,29 @@ namespace Caveman.Keybind
 			{
 				if (keyEvent.Keycode == Key.Escape)
 				{
+					// Enable other buttons
+					foreach (var node in GetTree().GetNodesInGroup("hotkey_button"))
+					{
+						if (node is BindingButton bindingButton)
+						{
+							if (bindingButton.actionName != this.actionName)
+							{
+								bindingButton.button.ToggleMode = true;
+								bindingButton.SetProcessUnhandledInput(false);
+							}
+						}
+					}
+					this.button.ToggleMode = true;
+					this.SetProcessUnhandledInput(false);
+					SetTextForKey();
 					return;
 				}
-				GD.Print(keyEvent.Keycode);
 				SetProcessUnhandledInput(false);
 				RebindActionKey(keyEvent);
 				button.ButtonPressed = false;
 			}
 			else if (@event is InputEventMouseButton mouseButton)
 			{
-				GD.Print("Mouse pressed ", mouseButton.ButtonIndex);
 				SetProcessUnhandledInput(false);
 				RebindActionMouseButton(mouseButton);
 				button.ButtonPressed = false;
@@ -143,6 +139,9 @@ namespace Caveman.Keybind
 				{
 					if (menu.actionName != this.actionName && menu.button.Text == actionKeycode)
 					{
+						this.button.ToggleMode = true;
+						this.SetProcessUnhandledInput(false);
+						SetTextForKey();
 						GD.Print("Key already assigned to another action");
 						return;
 					}
@@ -160,15 +159,17 @@ namespace Caveman.Keybind
 		/// <param name="mouseButton">Pressed mouse button event</param>
 		private void RebindActionMouseButton(InputEventMouseButton mouseButton)
 		{
-			var actionKeycode = OS.GetKeycodeString((Key)mouseButton.ButtonIndex);
 			// Check if the mouse button is already assigned to another action
 			foreach (var node in GetTree().GetNodesInGroup("hotkey_button"))
 			{
 				if (node is BindingButton menu)
 				{
-					if (menu.actionName != this.actionName && menu.button.Text == "MB " + actionKeycode)
+					if (menu.actionName != this.actionName && menu.button.Text == "MB " + mouseButton.ButtonIndex)
 					{
-						GD.Print("Mouse button already assigned to another action");
+						this.button.ToggleMode = true;
+						this.SetProcessUnhandledInput(false);
+						SetTextForKey();
+						GD.Print("Mouse button already assigned to another action: ", menu.actionName);
 						return;
 					}
 				}
