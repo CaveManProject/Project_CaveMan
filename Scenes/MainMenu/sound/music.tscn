@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dxnip8g2mjia7"]
 
-[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="1_wux13"]
+[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="1_wux13"]
 [ext_resource type="Script" path="res://Script/MainMenu/sound/Music.cs" id="2_fx2ab"]
 
 [node name="music" type="Control"]

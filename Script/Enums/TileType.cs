@@ -24,21 +24,21 @@ namespace Caveman.Enums
         private static readonly Dictionary<TileType, Texture2D> _itemTextures =
             new()
             {
-                { TileType.STONE, GD.Load<Texture2D>("res://Assets/Items/Stone.png") },
-                { TileType.COAL, GD.Load<Texture2D>("res://Assets/Items/Coal.png") },
-                { TileType.IRON, GD.Load<Texture2D>("res://Assets/Items/Iron.png") },
-                { TileType.COPPER, GD.Load<Texture2D>("res://Assets/Items/Copper.png") },
-                { TileType.TIN, GD.Load<Texture2D>("res://Assets/Items/Tin.png") },
+                { TileType.STONE, GD.Load<Texture2D>("res://Assets/Sprites/Items/Stone.png") },
+                { TileType.COAL, GD.Load<Texture2D>("res://Assets/Sprites/Items/Coal.png") },
+                { TileType.IRON, GD.Load<Texture2D>("res://Assets/Sprites/Items/Iron.png") },
+                { TileType.COPPER, GD.Load<Texture2D>("res://Assets/Sprites/Items/Copper.png") },
+                { TileType.TIN, GD.Load<Texture2D>("res://Assets/Sprites/Items/Tin.png") },
                 {
                     TileType.ALUMINUM,
-                    GD.Load<Texture2D>("res://Assets/Items/Aluminum.png")
+                    GD.Load<Texture2D>("res://Assets/Sprites/Items/Aluminum.png")
                 },
-                { TileType.GOLD, GD.Load<Texture2D>("res://Assets/Items/Gold.png") },
-                { TileType.DIAMOND, GD.Load<Texture2D>("res://Assets/Items/Diamond.png") },
-                { TileType.EMERALD, GD.Load<Texture2D>("res://Assets/Items/Emerald.png") },
+                { TileType.GOLD, GD.Load<Texture2D>("res://Assets/Sprites/Items/Gold.png") },
+                { TileType.DIAMOND, GD.Load<Texture2D>("res://Assets/Sprites/Items/Diamond.png") },
+                { TileType.EMERALD, GD.Load<Texture2D>("res://Assets/Sprites/Items/Emerald.png") },
                 {
                     TileType.AMETHYST,
-                    GD.Load<Texture2D>("res://Assets/Items/Amethyst.png")
+                    GD.Load<Texture2D>("res://Assets/Sprites/Items/Amethyst.png")
                 }
             };
 

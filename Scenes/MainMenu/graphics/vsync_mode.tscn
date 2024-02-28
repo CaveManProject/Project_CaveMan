@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://by071jngjeylk"]
 
 [ext_resource type="Script" path="res://Script/MainMenu/graphics/vsync_mode.gd" id="1_cgp77"]
-[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="1_e7oev"]
+[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="1_e7oev"]
 
 [node name="vsync_mode" type="Control"]
 layout_mode = 3

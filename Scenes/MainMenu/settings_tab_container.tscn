@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://2fsmolr616kq"]
 
-[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="1_b2y4t"]
+[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="1_b2y4t"]
 [ext_resource type="PackedScene" uid="uid://c5n2ysa17qyjb" path="res://Scenes/MainMenu/graphics/window_mode.tscn" id="1_u8xun"]
 [ext_resource type="PackedScene" uid="uid://dufkglcto6ltx" path="res://Scenes/MainMenu/graphics/resolution_mode.tscn" id="2_eon6k"]
 [ext_resource type="PackedScene" uid="uid://by071jngjeylk" path="res://Scenes/MainMenu/graphics/vsync_mode.tscn" id="3_h0yl8"]

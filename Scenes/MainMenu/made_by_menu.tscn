@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://cbvj7ro3rfffl"]
 
-[ext_resource type="Texture2D" uid="uid://bt2272yo8pm" path="res://Assets/MainMenu/BackGround (1).png" id="1_lory3"]
+[ext_resource type="Texture2D" uid="uid://bt2272yo8pm" path="res://Assets/Sprites/MainMenu/menu_background.png" id="1_lory3"]
 [ext_resource type="Script" path="res://Script/MainMenu/MadeByMenu.cs" id="1_mepcw"]
-[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="2_h7qvi"]
-[ext_resource type="Texture2D" uid="uid://vi2p25if5x7w" path="res://Assets/MainMenu/button_bg.png" id="4_nmwg3"]
-[ext_resource type="Texture2D" uid="uid://bfxafmeafhob6" path="res://Assets/MainMenu/button_bg_exit_hover.png" id="5_viyta"]
-[ext_resource type="AudioStream" uid="uid://dhsgv8feqgb5i" path="res://Audio/ui_click.mp3" id="6_ikce1"]
+[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="2_h7qvi"]
+[ext_resource type="Texture2D" uid="uid://vi2p25if5x7w" path="res://Assets/Sprites/MainMenu/button_bg.png" id="4_nmwg3"]
+[ext_resource type="Texture2D" uid="uid://bfxafmeafhob6" path="res://Assets/Sprites/MainMenu/button_bg_exit_hover.png" id="5_viyta"]
+[ext_resource type="AudioStream" uid="uid://dhsgv8feqgb5i" path="res://Assets/Audio/ui_click.mp3" id="6_ikce1"]
 
 [node name="MadeByMenu" type="Control"]
 layout_mode = 3

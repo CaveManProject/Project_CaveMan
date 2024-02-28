@@ -11,7 +11,7 @@ namespace Caveman.Menu
 		private Control _settingsMenu;
 		private Control _madeByMenu;
 
-		private PackedScene start_lvl = GD.Load<PackedScene>("res://Scenes/world.tscn");
+		private PackedScene start_lvl = GD.Load<PackedScene>("res://Scenes/World/world.tscn");
 
 		public override void _Ready()
 		{

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dorje85u217at"]
 
 [ext_resource type="Script" path="res://Script/MainMenu/keybind/RebindMenu.cs" id="1_re0gu"]
-[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="2_2h7gt"]
+[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="2_2h7gt"]
 
 [node name="rebind_menu" type="Control" groups=["hotkey_button"]]
 layout_mode = 3

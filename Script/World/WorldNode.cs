@@ -1,5 +1,3 @@
-using System;
-using System.Numerics;
 using Caveman.Enums;
 using Caveman.Item;
 using Caveman.Player;

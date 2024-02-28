@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5n2ysa17qyjb"]
 
-[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="1_j7ptc"]
+[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="1_j7ptc"]
 [ext_resource type="Script" path="res://Script/MainMenu/graphics/window_mode.gd" id="1_pvihn"]
 
 [node name="Window_mode" type="Control"]

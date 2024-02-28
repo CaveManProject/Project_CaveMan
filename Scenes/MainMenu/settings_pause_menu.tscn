@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://cdr2qb4dpqtm7"]
 
-[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="1_h12y5"]
+[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="1_h12y5"]
 [ext_resource type="Script" path="res://Script/MainMenu/SettingsPauseMenu.cs" id="1_rx07o"]
 [ext_resource type="Theme" uid="uid://co4psb5sf224s" path="res://Data/main_menu.tres" id="2_fi20q"]
 [ext_resource type="PackedScene" uid="uid://2fsmolr616kq" path="res://Scenes/MainMenu/settings_tab_container.tscn" id="2_nl8mq"]
-[ext_resource type="AudioStream" uid="uid://dhsgv8feqgb5i" path="res://Audio/ui_click.mp3" id="5_aitwq"]
+[ext_resource type="AudioStream" uid="uid://dhsgv8feqgb5i" path="res://Assets/Audio/ui_click.mp3" id="5_aitwq"]
 
 [node name="SettingsPauseMenu" type="Control"]
 process_mode = 3
