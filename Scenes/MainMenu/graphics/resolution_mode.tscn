@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dufkglcto6ltx"]
 
-[ext_resource type="Script" path="res://Script/MainMenu/graphics/resolution_mode.gd" id="1_36431"]
+[ext_resource type="Script" path="res://Script/MainMenu/Graphics/resolution_mode.gd" id="1_36431"]
 [ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="1_uxyxd"]
 
 [node name="resolution_mode" type="Control"]

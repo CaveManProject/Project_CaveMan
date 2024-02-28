@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://djdvg7fb8sg2a"]
 
 [ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="1_7gsj6"]
-[ext_resource type="Script" path="res://Script/MainMenu/graphics/fps_mode.gd" id="1_wxodl"]
+[ext_resource type="Script" path="res://Script/MainMenu/Graphics/fps_mode.gd" id="1_wxodl"]
 
 [node name="fps_mode" type="Control"]
 layout_mode = 3
