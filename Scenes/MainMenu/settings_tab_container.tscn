@@ -31,9 +31,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_b2y4t")
 tab_alignment = 1
+current_tab = 2
 clip_tabs = false
 
 [node name="Graphics" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Graphics"]
@@ -94,7 +96,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Controls" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controls"]
@@ -123,42 +124,43 @@ theme_override_constants/separation = 12
 
 [node name="rebind_menu3" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("9_iptgp")]
 layout_mode = 2
+actionName = "up"
 
 [node name="rebind_menu4" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("9_iptgp")]
 layout_mode = 2
-action_name = "down"
+actionName = "down"
 
 [node name="rebind_menu6" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("9_iptgp")]
 layout_mode = 2
-action_name = "left"
+actionName = "left"
 
 [node name="rebind_menu7" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("9_iptgp")]
 layout_mode = 2
-action_name = "right"
+actionName = "right"
 
 [node name="rebind_menu8" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("9_iptgp")]
 layout_mode = 2
-action_name = "mb_left"
+actionName = "mb_right"
 
 [node name="rebind_menu5" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("9_iptgp")]
 layout_mode = 2
-action_name = "mb_right"
+actionName = "mb_left"
 
 [node name="rebind_menu" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("9_iptgp")]
 layout_mode = 2
-action_name = "i"
+actionName = "i"
 
 [node name="rebind_menu2" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("9_iptgp")]
 layout_mode = 2
-action_name = "e"
+actionName = "e"
 
 [node name="rebind_menu9" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("9_iptgp")]
 layout_mode = 2
-action_name = "space"
+actionName = "space"
 
 [node name="rebind_menu10" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("9_iptgp")]
 layout_mode = 2
-action_name = "pause"
+actionName = "pause"
 
 [node name="HSeparator2" type="HSeparator" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
