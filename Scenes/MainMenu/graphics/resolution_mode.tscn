@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dufkglcto6ltx"]
 
-[ext_resource type="Script" path="res://Script/MainMenu/Graphics/resolution_mode.gd" id="1_36431"]
+[ext_resource type="Script" path="res://Script/MainMenu/graphics/ResolutionControl.cs" id="1_2oacw"]
 [ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="1_uxyxd"]
 
 [node name="resolution_mode" type="Control"]
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_36431")
+script = ExtResource("1_2oacw")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -43,3 +43,5 @@ layout_mode = 2
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_uxyxd")
+
+[connection signal="item_selected" from="HBoxContainer/OptionButton" to="." method="OnOptionButtonItemSelected"]
