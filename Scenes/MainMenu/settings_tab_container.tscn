@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bjb5e0eaiu8pt" path="res://Scenes/MainMenu/Sound/master_sound.tscn" id="5_alqo4"]
 [ext_resource type="PackedScene" uid="uid://cdchqbfo247kv" path="res://Scenes/MainMenu/Sound/sfx.tscn" id="6_wlp7k"]
 [ext_resource type="PackedScene" uid="uid://dxnip8g2mjia7" path="res://Scenes/MainMenu/Sound/music.tscn" id="7_0nr8x"]
-[ext_resource type="PackedScene" uid="uid://dorje85u217at" path="res://Scenes/MainMenu/keybind/rebind_menu.tscn" id="9_iptgp"]
+[ext_resource type="PackedScene" uid="uid://dorje85u217at" path="res://Scenes/MainMenu/Keybind/rebind_menu.tscn" id="9_iptgp"]
 
 [node name="SettingsTabContainer" type="Control"]
 layout_mode = 3

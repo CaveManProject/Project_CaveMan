@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cxf03myfu3o5b" path="res://Assets/TileSets/Blocks/Ore/iron_ore.png" id="5_7bgry"]
 [ext_resource type="Texture2D" uid="uid://345s61wi2xyb" path="res://Assets/TileSets/Blocks/Ore/bedrock.png" id="5_ol8h2"]
 [ext_resource type="Texture2D" uid="uid://bu0iyi3y6n4hd" path="res://Assets/TileSets/Blocks/Ore/copper_ore.png" id="6_u7sen"]
-[ext_resource type="Texture2D" uid="uid://cvv2pmynx7q5x" path="res://Assets/TileSets/Blocks/Ore/tin_ore.png" id="7_5t01j"]
+[ext_resource type="Texture2D" uid="uid://dq1n8b4mc4wc0" path="res://Assets/TileSets/Blocks/Ore/tin_ore.png" id="7_5t01j"]
 [ext_resource type="Texture2D" uid="uid://dkg4isn58eooh" path="res://Assets/TileSets/Blocks/Ore/aluminum_ore.png" id="8_afogh"]
 [ext_resource type="Texture2D" uid="uid://ds3jkf76768o2" path="res://Assets/TileSets/Blocks/Ore/gold_ore.png" id="9_lq81w"]
 [ext_resource type="Texture2D" uid="uid://djmpag84504ii" path="res://Assets/TileSets/Blocks/Ore/diamond_ore.png" id="10_4k2vi"]
