@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dxnip8g2mjia7"]
 
 [ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="1_wux13"]
-[ext_resource type="Script" path="res://Script/MainMenu/Sound/Music.cs" id="2_fx2ab"]
+[ext_resource type="Script" path="res://Script/MainMenu/sound/Music.cs" id="2_lnjnp"]
 
 [node name="music" type="Control"]
 layout_mode = 3
@@ -45,6 +45,6 @@ size_flags_vertical = 1
 min_value = -50.0
 max_value = 5.0
 value = 5.0
-script = ExtResource("2_fx2ab")
+script = ExtResource("2_lnjnp")
 
 [connection signal="value_changed" from="HBoxContainer/HSlider" to="HBoxContainer/HSlider" method="_ValueChanged"]
