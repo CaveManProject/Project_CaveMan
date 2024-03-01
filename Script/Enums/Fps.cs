@@ -26,5 +26,19 @@ namespace Caveman.Enums
                 _ => "Unknown"
             };
         }
+
+        public static int ToFpsLimit(this FpsMode fps)
+        {
+            return fps switch
+            {
+                FpsMode.FPS_30 => 30,
+                FpsMode.FPS_60 => 60,
+                FpsMode.FPS_120 => 120,
+                FpsMode.FPS_144 => 144,
+                FpsMode.FPS_240 => 240,
+                FpsMode.FPS_unlimited => 0,
+                _ => -1
+            };
+        }
     }
 }

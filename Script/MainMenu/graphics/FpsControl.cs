@@ -15,29 +15,11 @@ namespace Caveman.Graphics
                 OptionButton.AddItem(fps.ToDisplayString());
             }
         }
-        private void OnOptionButtonItemSelected(FpsMode index)
+        private void OnOptionButtonItemSelected(int selectedIndex)
         {
-            switch (index)
-            {
-                case FpsMode.FPS_30:
-                    Engine.MaxFps = 30;
-                    break;
-                case FpsMode.FPS_60:
-                    Engine.MaxFps = 60;
-                    break;
-                case FpsMode.FPS_120:
-                    Engine.MaxFps = 120;
-                    break;
-                case FpsMode.FPS_144:
-                    Engine.MaxFps = 144;
-                    break;
-                case FpsMode.FPS_240:
-                    Engine.MaxFps = 240;
-                    break;
-                case FpsMode.FPS_unlimited:
-                    Engine.MaxFps = 0;
-                    break;
-            }
+            FpsMode selectedFpsMode = (FpsMode)selectedIndex;
+            int fpsLimit = selectedFpsMode.ToFpsLimit();
+            Engine.MaxFps = fpsLimit;
         }
     }
 }
