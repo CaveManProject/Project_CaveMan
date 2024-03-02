@@ -38,7 +38,7 @@ vertical_alignment = 1
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="HBoxContainer"]
+[node name="SoundSlider" type="HSlider" parent="HBoxContainer"]
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
 size_flags_vertical = 1
@@ -47,4 +47,4 @@ max_value = 5.0
 value = 5.0
 script = ExtResource("2_lnjnp")
 
-[connection signal="value_changed" from="HBoxContainer/HSlider" to="HBoxContainer/HSlider" method="_ValueChanged"]
+[connection signal="value_changed" from="HBoxContainer/SoundSlider" to="HBoxContainer/SoundSlider" method="_ValueChanged"]
