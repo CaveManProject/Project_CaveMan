@@ -184,12 +184,12 @@ layout_mode = 1
 stream = ExtResource("9_rrh10")
 volume_db = 10.0
 pitch_scale = 1.7
-bus = &"sfx"
+bus = &"Sfx"
 
 [node name="BGSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_4qotu")
 autoplay = true
-bus = &"music"
+bus = &"Music"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/PLAY" to="." method="OnStartPressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/SETTINGS" to="." method="OnSettingsPressed"]
