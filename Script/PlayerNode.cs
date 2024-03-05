@@ -41,6 +41,7 @@ namespace Caveman.Player
 
 		public void Collect(InventoryItem item)
 		{
+			GD.Print("Collecting item: ", item);
 			this._inventory.Insert(item);
 		}
 

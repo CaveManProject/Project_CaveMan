@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://by071jngjeylk"]
 
-[ext_resource type="Script" path="res://Script/MainMenu/graphics/vsync_mode.gd" id="1_cgp77"]
-[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="1_e7oev"]
+[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="1_e7oev"]
+[ext_resource type="Script" path="res://Script/MainMenu/graphics/VsyncControl.cs" id="1_rnyfw"]
 
 [node name="vsync_mode" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_cgp77")
+script = ExtResource("1_rnyfw")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -48,4 +48,4 @@ button_pressed = true
 text = "ON/OFF"
 alignment = 1
 
-[connection signal="toggled" from="HBoxContainer/ON_OFF" to="." method="_on_check_button_toggled"]
+[connection signal="toggled" from="HBoxContainer/ON_OFF" to="." method="OnCheckButtonToggled"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdchqbfo247kv"]
 
-[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="1_chogj"]
-[ext_resource type="Script" path="res://Script/MainMenu/sound/sfx_slider.gd" id="2_62k3v"]
+[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="1_chogj"]
+[ext_resource type="Script" path="res://Script/MainMenu/sound/SoundController.cs" id="2_r0fiu"]
 
 [node name="sfx" type="Control"]
 layout_mode = 3
@@ -45,4 +45,7 @@ size_flags_vertical = 1
 min_value = -40.0
 max_value = 5.0
 value = 5.0
-script = ExtResource("2_62k3v")
+script = ExtResource("2_r0fiu")
+_busName = "Sfx"
+
+[connection signal="value_changed" from="HBoxContainer/sfx_slider" to="HBoxContainer/sfx_slider" method="_ValueChanged"]

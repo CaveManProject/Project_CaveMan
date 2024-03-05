@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dorje85u217at"]
 
-[ext_resource type="Script" path="res://Script/MainMenu/keybind/rebind_menu.gd" id="1_rgebk"]
-[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="2_2h7gt"]
+[ext_resource type="Script" path="res://Script/MainMenu/keybind/BindingButton.cs" id="1_7casi"]
+[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="2_2h7gt"]
 
 [node name="rebind_menu" type="Control" groups=["hotkey_button"]]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_rgebk")
+script = ExtResource("1_7casi")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -25,6 +25,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 alignment = 1
 
 [node name="action_button" type="Label" parent="HBoxContainer"]
@@ -48,4 +49,4 @@ theme_override_font_sizes/font_size = 20
 toggle_mode = true
 text = "ACTION_KEY"
 
-[connection signal="toggled" from="HBoxContainer/Button" to="." method="_on_button_toggled"]
+[connection signal="toggled" from="HBoxContainer/Button" to="." method="OnButtonToggled"]

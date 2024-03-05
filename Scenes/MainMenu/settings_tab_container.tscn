@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://2fsmolr616kq"]
 
-[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="1_b2y4t"]
-[ext_resource type="PackedScene" uid="uid://c5n2ysa17qyjb" path="res://Scenes/MainMenu/graphics/window_mode.tscn" id="1_u8xun"]
-[ext_resource type="PackedScene" uid="uid://dufkglcto6ltx" path="res://Scenes/MainMenu/graphics/resolution_mode.tscn" id="2_eon6k"]
-[ext_resource type="PackedScene" uid="uid://by071jngjeylk" path="res://Scenes/MainMenu/graphics/vsync_mode.tscn" id="3_h0yl8"]
-[ext_resource type="PackedScene" uid="uid://djdvg7fb8sg2a" path="res://Scenes/MainMenu/graphics/fps_mode.tscn" id="4_7njnn"]
-[ext_resource type="PackedScene" uid="uid://bjb5e0eaiu8pt" path="res://Scenes/MainMenu/sound/master_sound.tscn" id="5_alqo4"]
-[ext_resource type="PackedScene" uid="uid://cdchqbfo247kv" path="res://Scenes/MainMenu/sound/sfx.tscn" id="6_wlp7k"]
-[ext_resource type="PackedScene" uid="uid://dxnip8g2mjia7" path="res://Scenes/MainMenu/sound/music.tscn" id="7_0nr8x"]
-[ext_resource type="PackedScene" uid="uid://dorje85u217at" path="res://Scenes/MainMenu/keybind/rebind_menu.tscn" id="9_iptgp"]
+[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="1_b2y4t"]
+[ext_resource type="PackedScene" uid="uid://c5n2ysa17qyjb" path="res://Scenes/MainMenu/Graphics/window_mode.tscn" id="1_u8xun"]
+[ext_resource type="PackedScene" uid="uid://dufkglcto6ltx" path="res://Scenes/MainMenu/Graphics/resolution_mode.tscn" id="2_eon6k"]
+[ext_resource type="PackedScene" uid="uid://by071jngjeylk" path="res://Scenes/MainMenu/Graphics/vsync_mode.tscn" id="3_h0yl8"]
+[ext_resource type="PackedScene" uid="uid://djdvg7fb8sg2a" path="res://Scenes/MainMenu/Graphics/fps_mode.tscn" id="4_7njnn"]
+[ext_resource type="PackedScene" uid="uid://bjb5e0eaiu8pt" path="res://Scenes/MainMenu/Sound/master_sound.tscn" id="5_alqo4"]
+[ext_resource type="PackedScene" uid="uid://cdchqbfo247kv" path="res://Scenes/MainMenu/Sound/sfx.tscn" id="6_wlp7k"]
+[ext_resource type="PackedScene" uid="uid://dxnip8g2mjia7" path="res://Scenes/MainMenu/Sound/music.tscn" id="7_0nr8x"]
+[ext_resource type="PackedScene" uid="uid://dorje85u217at" path="res://Scenes/MainMenu/Keybind/rebind_menu.tscn" id="9_iptgp"]
 
 [node name="SettingsTabContainer" type="Control"]
 layout_mode = 3
@@ -17,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -96,6 +97,7 @@ layout_mode = 2
 [node name="Controls" type="TabBar" parent="TabContainer"]
 visible = false
 layout_mode = 2
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controls"]
 layout_mode = 1
@@ -104,6 +106,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
@@ -111,10 +114,12 @@ theme_override_constants/margin_bottom = 24
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Controls/MarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_constants/separation = 80
 
 [node name="HSeparator1" type="HSeparator" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer"]
@@ -123,42 +128,43 @@ theme_override_constants/separation = 12
 
 [node name="rebind_menu3" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("9_iptgp")]
 layout_mode = 2
+actionName = "up"
 
 [node name="rebind_menu4" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("9_iptgp")]
 layout_mode = 2
-action_name = "down"
+actionName = "down"
 
 [node name="rebind_menu6" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("9_iptgp")]
 layout_mode = 2
-action_name = "left"
+actionName = "left"
 
 [node name="rebind_menu7" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("9_iptgp")]
 layout_mode = 2
-action_name = "right"
+actionName = "right"
 
 [node name="rebind_menu8" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("9_iptgp")]
 layout_mode = 2
-action_name = "mb_left"
+actionName = "mb_right"
 
 [node name="rebind_menu5" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("9_iptgp")]
 layout_mode = 2
-action_name = "mb_right"
+actionName = "mb_left"
 
 [node name="rebind_menu" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("9_iptgp")]
 layout_mode = 2
-action_name = "i"
+actionName = "i"
 
 [node name="rebind_menu2" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("9_iptgp")]
 layout_mode = 2
-action_name = "e"
+actionName = "e"
 
 [node name="rebind_menu9" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("9_iptgp")]
 layout_mode = 2
-action_name = "space"
+actionName = "space"
 
 [node name="rebind_menu10" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("9_iptgp")]
 layout_mode = 2
-action_name = "pause"
+actionName = "pause"
 
 [node name="HSeparator2" type="HSeparator" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2

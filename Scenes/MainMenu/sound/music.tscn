@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dxnip8g2mjia7"]
 
-[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://CustomFont/chava/Chava-Regular.ttf" id="1_wux13"]
-[ext_resource type="Script" path="res://Script/MainMenu/sound/music_slider.gd" id="2_cfwee"]
+[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="1_wux13"]
+[ext_resource type="Script" path="res://Script/MainMenu/sound/SoundController.cs" id="2_7tgx2"]
 
 [node name="music" type="Control"]
 layout_mode = 3
@@ -38,11 +38,14 @@ vertical_alignment = 1
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="HBoxContainer"]
+[node name="SoundSlider" type="HSlider" parent="HBoxContainer"]
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
 size_flags_vertical = 1
 min_value = -50.0
 max_value = 5.0
 value = 5.0
-script = ExtResource("2_cfwee")
+script = ExtResource("2_7tgx2")
+_busName = "Music"
+
+[connection signal="value_changed" from="HBoxContainer/SoundSlider" to="HBoxContainer/SoundSlider" method="_ValueChanged"]

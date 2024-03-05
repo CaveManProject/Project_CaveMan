@@ -36,11 +36,11 @@ namespace Caveman.Inventory
 			for (int i = 0; i < Mathf.Min(this._inventoryResource.items.Length, this._itemSlots.GetChildCount()); i++)
 			{
 				var slot = this._itemSlots.GetChild<InventoryUISlot>(i);
-                if(this._inventoryResource.items[i] is null){
-                    slot.HideSlot();
-                }else{
-                    slot.Update(this._inventoryResource.items[i]);
-                }
+				if(this._inventoryResource.items[i] is null){
+					slot.HideSlot();
+				}else{
+					slot.Update(this._inventoryResource.items[i]);
+				}
 				
 			}
 
