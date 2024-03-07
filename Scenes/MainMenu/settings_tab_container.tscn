@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://2fsmolr616kq"]
 
 [ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="1_b2y4t"]
-[ext_resource type="PackedScene" uid="uid://c5n2ysa17qyjb" path="res://Scenes/MainMenu/Graphics/window_mode.tscn" id="1_u8xun"]
-[ext_resource type="PackedScene" uid="uid://dufkglcto6ltx" path="res://Scenes/MainMenu/Graphics/resolution_mode.tscn" id="2_eon6k"]
-[ext_resource type="PackedScene" uid="uid://by071jngjeylk" path="res://Scenes/MainMenu/Graphics/vsync_mode.tscn" id="3_h0yl8"]
-[ext_resource type="PackedScene" uid="uid://djdvg7fb8sg2a" path="res://Scenes/MainMenu/Graphics/fps_mode.tscn" id="4_7njnn"]
-[ext_resource type="PackedScene" uid="uid://bjb5e0eaiu8pt" path="res://Scenes/MainMenu/Sound/master_sound.tscn" id="5_alqo4"]
-[ext_resource type="PackedScene" uid="uid://cdchqbfo247kv" path="res://Scenes/MainMenu/Sound/sfx.tscn" id="6_wlp7k"]
-[ext_resource type="PackedScene" uid="uid://dxnip8g2mjia7" path="res://Scenes/MainMenu/Sound/music.tscn" id="7_0nr8x"]
-[ext_resource type="PackedScene" uid="uid://dorje85u217at" path="res://Scenes/MainMenu/Keybind/rebind_menu.tscn" id="9_iptgp"]
+[ext_resource type="PackedScene" uid="uid://c5n2ysa17qyjb" path="res://Scenes/MainMenu/graphics/window_mode.tscn" id="1_u8xun"]
+[ext_resource type="PackedScene" uid="uid://dufkglcto6ltx" path="res://Scenes/MainMenu/graphics/resolution_mode.tscn" id="2_eon6k"]
+[ext_resource type="PackedScene" uid="uid://by071jngjeylk" path="res://Scenes/MainMenu/graphics/vsync_mode.tscn" id="3_h0yl8"]
+[ext_resource type="PackedScene" uid="uid://djdvg7fb8sg2a" path="res://Scenes/MainMenu/graphics/fps_mode.tscn" id="4_7njnn"]
+[ext_resource type="PackedScene" uid="uid://bjb5e0eaiu8pt" path="res://Scenes/MainMenu/sound/master_sound.tscn" id="5_alqo4"]
+[ext_resource type="PackedScene" uid="uid://cdchqbfo247kv" path="res://Scenes/MainMenu/sound/sfx.tscn" id="6_wlp7k"]
+[ext_resource type="PackedScene" uid="uid://dxnip8g2mjia7" path="res://Scenes/MainMenu/sound/music.tscn" id="7_0nr8x"]
+[ext_resource type="PackedScene" uid="uid://dorje85u217at" path="res://Scenes/MainMenu/keybind/rebind_menu.tscn" id="9_iptgp"]
 
 [node name="SettingsTabContainer" type="Control"]
 layout_mode = 3

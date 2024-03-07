@@ -1,9 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://pbvhvyf2qwro"]
+[gd_scene load_steps=30 format=3 uid="uid://pbvhvyf2qwro"]
 
 [ext_resource type="Script" path="res://Script/World/WorldNode.cs" id="1_3kq5q"]
 [ext_resource type="PackedScene" uid="uid://blugsjfr8pef1" path="res://Scenes/Player/player.tscn" id="1_sp1lt"]
 [ext_resource type="Texture2D" uid="uid://b6eyo4skwc7ag" path="res://Assets/TileSets/Blocks/Ore/floor.png" id="2_73k5m"]
 [ext_resource type="PackedScene" uid="uid://duk2ea22qr0ev" path="res://Scenes/MainMenu/pause_menu.tscn" id="2_wgtww"]
+[ext_resource type="PackedScene" uid="uid://clddhrr43k1xw" path="res://Scenes/Player/inv_ui.tscn" id="3_bdslj"]
 [ext_resource type="Texture2D" uid="uid://5d682scj8r8f" path="res://Assets/TileSets/Blocks/Ore/stone.png" id="3_tjpen"]
 [ext_resource type="Texture2D" uid="uid://r8vdfd0kdtwn" path="res://Assets/TileSets/Blocks/Ore/amethyst_ore.png" id="3_yrx3v"]
 [ext_resource type="Texture2D" uid="uid://btbgr4auyx7cm" path="res://Assets/TileSets/Blocks/Ore/coal_ore.png" id="4_caj3c"]
@@ -855,11 +856,38 @@ sources/0 = SubResource("TileSetAtlasSource_cjwib")
 sources/11 = SubResource("TileSetAtlasSource_gvn4b")
 
 [node name="World" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_3kq5q")
 _mapSize = 200
 _chunkSize = 20
 _generatorSpawnChance = 0.7
 _maxGenerators = 20
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("2_wgtww")]
+visible = false
+
+[node name="Inv_UI" parent="UI" instance=ExtResource("3_bdslj")]
+process_priority = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -124.0
+offset_right = 63.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Inv_UI"]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 1.0
+offset_right = 181.0
+offset_bottom = 62.0
 
 [node name="StoneTileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_c8iyn")
@@ -870,10 +898,5 @@ layer_0/name = "blocks"
 position = Vector2(8, 4)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
+z_index = 2
 color = Color(0, 0, 0, 1)
-
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="UI" instance=ExtResource("2_wgtww")]
-visible = false

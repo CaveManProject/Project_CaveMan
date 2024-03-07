@@ -1,8 +1,7 @@
-[gd_scene load_steps=77 format=3 uid="uid://blugsjfr8pef1"]
+[gd_scene load_steps=76 format=3 uid="uid://blugsjfr8pef1"]
 
 [ext_resource type="Script" path="res://Script/PlayerNode.cs" id="1_x0yvq"]
 [ext_resource type="Texture2D" uid="uid://dfy7x21n0g8g5" path="res://Assets/TileSets/Characters/Player/player.png" id="2_k1euh"]
-[ext_resource type="PackedScene" uid="uid://clddhrr43k1xw" path="res://Scenes/Player/inv_ui.tscn" id="3_rwtuj"]
 [ext_resource type="Texture2D" uid="uid://dq1j0lrft86di" path="res://Assets/Sprites/Characters/light.png" id="5_bnkax"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6y751"]
@@ -624,20 +623,6 @@ shape = SubResource("CircleShape2D_hqkqe")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
-
-[node name="Inv_UI" parent="." instance=ExtResource("3_rwtuj")]
-process_priority = 1
-offset_left = -63.0
-offset_top = -74.0
-offset_right = 63.0
-offset_bottom = -12.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Inv_UI"]
-layout_mode = 0
-offset_left = 127.0
-offset_top = 1.0
-offset_right = 181.0
-offset_bottom = 62.0
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 energy = 0.88
