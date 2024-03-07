@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://pbvhvyf2qwro"]
+[gd_scene load_steps=31 format=3 uid="uid://pbvhvyf2qwro"]
 
 [ext_resource type="Script" path="res://Script/World/WorldNode.cs" id="1_3kq5q"]
 [ext_resource type="PackedScene" uid="uid://blugsjfr8pef1" path="res://Scenes/Player/player.tscn" id="1_sp1lt"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://clddhrr43k1xw" path="res://Scenes/Player/inv_ui.tscn" id="3_bdslj"]
 [ext_resource type="Texture2D" uid="uid://5d682scj8r8f" path="res://Assets/TileSets/Blocks/Ore/stone.png" id="3_tjpen"]
 [ext_resource type="Texture2D" uid="uid://r8vdfd0kdtwn" path="res://Assets/TileSets/Blocks/Ore/amethyst_ore.png" id="3_yrx3v"]
+[ext_resource type="PackedScene" uid="uid://c4b3itvvu4moa" path="res://Scenes/World/UI/progress_bars_ui.tscn" id="4_1646f"]
 [ext_resource type="Texture2D" uid="uid://btbgr4auyx7cm" path="res://Assets/TileSets/Blocks/Ore/coal_ore.png" id="4_caj3c"]
 [ext_resource type="Texture2D" uid="uid://cxf03myfu3o5b" path="res://Assets/TileSets/Blocks/Ore/iron_ore.png" id="5_7bgry"]
 [ext_resource type="Texture2D" uid="uid://345s61wi2xyb" path="res://Assets/TileSets/Blocks/Ore/bedrock.png" id="5_ol8h2"]
@@ -883,12 +884,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4, 4)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/Inv_UI"]
-layout_mode = 0
-offset_left = 127.0
-offset_top = 1.0
-offset_right = 181.0
-offset_bottom = 62.0
+[node name="ProgressBarsUI" parent="UI" instance=ExtResource("4_1646f")]
 
 [node name="StoneTileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_c8iyn")
