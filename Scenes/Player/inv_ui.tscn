@@ -40,6 +40,7 @@ columns = 6
 
 [node name="Inv_UI_Slot1" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ky7rv")]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="Inv_UI_Slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ky7rv")]
 layout_mode = 2

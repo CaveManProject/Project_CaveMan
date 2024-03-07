@@ -870,17 +870,18 @@ visible = false
 
 [node name="Inv_UI" parent="UI" instance=ExtResource("3_bdslj")]
 process_priority = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.309
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -63.0
-offset_top = -124.0
-offset_right = 63.0
-offset_bottom = -62.0
+anchor_bottom = 0.309
+offset_left = -256.0
+offset_top = -128.232
+offset_right = -130.0
+offset_bottom = -66.232
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(4, 4)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Inv_UI"]
 layout_mode = 0
