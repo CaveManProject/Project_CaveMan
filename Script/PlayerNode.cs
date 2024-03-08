@@ -22,14 +22,14 @@ namespace Caveman.Player
 		[Export]
 		private PlayerState _playerState = PlayerState.IDLE;
 
-		private ProgressBarsUI _progressBarsUI;
+		[Signal]
+		public delegate void OnSprintEventHandler(double amount);
 
 		private InventoryResource _inventory = GD.Load<InventoryResource>("res://Data/inventory.tres");
 
 		public override void _Ready()
 		{
 			this._animation = this.GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-			_progressBarsUI = this.GetNode<ProgressBarsUI>("UI/ProgressBarsUI");
 		}
 
 		public override void _PhysicsProcess(double delta)
@@ -40,7 +40,7 @@ namespace Caveman.Player
 
 			if (isSprinting)
 			{
-				_progressBarsUI.ModifyStamina(-10f * (float)delta);
+				EmitSignal(SignalName.OnSprint, -10f * delta);
 			}
 			if (direction == Vector2.Zero)
 			{

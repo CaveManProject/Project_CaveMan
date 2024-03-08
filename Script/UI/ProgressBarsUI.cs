@@ -47,6 +47,7 @@ public partial class ProgressBarsUI : Control
 	}
 	public void ModifyStamina(double amount)
 	{
+		GD.Print("Modifying stamina by " + amount);
 		_currentStamina += amount;
 		if (_currentStamina < 0)
 		{

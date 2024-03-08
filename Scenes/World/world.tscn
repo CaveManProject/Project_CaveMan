@@ -897,3 +897,5 @@ position = Vector2(8, 4)
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 z_index = 2
 color = Color(0, 0, 0, 1)
+
+[connection signal="OnSprint" from="Player" to="UI/ProgressBarsUI" method="ModifyStamina"]

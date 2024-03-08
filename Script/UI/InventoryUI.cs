@@ -19,7 +19,6 @@ namespace Caveman.Inventory
 
 		public override void _Process(double delta)
 		{
-			GD.Print(this.GetTree().Paused);
 			if (this.GetTree().Paused && this.Visible)
 			{
 				Close();
