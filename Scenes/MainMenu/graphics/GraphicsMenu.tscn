@@ -1,0 +1,116 @@
+[gd_scene load_steps=2 format=3 uid="uid://8lhlx3kyd0n0"]
+
+[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="1_jq4s4"]
+
+[node name="GraphicsMenu" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FPSContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 160
+
+[node name="FPS" type="Label" parent="FPSContainer"]
+custom_minimum_size = Vector2(264, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_jq4s4")
+theme_override_font_sizes/font_size = 32
+text = "FPS Limit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="FPSContainer"]
+layout_mode = 2
+
+[node name="FPSDropdown" type="OptionButton" parent="FPSContainer"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jq4s4")
+
+[node name="ResolutionContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 160
+
+[node name="ResolutionMode" type="Label" parent="ResolutionContainer"]
+custom_minimum_size = Vector2(264, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("1_jq4s4")
+theme_override_font_sizes/font_size = 32
+text = "Resolution"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ResolutionContainer"]
+layout_mode = 2
+
+[node name="ResolutionDropdown" type="OptionButton" parent="ResolutionContainer"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jq4s4")
+
+[node name="VSyncContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 160
+
+[node name="VSync" type="Label" parent="VSyncContainer"]
+custom_minimum_size = Vector2(264, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_jq4s4")
+theme_override_font_sizes/font_size = 32
+text = "Vsync"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="VSyncContainer"]
+layout_mode = 2
+
+[node name="VSyncSwitch" type="CheckButton" parent="VSyncContainer"]
+custom_minimum_size = Vector2(264, 64)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jq4s4")
+theme_override_font_sizes/font_size = 20
+button_pressed = true
+text = "ON/OFF"
+alignment = 1
+
+[node name="WindowModeContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 160
+
+[node name="WindowMode" type="Label" parent="WindowModeContainer"]
+custom_minimum_size = Vector2(264, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.505882, 0.505882, 0.505882, 0)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_jq4s4")
+theme_override_font_sizes/font_size = 32
+text = "Window mode"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="WindowModeContainer"]
+layout_mode = 2
+
+[node name="WindowModeDropdown" type="OptionButton" parent="WindowModeContainer"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jq4s4")
