@@ -5,8 +5,10 @@
         "Keybind",
         "Mathf",
         "Randf",
+        "Regen",
         "SPACEBAR",
-        "tscn"
+        "tscn",
+        "Vsync"
     ],
     "files.exclude": {
         "**/*.{import,piskel}": true,

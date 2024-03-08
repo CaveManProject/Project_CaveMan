@@ -13,14 +13,14 @@ namespace Caveman.World
         public OreChunkGenerator(Vector2I position)
         {
             _position = position;
-            _rotation = EntityRotationExtensions.GetRandomRotation();
+            _rotation = EntityRotationExtensions.GetRandomBasicRotation();
             _tileType = TileTypeExtensions.GetRandomTileType(true);
             _chunkSize = 0;
         }
 
         public Vector2I RotatePosition()
         {
-            this._rotation = EntityRotationExtensions.GetRandomRotation();
+            this._rotation = EntityRotationExtensions.GetRandomBasicRotation();
             return this._position + this._rotation.ToVector2I();
         }
 

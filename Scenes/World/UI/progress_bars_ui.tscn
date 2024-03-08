@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4b3itvvu4moa"]
+
+[ext_resource type="Script" path="res://Script/UI/ProgressBarsUI.cs" id="1_3362o"]
+[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="1_e0mc8"]
+[ext_resource type="Texture2D" uid="uid://cy0cqplb2246a" path="res://Assets/Sprites/UI/ProgressBarBorder.png" id="2_br2ov"]
+[ext_resource type="Texture2D" uid="uid://b6dgakpamyl4o" path="res://Assets/Sprites/UI/ProgressBarHealth.png" id="3_rpcml"]
+[ext_resource type="Texture2D" uid="uid://c7afo6qhpqdtm" path="res://Assets/Sprites/UI/ProgressBarStamina.png" id="4_vxxy6"]
+
+[node name="ProgressBarsUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3362o")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -68.0
+offset_right = 3.0
+grow_vertical = 0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Health" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_e0mc8")
+theme_override_font_sizes/font_size = 25
+text = "Helath"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+value = 100.0
+texture_over = ExtResource("2_br2ov")
+texture_progress = ExtResource("3_rpcml")
+
+[node name="Stamina" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_e0mc8")
+theme_override_font_sizes/font_size = 25
+text = "Stamina"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StaminaBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+value = 100.0
+texture_over = ExtResource("2_br2ov")
+texture_progress = ExtResource("4_vxxy6")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 30

@@ -1,4 +1,3 @@
-
 using System;
 using Caveman.Enums;
 using Godot;

@@ -1,7 +1,7 @@
 using Caveman.Resources;
 using Godot;
 
-namespace Caveman.Inventory
+namespace Caveman.UI
 {
 	public partial class InventoryUI : Control
 	{
@@ -19,6 +19,12 @@ namespace Caveman.Inventory
 
 		public override void _Process(double delta)
 		{
+			if (this.GetTree().Paused && this.Visible)
+			{
+				Close();
+				return;
+			}
+
 			if (Input.IsActionJustPressed("i"))
 			{
 				if (this.Visible)
@@ -32,19 +38,23 @@ namespace Caveman.Inventory
 			}
 		}
 
-		private void UpdateSlots() {
+		private void UpdateSlots()
+		{
 			for (int i = 0; i < Mathf.Min(this._inventoryResource.items.Length, this._itemSlots.GetChildCount()); i++)
 			{
 				var slot = this._itemSlots.GetChild<InventoryUISlot>(i);
-				if(this._inventoryResource.items[i] is null){
+				if (this._inventoryResource.items[i] is null)
+				{
 					slot.HideSlot();
-				}else{
+				}
+				else
+				{
 					slot.Update(this._inventoryResource.items[i]);
 				}
-				
+
 			}
 
-		 }
+		}
 
 		public void Close()
 		{

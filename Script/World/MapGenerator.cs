@@ -1,4 +1,3 @@
-using System;
 using Caveman.Enums;
 using Godot;
 using Godot.Collections;
@@ -38,7 +37,6 @@ namespace Caveman.World
 		private void InitMap()
 		{
 			var nChunks = MAP_SIZE / CHUNK_SIZE;
-			GD.Print(nChunks);
 			for (var x = 0; x < nChunks; x++)
 			{
 				var row = new Array<MapChunk>();
@@ -48,7 +46,6 @@ namespace Caveman.World
 				}
 				this._chunks.Add(row);
 			}
-			GD.Print("Map initialized... Chunk matrix: ", this._chunks.Count, "x", this._chunks[0].Count);
 		}
 
 
@@ -74,8 +71,6 @@ namespace Caveman.World
 					var chunk = this._chunks[chunkX][chunkY];
 					if (chunk == null)
 					{
-						GD.Print("Create chunk at: ", chunkX, ":", chunkY);
-						GD.Print("Target at: ", target.X / CHUNK_SIZE, ":", target.Y / CHUNK_SIZE);
 						chunk = new MapChunk(CHUNK_SIZE, SAFE_RADIUS, ITERATIONS, GENERATOR_SPAWN_CHANCE, GENERATOR_DESTROY_CHANCE, MAX_GENERATORS, safeZone && x == 0 && y == 0);
 						this._chunks[chunkX][chunkY] = chunk;
 						newChunks.Add(new Vector2I(chunkX, chunkY));
