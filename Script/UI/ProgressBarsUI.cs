@@ -25,6 +25,14 @@ public partial class ProgressBarsUI : Control
 
 	public override void _Process(double delta)
 	{
+		if (this.GetTree().Paused && this.Visible)
+		{
+			this.Hide();
+		}
+		if (!this.GetTree().Paused && !this.Visible)
+		{
+			this.Show();
+		}
 		if (_currentHealth < _maxHealth)
 		{
 			_currentHealth += _healthRegenRate * delta;
