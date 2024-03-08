@@ -14,27 +14,44 @@ namespace Caveman.Player
 		private int _speed = 100;
 
 		[Export]
+		private int _sprintSpeed = 200;
+
+		[Export]
+		private float _animationSpeedScale = 2.5f;
+
+		[Export]
 		private PlayerState _playerState = PlayerState.IDLE;
+
+		private ProgressBarsUI _progressBarsUI;
 
 		private InventoryResource _inventory = GD.Load<InventoryResource>("res://Data/inventory.tres");
 
 		public override void _Ready()
 		{
 			this._animation = this.GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+			_progressBarsUI = GetNode<ProgressBarsUI>("UI/ProgressBarsUI");
 		}
 
 		public override void _PhysicsProcess(double delta)
 		{
 			var direction = Input.GetVector("left", "right", "up", "down");
-			if (direction.X == 0 && direction.Y == 0)
+			bool isSprinting = Input.IsActionPressed("sprint") && direction != Vector2.Zero;
+			int currentSpeed = isSprinting ? _sprintSpeed : _speed;
+
+			if (isSprinting)
+			{
+				_progressBarsUI.ModifyStamina(-10f * (float)delta);
+			}
+			if (direction == Vector2.Zero)
 			{
 				this._playerState = PlayerState.IDLE;
 			}
 			else
 			{
-				this._playerState = PlayerState.WALKING;
+				this._playerState = isSprinting ? PlayerState.SPRINTING : PlayerState.WALKING;
 			}
-			this.Velocity = direction * this._speed;
+			_animation.SpeedScale = isSprinting ? _animationSpeedScale : 1.0f;
+			this.Velocity = direction * currentSpeed;
 			this.MoveAndSlide();
 			this.AnimateMovement(direction);
 		}
