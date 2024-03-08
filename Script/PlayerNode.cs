@@ -75,7 +75,7 @@ namespace Caveman.Player
 				this.EmitSignal(SignalName.OnStaminaUpdate, this._stamina);
 			}
 
-			this._animation.SpeedScale = this._playerState == PlayerState.SPRINTING ? this._animationSpeedScale : 1.0f;
+			this._animation.SpeedScale = this._playerState == PlayerState.SPRINTING && this._stamina > 0 ? this._animationSpeedScale : 1.0f;
 			this.Velocity = (this._playerState == PlayerState.SPRINTING && this._stamina > 0 ? _sprintSpeed : _speed) * direction;
 			this.MoveAndSlide();
 			this.AnimateMovement();
