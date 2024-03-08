@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://2fsmolr616kq"]
 
 [ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="1_b2y4t"]
-[ext_resource type="PackedScene" uid="uid://8lhlx3kyd0n0" path="res://Scenes/MainMenu/graphics/GraphicsMenu.tscn" id="2_cxdw6"]
+[ext_resource type="PackedScene" uid="uid://8lhlx3kyd0n0" path="res://Scenes/MainMenu/GraphicsMenu.tscn" id="2_cxdw6"]
 [ext_resource type="PackedScene" uid="uid://bjb5e0eaiu8pt" path="res://Scenes/MainMenu/sound/master_sound.tscn" id="5_alqo4"]
 [ext_resource type="PackedScene" uid="uid://cdchqbfo247kv" path="res://Scenes/MainMenu/sound/sfx.tscn" id="6_wlp7k"]
 [ext_resource type="PackedScene" uid="uid://dxnip8g2mjia7" path="res://Scenes/MainMenu/sound/music.tscn" id="7_0nr8x"]
-[ext_resource type="PackedScene" uid="uid://dorje85u217at" path="res://Scenes/MainMenu/keybind/rebind_menu.tscn" id="9_iptgp"]
+[ext_resource type="PackedScene" uid="uid://dorje85u217at" path="res://Scenes/MainMenu/rebind_menu.tscn" id="9_iptgp"]
 
 [node name="SettingsTabContainer" type="Control"]
 layout_mode = 3
