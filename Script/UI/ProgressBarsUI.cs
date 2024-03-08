@@ -3,61 +3,61 @@ using System;
 
 public partial class ProgressBarsUI : Control
 {
-    public TextureProgressBar HealthBar;
-    public TextureProgressBar StaminaBar;
-    private float maxHealth = 100f;
-    private float currentHealth = 100f;
-    private float maxStamina = 100f;
-    private float currentStamina = 100f;
-    private float healthRegenRate = 1f; // Health regenerated per second
-    private float staminaRegenRate = 5f; // Stamina regenerated per second
+	public TextureProgressBar healthBar;
+	public TextureProgressBar staminaBar;
+	private double _maxHealth = 100f;
+	private double _currentHealth = 100f;
+	private double _maxStamina = 100f;
+	private double _currentStamina = 100f;
+	private double _healthRegenRate = 1f; // Health regenerated per second
+	private double _staminaRegenRate = 5f; // Stamina regenerated per second
 
-    public override void _Ready()
-    {
-        HealthBar = GetNode<TextureProgressBar>("MarginContainer/VBoxContainer/HealthBar");
-        StaminaBar = GetNode<TextureProgressBar>("MarginContainer/VBoxContainer/StaminaBar");
-        HealthBar.MaxValue = maxHealth;
-        HealthBar.Value = currentHealth;
-        StaminaBar.MaxValue = maxStamina;
-        StaminaBar.Value = currentStamina;
-        SetProcess(true);
-    }
+	public override void _Ready()
+	{
+		healthBar = GetNode<TextureProgressBar>("MarginContainer/VBoxContainer/HealthBar");
+		staminaBar = GetNode<TextureProgressBar>("MarginContainer/VBoxContainer/StaminaBar");
+		healthBar.MaxValue = _maxHealth;
+		healthBar.Value = _currentHealth;
+		staminaBar.MaxValue = _maxStamina;
+		staminaBar.Value = _currentStamina;
+		SetProcess(true);
+	}
 
-    public void _Process(float delta)
-    {
-        if (currentHealth < maxHealth)
-        {
-            currentHealth += healthRegenRate * delta;
-            if (currentHealth > maxHealth)
-            {
-                currentHealth = maxHealth;
-            }
-            HealthBar.Value = currentHealth;
-        }
+	public override void _Process(double delta)
+	{
+		if (_currentHealth < _maxHealth)
+		{
+			_currentHealth += _healthRegenRate * delta;
+			if (_currentHealth > _maxHealth)
+			{
+				_currentHealth = _maxHealth;
+			}
+			healthBar.Value = _currentHealth;
+		}
 
-        if (currentStamina < maxStamina)
-        {
-            currentStamina += staminaRegenRate * delta;
-            if (currentStamina > maxStamina)
-            {
-                currentStamina = maxStamina;
-            }
-            StaminaBar.Value = currentStamina;
-        }
-    }
-    public void ModifyStamina(float amount)
-    {
-        currentStamina += amount;
-        if (currentStamina < 0)
-        {
-            currentStamina = 0;
-        }
+		if (_currentStamina < _maxStamina)
+		{
+			_currentStamina += _staminaRegenRate * delta;
+			if (_currentStamina > _maxStamina)
+			{
+				_currentStamina = _maxStamina;
+			}
+			staminaBar.Value = _currentStamina;
+		}
+	}
+	public void ModifyStamina(double amount)
+	{
+		_currentStamina += amount;
+		if (_currentStamina < 0)
+		{
+			_currentStamina = 0;
+		}
 
-        if (currentStamina > maxStamina)
-        {
-            currentStamina = maxStamina;
-        }
+		if (_currentStamina > _maxStamina)
+		{
+			_currentStamina = _maxStamina;
+		}
 
-        StaminaBar.Value = currentStamina;
-    }
+		staminaBar.Value = _currentStamina;
+	}
 }

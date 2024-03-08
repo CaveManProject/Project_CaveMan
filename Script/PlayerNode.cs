@@ -29,7 +29,7 @@ namespace Caveman.Player
 		public override void _Ready()
 		{
 			this._animation = this.GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-			_progressBarsUI = GetNode<ProgressBarsUI>("UI/ProgressBarsUI");
+			_progressBarsUI = this.GetNode<ProgressBarsUI>("UI/ProgressBarsUI");
 		}
 
 		public override void _PhysicsProcess(double delta)
