@@ -40,7 +40,7 @@ namespace Caveman.Player
 
 			if (isSprinting)
 			{
-				EmitSignal(SignalName.OnSprint, -10f * delta);
+				EmitSignal(SignalName.OnSprint, -10f);
 			}
 			if (direction == Vector2.Zero)
 			{

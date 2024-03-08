@@ -10,7 +10,7 @@ public partial class ProgressBarsUI : Control
 	private double _maxStamina = 100f;
 	private double _currentStamina = 100f;
 	private double _healthRegenRate = 1f; // Health regenerated per second
-	private double _staminaRegenRate = 5f; // Stamina regenerated per second
+	private double _staminaRegenRate = 1f; // Stamina regenerated per second
 
 	public override void _Ready()
 	{
@@ -35,7 +35,7 @@ public partial class ProgressBarsUI : Control
 		}
 		if (_currentHealth < _maxHealth)
 		{
-			_currentHealth += _healthRegenRate * delta;
+			_currentHealth += _healthRegenRate;
 			if (_currentHealth > _maxHealth)
 			{
 				_currentHealth = _maxHealth;
@@ -45,7 +45,7 @@ public partial class ProgressBarsUI : Control
 
 		if (_currentStamina < _maxStamina)
 		{
-			_currentStamina += _staminaRegenRate * delta;
+			_currentStamina += _staminaRegenRate;
 			if (_currentStamina > _maxStamina)
 			{
 				_currentStamina = _maxStamina;
@@ -66,7 +66,5 @@ public partial class ProgressBarsUI : Control
 		{
 			_currentStamina = _maxStamina;
 		}
-
-		staminaBar.Value = _currentStamina;
 	}
 }
