@@ -1,7 +1,7 @@
 using Caveman.Resources;
 using Godot;
 
-namespace Caveman.Inventory
+namespace Caveman.UI
 {
 	public partial class InventoryUI : Control
 	{

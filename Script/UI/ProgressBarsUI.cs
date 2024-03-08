@@ -1,72 +1,37 @@
 using Godot;
-using System;
 
-public partial class ProgressBarsUI : Control
+namespace Caveman.UI
 {
-	public TextureProgressBar healthBar;
-	public TextureProgressBar staminaBar;
-	private double _maxHealth = 100f;
-	private double _currentHealth = 100f;
-	private double _maxStamina = 100f;
-	private double _currentStamina = 100f;
-	private double _healthRegenRate = 1f; // Health regenerated per second
-	private double _staminaRegenRate = 5f; // Stamina regenerated per second
-
-	public override void _Ready()
+	public partial class ProgressBarsUI : Control
 	{
-		healthBar = GetNode<TextureProgressBar>("MarginContainer/VBoxContainer/HealthBar");
-		staminaBar = GetNode<TextureProgressBar>("MarginContainer/VBoxContainer/StaminaBar");
-		healthBar.MaxValue = _maxHealth;
-		healthBar.Value = _currentHealth;
-		staminaBar.MaxValue = _maxStamina;
-		staminaBar.Value = _currentStamina;
-		SetProcess(true);
-	}
+		public TextureProgressBar healthBar;
+		public TextureProgressBar staminaBar;
 
-	public override void _Process(double delta)
-	{
-		if (this.GetTree().Paused && this.Visible)
+		public override void _Ready()
 		{
-			this.Hide();
+			healthBar = GetNode<TextureProgressBar>("MarginContainer/VBoxContainer/HealthBar");
+			staminaBar = GetNode<TextureProgressBar>("MarginContainer/VBoxContainer/StaminaBar");
 		}
-		if (!this.GetTree().Paused && !this.Visible)
+
+		public override void _Process(double delta)
 		{
-			this.Show();
-		}
-		if (_currentHealth < _maxHealth)
-		{
-			_currentHealth += _healthRegenRate * delta;
-			if (_currentHealth > _maxHealth)
+			if (this.GetTree().Paused && this.Visible)
 			{
-				_currentHealth = _maxHealth;
+				this.Hide();
 			}
-			healthBar.Value = _currentHealth;
-		}
-
-		if (_currentStamina < _maxStamina)
-		{
-			_currentStamina += _staminaRegenRate * delta;
-			if (_currentStamina > _maxStamina)
+			if (!this.GetTree().Paused && !this.Visible)
 			{
-				_currentStamina = _maxStamina;
+				this.Show();
 			}
-			staminaBar.Value = _currentStamina;
 		}
-	}
-	public void ModifyStamina(double amount)
-	{
-		GD.Print("Modifying stamina by " + amount);
-		_currentStamina += amount;
-		if (_currentStamina < 0)
+		public void ModifyStamina(double amount)
 		{
-			_currentStamina = 0;
+			staminaBar.Value = (float)amount;
 		}
 
-		if (_currentStamina > _maxStamina)
+		public void ModifyHealth(double amount)
 		{
-			_currentStamina = _maxStamina;
+			healthBar.Value = (float)amount;
 		}
-
-		staminaBar.Value = _currentStamina;
 	}
 }
