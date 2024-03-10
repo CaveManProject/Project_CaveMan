@@ -48,6 +48,7 @@ theme_override_constants/margin_bottom = 24
 
 [node name="GraphicsMenu" parent="TabContainer/Graphics/MarginContainer" instance=ExtResource("2_cxdw6")]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="Sound" type="TabBar" parent="TabContainer"]
 visible = false
