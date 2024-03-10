@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://8lhlx3kyd0n0"]
 
-[ext_resource type="Script" path="res://Script/MainMenu/graphics/GraphicsController.cs" id="1_gxcfb"]
+[ext_resource type="Script" path="res://Script/MainMenu/GraphicsController.cs" id="1_8k2ab"]
 [ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="1_jq4s4"]
 
 [node name="GraphicsMenu" type="VBoxContainer"]
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_gxcfb")
+script = ExtResource("1_8k2ab")
 
 [node name="FPSContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
