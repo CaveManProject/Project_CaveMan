@@ -7,28 +7,23 @@ namespace Caveman.Graphics
 {
     public partial class GraphicsController : VBoxContainer
     {
-        private OptionButton FPSDropdown;
-        private OptionButton ResolutionDropdown;
-        private CheckButton VSyncSwitch;
-        private OptionButton WindowModeDropdown;
-
         public override void _Ready()
         {
-            FPSDropdown = GetNode<OptionButton>("FPSContainer/FPSDropdown");
+            var FPSDropdown = GetNode<OptionButton>("FPSContainer/FPSDropdown");
             foreach (FpsMode fps in Enum.GetValues(typeof(FpsMode)))
             {
                 FPSDropdown.AddItem(fps.ToDisplayString());
             }
 
-            ResolutionDropdown = GetNode<OptionButton>("ResolutionContainer/ResolutionDropdown");
+            var ResolutionDropdown = GetNode<OptionButton>("ResolutionContainer/ResolutionDropdown");
             foreach (Resolution resolution in Enum.GetValues(typeof(Resolution)))
             {
                 ResolutionDropdown.AddItem(resolution.ToDisplayString());
             }
 
-            VSyncSwitch = GetNode<CheckButton>("VSyncContainer/VSyncSwitch");
+            var VSyncSwitch = GetNode<CheckButton>("VSyncContainer/VSyncSwitch");
 
-            WindowModeDropdown = GetNode<OptionButton>("WindowModeContainer/WindowModeDropdown");
+            var WindowModeDropdown = GetNode<OptionButton>("WindowModeContainer/WindowModeDropdown");
             foreach (Enums.WindowMode windowMode in Enum.GetValues(typeof(Enums.WindowMode)))
             {
                 WindowModeDropdown.AddItem(windowMode.ToDisplayString());
