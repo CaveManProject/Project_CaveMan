@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://2fsmolr616kq"]
 
 [ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="1_b2y4t"]
-[ext_resource type="PackedScene" uid="uid://8lhlx3kyd0n0" path="res://Scenes/MainMenu/GraphicsMenu.tscn" id="2_cxdw6"]
-[ext_resource type="PackedScene" uid="uid://ciueh47j1ucqf" path="res://Scenes/MainMenu/SoundMenu.tscn" id="7_cbgii"]
+[ext_resource type="PackedScene" uid="uid://8lhlx3kyd0n0" path="res://Scenes/MainMenu/graphics_menu.tscn" id="2_cxdw6"]
+[ext_resource type="PackedScene" uid="uid://ciueh47j1ucqf" path="res://Scenes/MainMenu/sound_menu.tscn" id="7_cbgii"]
 [ext_resource type="PackedScene" uid="uid://dorje85u217at" path="res://Scenes/MainMenu/rebind_menu.tscn" id="9_iptgp"]
 
 [node name="SettingsTabContainer" type="Control"]
@@ -27,7 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_b2y4t")
 tab_alignment = 1
-current_tab = 1
+current_tab = 2
 clip_tabs = false
 
 [node name="Graphics" type="TabBar" parent="TabContainer"]
@@ -51,6 +51,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="Sound" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Sound"]
@@ -70,7 +71,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="Controls" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 mouse_filter = 2
 
