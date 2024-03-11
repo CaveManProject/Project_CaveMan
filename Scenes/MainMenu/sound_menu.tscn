@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ciueh47j1ucqf"]
 
 [ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="1_rc0pe"]
-[ext_resource type="Script" path="res://Script/MainMenu/sound/SoundController.cs" id="2_ti5k6"]
+[ext_resource type="Script" path="res://Script/MainMenu/SoundController.cs" id="2_u0nxg"]
 
 [node name="SoundMenu" type="VBoxContainer"]
 anchors_preset = 15
@@ -36,7 +36,7 @@ layout_mode = 2
 min_value = -50.0
 max_value = 5.0
 value = 5.0
-script = ExtResource("2_ti5k6")
+script = ExtResource("2_u0nxg")
 _busName = "Master"
 
 [node name="SFXContainer" type="HBoxContainer" parent="."]
@@ -66,7 +66,7 @@ size_flags_vertical = 1
 min_value = -40.0
 max_value = 5.0
 value = 5.0
-script = ExtResource("2_ti5k6")
+script = ExtResource("2_u0nxg")
 _busName = "Sfx"
 
 [node name="MusicContainer" type="HBoxContainer" parent="."]
@@ -96,7 +96,7 @@ size_flags_vertical = 1
 min_value = -50.0
 max_value = 5.0
 value = 5.0
-script = ExtResource("2_ti5k6")
+script = ExtResource("2_u0nxg")
 _busName = "Music"
 
 [connection signal="value_changed" from="MasterSoundContainer/MasterSoundSlider" to="MasterSoundContainer/MasterSoundSlider" method="_ValueChanged"]

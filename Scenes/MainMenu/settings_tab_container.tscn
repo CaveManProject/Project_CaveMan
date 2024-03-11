@@ -27,11 +27,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_b2y4t")
 tab_alignment = 1
-current_tab = 2
 clip_tabs = false
 
 [node name="Graphics" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Graphics"]
@@ -71,6 +69,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="Controls" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 mouse_filter = 2
 
