@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://2fsmolr616kq"]
+[gd_scene load_steps=5 format=3 uid="uid://2fsmolr616kq"]
 
 [ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="1_b2y4t"]
 [ext_resource type="PackedScene" uid="uid://8lhlx3kyd0n0" path="res://Scenes/MainMenu/GraphicsMenu.tscn" id="2_cxdw6"]
-[ext_resource type="PackedScene" uid="uid://bjb5e0eaiu8pt" path="res://Scenes/MainMenu/sound/master_sound.tscn" id="5_alqo4"]
-[ext_resource type="PackedScene" uid="uid://cdchqbfo247kv" path="res://Scenes/MainMenu/sound/sfx.tscn" id="6_wlp7k"]
-[ext_resource type="PackedScene" uid="uid://dxnip8g2mjia7" path="res://Scenes/MainMenu/sound/music.tscn" id="7_0nr8x"]
+[ext_resource type="PackedScene" uid="uid://ciueh47j1ucqf" path="res://Scenes/MainMenu/SoundMenu.tscn" id="7_cbgii"]
 [ext_resource type="PackedScene" uid="uid://dorje85u217at" path="res://Scenes/MainMenu/rebind_menu.tscn" id="9_iptgp"]
 
 [node name="SettingsTabContainer" type="Control"]
@@ -29,9 +27,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_b2y4t")
 tab_alignment = 1
+current_tab = 1
 clip_tabs = false
 
 [node name="Graphics" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Graphics"]
@@ -51,7 +51,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="Sound" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Sound"]
@@ -66,18 +65,9 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sound/MarginContainer"]
+[node name="SoundMenu" parent="TabContainer/Sound/MarginContainer" instance=ExtResource("7_cbgii")]
 layout_mode = 2
-theme_override_constants/separation = 80
-
-[node name="master_sound" parent="TabContainer/Sound/MarginContainer/VBoxContainer" instance=ExtResource("5_alqo4")]
-layout_mode = 2
-
-[node name="sfx" parent="TabContainer/Sound/MarginContainer/VBoxContainer" instance=ExtResource("6_wlp7k")]
-layout_mode = 2
-
-[node name="music" parent="TabContainer/Sound/MarginContainer/VBoxContainer" instance=ExtResource("7_0nr8x")]
-layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="Controls" type="TabBar" parent="TabContainer"]
 visible = false
