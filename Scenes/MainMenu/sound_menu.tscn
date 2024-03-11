@@ -1,0 +1,104 @@
+[gd_scene load_steps=3 format=3 uid="uid://ciueh47j1ucqf"]
+
+[ext_resource type="FontFile" uid="uid://d2jrr5wn34h8l" path="res://Assets/Font/chava/Chava-Regular.ttf" id="1_rc0pe"]
+[ext_resource type="Script" path="res://Script/MainMenu/SoundController.cs" id="2_u0nxg"]
+
+[node name="SoundMenu" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MasterSoundContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 160
+
+[node name="Master" type="Label" parent="MasterSoundContainer"]
+custom_minimum_size = Vector2(264, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_rc0pe")
+theme_override_font_sizes/font_size = 32
+text = "Master Sound"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="MasterSoundContainer"]
+layout_mode = 2
+
+[node name="MasterSoundSlider" type="HSlider" parent="MasterSoundContainer"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+min_value = -50.0
+max_value = 5.0
+value = 5.0
+script = ExtResource("2_u0nxg")
+_busName = "Master"
+
+[node name="SFXContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 160
+
+[node name="sfx" type="Label" parent="SFXContainer"]
+custom_minimum_size = Vector2(264, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_rc0pe")
+theme_override_font_sizes/font_size = 32
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="SFXContainer"]
+layout_mode = 2
+
+[node name="SFXSlider" type="HSlider" parent="SFXContainer"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+size_flags_vertical = 1
+min_value = -40.0
+max_value = 5.0
+value = 5.0
+script = ExtResource("2_u0nxg")
+_busName = "Sfx"
+
+[node name="MusicContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 160
+
+[node name="music" type="Label" parent="MusicContainer"]
+custom_minimum_size = Vector2(264, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_rc0pe")
+theme_override_font_sizes/font_size = 32
+text = "music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="MusicContainer"]
+layout_mode = 2
+
+[node name="SoundSlider" type="HSlider" parent="MusicContainer"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+size_flags_vertical = 1
+min_value = -50.0
+max_value = 5.0
+value = 5.0
+script = ExtResource("2_u0nxg")
+_busName = "Music"
+
+[connection signal="value_changed" from="MasterSoundContainer/MasterSoundSlider" to="MasterSoundContainer/MasterSoundSlider" method="_ValueChanged"]
+[connection signal="value_changed" from="SFXContainer/SFXSlider" to="SFXContainer/SFXSlider" method="_ValueChanged"]
+[connection signal="value_changed" from="MusicContainer/SoundSlider" to="MusicContainer/SoundSlider" method="_ValueChanged"]
